@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 3 Cox Proportional Hazard Model | Survival HW 1</title>
+  <meta name="description" content=" 3 Cox Proportional Hazard Model | Survival HW 1" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 3 Cox Proportional Hazard Model | Survival HW 1" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 3 Cox Proportional Hazard Model | Survival HW 1" />
+  
+  
+  
+
+
+
+<meta name="date" content="2024-11-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="accelerated-failure-time-model.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Survival Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="survival-analysis-intro.html"><a href="survival-analysis-intro.html"><i class="fa fa-check"></i><b>1</b> Survival Analysis Intro</a></li>
+<li class="chapter" data-level="2" data-path="accelerated-failure-time-model.html"><a href="accelerated-failure-time-model.html"><i class="fa fa-check"></i><b>2</b> Accelerated Failure Time Model</a></li>
+<li class="chapter" data-level="3" data-path="cox-proportional-hazard-model.html"><a href="cox-proportional-hazard-model.html"><i class="fa fa-check"></i><b>3</b> Cox Proportional Hazard Model</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cox-proportional-hazard-model.html"><a href="cox-proportional-hazard-model.html#initial-variable-screening"><i class="fa fa-check"></i><b>3.1</b> Initial Variable Screening</a></li>
+<li class="chapter" data-level="3.2" data-path="cox-proportional-hazard-model.html"><a href="cox-proportional-hazard-model.html#linearity-assumption"><i class="fa fa-check"></i><b>3.2</b> Linearity Assumption</a></li>
+<li class="chapter" data-level="3.3" data-path="cox-proportional-hazard-model.html"><a href="cox-proportional-hazard-model.html#time-dependency-assumption"><i class="fa fa-check"></i><b>3.3</b> Time Dependency Assumption</a></li>
+<li class="chapter" data-level="3.4" data-path="cox-proportional-hazard-model.html"><a href="cox-proportional-hazard-model.html#model-building-and-evaluation"><i class="fa fa-check"></i><b>3.4</b> Model Building and Evaluation</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Survival HW 1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cox-proportional-hazard-model" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number"> 3</span> Cox Proportional Hazard Model<a href="cox-proportional-hazard-model.html#cox-proportional-hazard-model" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>##Data Setup</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="cox-proportional-hazard-model.html#cb53-1" tabindex="-1"></a><span class="fu">bucket_exists</span>(</span>
+<span id="cb53-2"><a href="cox-proportional-hazard-model.html#cb53-2" tabindex="-1"></a>  <span class="at">bucket =</span> <span class="st">&quot;s3://survival2024/&quot;</span>,</span>
+<span id="cb53-3"><a href="cox-proportional-hazard-model.html#cb53-3" tabindex="-1"></a>  <span class="at">region =</span> <span class="st">&quot;us-east-1&quot;</span></span>
+<span id="cb53-4"><a href="cox-proportional-hazard-model.html#cb53-4" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] TRUE
+## attr(,&quot;x-amz-id-2&quot;)
+## [1] &quot;2lCIj4+Ct38nl3CgXR5/3YViV9OgI10oP6S6MrYRBDeMsu0XzFSCMC8V2ytEwVlOJuDqKOlsicA=&quot;
+## attr(,&quot;x-amz-request-id&quot;)
+## [1] &quot;VR6ASH0XX8K13RYP&quot;
+## attr(,&quot;date&quot;)
+## [1] &quot;Fri, 10 Jan 2025 19:35:28 GMT&quot;
+## attr(,&quot;x-amz-bucket-region&quot;)
+## [1] &quot;us-east-1&quot;
+## attr(,&quot;x-amz-access-point-alias&quot;)
+## [1] &quot;false&quot;
+## attr(,&quot;content-type&quot;)
+## [1] &quot;application/xml&quot;
+## attr(,&quot;transfer-encoding&quot;)
+## [1] &quot;chunked&quot;
+## attr(,&quot;server&quot;)
+## [1] &quot;AmazonS3&quot;</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="cox-proportional-hazard-model.html#cb55-1" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">get_bucket_df</span>(</span>
+<span id="cb55-2"><a href="cox-proportional-hazard-model.html#cb55-2" tabindex="-1"></a>  <span class="at">bucket =</span> <span class="st">&quot;s3://survival2024/&quot;</span>,</span>
+<span id="cb55-3"><a href="cox-proportional-hazard-model.html#cb55-3" tabindex="-1"></a>  <span class="at">region =</span> <span class="st">&quot;us-east-1&quot;</span>,</span>
+<span id="cb55-4"><a href="cox-proportional-hazard-model.html#cb55-4" tabindex="-1"></a>  <span class="at">max =</span> <span class="dv">20000</span></span>
+<span id="cb55-5"><a href="cox-proportional-hazard-model.html#cb55-5" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb55-6"><a href="cox-proportional-hazard-model.html#cb55-6" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb55-7"><a href="cox-proportional-hazard-model.html#cb55-7" tabindex="-1"></a></span>
+<span id="cb55-8"><a href="cox-proportional-hazard-model.html#cb55-8" tabindex="-1"></a><span class="co">#Downloading files</span></span>
+<span id="cb55-9"><a href="cox-proportional-hazard-model.html#cb55-9" tabindex="-1"></a><span class="fu">save_object</span>(</span>
+<span id="cb55-10"><a href="cox-proportional-hazard-model.html#cb55-10" tabindex="-1"></a>  <span class="at">object =</span> <span class="st">&quot;hurricane.csv&quot;</span>, <span class="co">#Change</span></span>
+<span id="cb55-11"><a href="cox-proportional-hazard-model.html#cb55-11" tabindex="-1"></a>  <span class="at">bucket =</span> <span class="st">&quot;s3://survival2024/&quot;</span>,</span>
+<span id="cb55-12"><a href="cox-proportional-hazard-model.html#cb55-12" tabindex="-1"></a>  <span class="at">region =</span> <span class="st">&quot;us-east-1&quot;</span>,</span>
+<span id="cb55-13"><a href="cox-proportional-hazard-model.html#cb55-13" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">&quot;hurricane&quot;</span> <span class="co">#Change</span></span>
+<span id="cb55-14"><a href="cox-proportional-hazard-model.html#cb55-14" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;hurricane&quot;</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="cox-proportional-hazard-model.html#cb57-1" tabindex="-1"></a><span class="co">#You can now start Wrangling the data...</span></span>
+<span id="cb57-2"><a href="cox-proportional-hazard-model.html#cb57-2" tabindex="-1"></a>hurricane <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;hurricane&quot;</span>) <span class="co">#Change</span></span>
+<span id="cb57-3"><a href="cox-proportional-hazard-model.html#cb57-3" tabindex="-1"></a></span>
+<span id="cb57-4"><a href="cox-proportional-hazard-model.html#cb57-4" tabindex="-1"></a><span class="co"># Rename hour so that the pivot does not take it in</span></span>
+<span id="cb57-5"><a href="cox-proportional-hazard-model.html#cb57-5" tabindex="-1"></a>hurricane <span class="ot">&lt;-</span> hurricane <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;censor&quot;</span> <span class="ot">=</span> hour)</span>
+<span id="cb57-6"><a href="cox-proportional-hazard-model.html#cb57-6" tabindex="-1"></a></span>
+<span id="cb57-7"><a href="cox-proportional-hazard-model.html#cb57-7" tabindex="-1"></a><span class="co"># Add id column</span></span>
+<span id="cb57-8"><a href="cox-proportional-hazard-model.html#cb57-8" tabindex="-1"></a>hurricane <span class="ot">&lt;-</span> hurricane <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(hurricane)) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(id,<span class="fu">everything</span>())</span>
+<span id="cb57-9"><a href="cox-proportional-hazard-model.html#cb57-9" tabindex="-1"></a></span>
+<span id="cb57-10"><a href="cox-proportional-hazard-model.html#cb57-10" tabindex="-1"></a><span class="co"># Pivot the hour columns</span></span>
+<span id="cb57-11"><a href="cox-proportional-hazard-model.html#cb57-11" tabindex="-1"></a>hurrLong <span class="ot">&lt;-</span> hurricane <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(</span>
+<span id="cb57-12"><a href="cox-proportional-hazard-model.html#cb57-12" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;h&quot;</span>),</span>
+<span id="cb57-13"><a href="cox-proportional-hazard-model.html#cb57-13" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">&quot;hour&quot;</span>,</span>
+<span id="cb57-14"><a href="cox-proportional-hazard-model.html#cb57-14" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">&quot;pumpOn&quot;</span></span>
+<span id="cb57-15"><a href="cox-proportional-hazard-model.html#cb57-15" tabindex="-1"></a>)</span>
+<span id="cb57-16"><a href="cox-proportional-hazard-model.html#cb57-16" tabindex="-1"></a></span>
+<span id="cb57-17"><a href="cox-proportional-hazard-model.html#cb57-17" tabindex="-1"></a><span class="co"># Fixing hour column to be numeric instead of &quot;h1&quot;</span></span>
+<span id="cb57-18"><a href="cox-proportional-hazard-model.html#cb57-18" tabindex="-1"></a>hurrLong <span class="ot">&lt;-</span> hurrLong <span class="sc">%&gt;%</span> </span>
+<span id="cb57-19"><a href="cox-proportional-hazard-model.html#cb57-19" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hour =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">&quot;h&quot;</span>,<span class="st">&quot;&quot;</span>,hour)))</span>
+<span id="cb57-20"><a href="cox-proportional-hazard-model.html#cb57-20" tabindex="-1"></a></span>
+<span id="cb57-21"><a href="cox-proportional-hazard-model.html#cb57-21" tabindex="-1"></a><span class="co"># Initializing DF</span></span>
+<span id="cb57-22"><a href="cox-proportional-hazard-model.html#cb57-22" tabindex="-1"></a>hurricaneLong <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb57-23"><a href="cox-proportional-hazard-model.html#cb57-23" tabindex="-1"></a></span>
+<span id="cb57-24"><a href="cox-proportional-hazard-model.html#cb57-24" tabindex="-1"></a><span class="do">### Fixes reason, adds consecHour </span></span>
+<span id="cb57-25"><a href="cox-proportional-hazard-model.html#cb57-25" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(hurricane)) {</span>
+<span id="cb57-26"><a href="cox-proportional-hazard-model.html#cb57-26" tabindex="-1"></a>  </span>
+<span id="cb57-27"><a href="cox-proportional-hazard-model.html#cb57-27" tabindex="-1"></a>  <span class="co"># Go id by id</span></span>
+<span id="cb57-28"><a href="cox-proportional-hazard-model.html#cb57-28" tabindex="-1"></a>  table <span class="ot">=</span> hurrLong <span class="sc">%&gt;%</span> <span class="fu">filter</span>(id <span class="sc">==</span> i)</span>
+<span id="cb57-29"><a href="cox-proportional-hazard-model.html#cb57-29" tabindex="-1"></a>  </span>
+<span id="cb57-30"><a href="cox-proportional-hazard-model.html#cb57-30" tabindex="-1"></a>  <span class="co"># Reduce rows to only include non-failed hours</span></span>
+<span id="cb57-31"><a href="cox-proportional-hazard-model.html#cb57-31" tabindex="-1"></a>  failedAt <span class="ot">=</span> <span class="fu">as.numeric</span>(table[<span class="dv">1</span>,<span class="st">&quot;censor&quot;</span>])</span>
+<span id="cb57-32"><a href="cox-proportional-hazard-model.html#cb57-32" tabindex="-1"></a>  table <span class="ot">=</span> table[<span class="dv">1</span><span class="sc">:</span>failedAt,]</span>
+<span id="cb57-33"><a href="cox-proportional-hazard-model.html#cb57-33" tabindex="-1"></a>  </span>
+<span id="cb57-34"><a href="cox-proportional-hazard-model.html#cb57-34" tabindex="-1"></a>  <span class="co"># Set reason to 0 everywhere but the last hour</span></span>
+<span id="cb57-35"><a href="cox-proportional-hazard-model.html#cb57-35" tabindex="-1"></a>  <span class="cf">if</span> (table[<span class="dv">1</span>,<span class="st">&quot;reason&quot;</span>] <span class="sc">!=</span> <span class="dv">0</span>){</span>
+<span id="cb57-36"><a href="cox-proportional-hazard-model.html#cb57-36" tabindex="-1"></a>    reason <span class="ot">=</span> <span class="fu">as.numeric</span>(table[<span class="dv">1</span>,<span class="st">&quot;reason&quot;</span>])</span>
+<span id="cb57-37"><a href="cox-proportional-hazard-model.html#cb57-37" tabindex="-1"></a>    table<span class="sc">$</span>reason <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb57-38"><a href="cox-proportional-hazard-model.html#cb57-38" tabindex="-1"></a>    </span>
+<span id="cb57-39"><a href="cox-proportional-hazard-model.html#cb57-39" tabindex="-1"></a>    table[<span class="fu">nrow</span>(table),<span class="st">&quot;reason&quot;</span>] <span class="ot">=</span> reason</span>
+<span id="cb57-40"><a href="cox-proportional-hazard-model.html#cb57-40" tabindex="-1"></a>  }</span>
+<span id="cb57-41"><a href="cox-proportional-hazard-model.html#cb57-41" tabindex="-1"></a>  </span>
+<span id="cb57-42"><a href="cox-proportional-hazard-model.html#cb57-42" tabindex="-1"></a>  <span class="co"># Test to see if the last 12 rows of PumpOn are 1, then set consecHour   to 1</span></span>
+<span id="cb57-43"><a href="cox-proportional-hazard-model.html#cb57-43" tabindex="-1"></a>  table <span class="ot">=</span> table <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">consecHour =</span> <span class="dv">0</span>)</span>
+<span id="cb57-44"><a href="cox-proportional-hazard-model.html#cb57-44" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(table)){</span>
+<span id="cb57-45"><a href="cox-proportional-hazard-model.html#cb57-45" tabindex="-1"></a>    </span>
+<span id="cb57-46"><a href="cox-proportional-hazard-model.html#cb57-46" tabindex="-1"></a>    <span class="co"># Skip first 12 rows</span></span>
+<span id="cb57-47"><a href="cox-proportional-hazard-model.html#cb57-47" tabindex="-1"></a>    <span class="cf">if</span> (j <span class="sc">&lt;</span> <span class="dv">13</span>){</span>
+<span id="cb57-48"><a href="cox-proportional-hazard-model.html#cb57-48" tabindex="-1"></a>      <span class="cf">next</span></span>
+<span id="cb57-49"><a href="cox-proportional-hazard-model.html#cb57-49" tabindex="-1"></a>    }</span>
+<span id="cb57-50"><a href="cox-proportional-hazard-model.html#cb57-50" tabindex="-1"></a>    </span>
+<span id="cb57-51"><a href="cox-proportional-hazard-model.html#cb57-51" tabindex="-1"></a>    <span class="co"># Set it to 1 man</span></span>
+<span id="cb57-52"><a href="cox-proportional-hazard-model.html#cb57-52" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">sum</span>(table[(j<span class="dv">-11</span>)<span class="sc">:</span>j,<span class="st">&quot;pumpOn&quot;</span>],<span class="at">na.rm =</span> T) <span class="sc">==</span> <span class="dv">12</span>){</span>
+<span id="cb57-53"><a href="cox-proportional-hazard-model.html#cb57-53" tabindex="-1"></a>      table[j,<span class="st">&quot;consecHour&quot;</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb57-54"><a href="cox-proportional-hazard-model.html#cb57-54" tabindex="-1"></a>      </span>
+<span id="cb57-55"><a href="cox-proportional-hazard-model.html#cb57-55" tabindex="-1"></a>    }</span>
+<span id="cb57-56"><a href="cox-proportional-hazard-model.html#cb57-56" tabindex="-1"></a>  }</span>
+<span id="cb57-57"><a href="cox-proportional-hazard-model.html#cb57-57" tabindex="-1"></a>  </span>
+<span id="cb57-58"><a href="cox-proportional-hazard-model.html#cb57-58" tabindex="-1"></a>  <span class="co"># Bind that data frame!!!!</span></span>
+<span id="cb57-59"><a href="cox-proportional-hazard-model.html#cb57-59" tabindex="-1"></a>  hurricaneLong <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(hurricaneLong,table)</span>
+<span id="cb57-60"><a href="cox-proportional-hazard-model.html#cb57-60" tabindex="-1"></a>  </span>
+<span id="cb57-61"><a href="cox-proportional-hazard-model.html#cb57-61" tabindex="-1"></a>}</span></code></pre></div>
+<div id="initial-variable-screening" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Initial Variable Screening<a href="cox-proportional-hazard-model.html#initial-variable-screening" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="cox-proportional-hazard-model.html#cb58-1" tabindex="-1"></a><span class="co">#hurricane &lt;- hurricane[,-(9:56)]</span></span>
+<span id="cb58-2"><a href="cox-proportional-hazard-model.html#cb58-2" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="cox-proportional-hazard-model.html#cb58-3" tabindex="-1"></a><span class="co">#hurricane &lt;- hurricane %&gt;% dplyr::select(-survive,-reason2,-trashrack)</span></span>
+<span id="cb58-4"><a href="cox-proportional-hazard-model.html#cb58-4" tabindex="-1"></a></span>
+<span id="cb58-5"><a href="cox-proportional-hazard-model.html#cb58-5" tabindex="-1"></a><span class="co"># Backward stepping</span></span>
+<span id="cb58-6"><a href="cox-proportional-hazard-model.html#cb58-6" tabindex="-1"></a>full.model <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(censor, reason <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane)</span>
+<span id="cb58-7"><a href="cox-proportional-hazard-model.html#cb58-7" tabindex="-1"></a>empty.model <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(censor, reason <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> hurricane)</span>
+<span id="cb58-8"><a href="cox-proportional-hazard-model.html#cb58-8" tabindex="-1"></a>back.model <span class="ot">&lt;-</span> <span class="fu">step</span>(full.model,</span>
+<span id="cb58-9"><a href="cox-proportional-hazard-model.html#cb58-9" tabindex="-1"></a>                   <span class="at">scope =</span> <span class="fu">list</span>(<span class="at">lower =</span> empty.model,</span>
+<span id="cb58-10"><a href="cox-proportional-hazard-model.html#cb58-10" tabindex="-1"></a>                               <span class="at">upper =</span> full.model),</span>
+<span id="cb58-11"><a href="cox-proportional-hazard-model.html#cb58-11" tabindex="-1"></a>                  <span class="at">direction =</span> <span class="st">&#39;backward&#39;</span>, <span class="at">k =</span> <span class="fu">qchisq</span>(<span class="fl">0.03</span>, <span class="dv">1</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>),<span class="at">trace =</span> F)</span>
+<span id="cb58-12"><a href="cox-proportional-hazard-model.html#cb58-12" tabindex="-1"></a></span>
+<span id="cb58-13"><a href="cox-proportional-hazard-model.html#cb58-13" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb58-14"><a href="cox-proportional-hazard-model.html#cb58-14" tabindex="-1"></a></span>
+<span id="cb58-15"><a href="cox-proportional-hazard-model.html#cb58-15" tabindex="-1"></a><span class="fu">summary</span>(back.model) <span class="do">## 3 vars. Age, servo slope</span></span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = Surv(censor, reason == 2) ~ age + servo + slope, 
+##     data = hurricane)
+## 
+##   n= 770, number of events= 112 
+## 
+##           coef exp(coef) se(coef)      z Pr(&gt;|z|)    
+## age   -1.51920   0.21889  0.17075 -8.897  &lt; 2e-16 ***
+## servo  0.44075   1.55387  0.20412  2.159   0.0308 *  
+## slope -0.29120   0.74736  0.06677 -4.361 1.29e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##       exp(coef) exp(-coef) lower .95 upper .95
+## age      0.2189     4.5686    0.1566    0.3059
+## servo    1.5539     0.6436    1.0415    2.3182
+## slope    0.7474     1.3380    0.6557    0.8519
+## 
+## Concordance= 0.786  (se = 0.024 )
+## Likelihood ratio test= 132.9  on 3 df,   p=&lt;2e-16
+## Wald test            = 97.26  on 3 df,   p=&lt;2e-16
+## Score (logrank) test = 94.6  on 3 df,   p=&lt;2e-16</code></pre>
+</div>
+<div id="linearity-assumption" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Linearity Assumption<a href="cox-proportional-hazard-model.html#linearity-assumption" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="cox-proportional-hazard-model.html#cb60-1" tabindex="-1"></a>survminer<span class="sc">::</span><span class="fu">ggcoxfunctional</span>(back.model,<span class="at">data=</span>hurricane)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+Age and slope not linear, adjust them accordingly.</p>
+</div>
+<div id="time-dependency-assumption" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Time Dependency Assumption<a href="cox-proportional-hazard-model.html#time-dependency-assumption" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="cox-proportional-hazard-model.html#cb61-1" tabindex="-1"></a><span class="do">## Binning </span></span>
+<span id="cb61-2"><a href="cox-proportional-hazard-model.html#cb61-2" tabindex="-1"></a>hurricane <span class="ot">&lt;-</span> hurricane <span class="sc">%&gt;%</span> </span>
+<span id="cb61-3"><a href="cox-proportional-hazard-model.html#cb61-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">agebin =</span> <span class="fu">case_when</span>(age<span class="sc">&lt;</span><span class="dv">7</span><span class="sc">~</span><span class="dv">0</span>, age<span class="sc">&lt;</span><span class="dv">9</span><span class="sc">~</span><span class="dv">1</span>, age<span class="sc">&gt;=</span><span class="dv">9</span><span class="sc">~</span><span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb61-4"><a href="cox-proportional-hazard-model.html#cb61-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">slopebin =</span> <span class="fu">case_when</span>(slope<span class="sc">&lt;=</span><span class="dv">3</span><span class="sc">~</span><span class="dv">0</span>, slope<span class="sc">&lt;=</span><span class="dv">5</span><span class="sc">~</span><span class="dv">1</span>, slope<span class="sc">&gt;=</span><span class="dv">10</span><span class="sc">~</span><span class="dv">2</span>))</span>
+<span id="cb61-5"><a href="cox-proportional-hazard-model.html#cb61-5" tabindex="-1"></a></span>
+<span id="cb61-6"><a href="cox-proportional-hazard-model.html#cb61-6" tabindex="-1"></a></span>
+<span id="cb61-7"><a href="cox-proportional-hazard-model.html#cb61-7" tabindex="-1"></a>coxModel <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(censor,reason <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">~</span> servo <span class="sc">+</span> <span class="fu">factor</span>(slopebin) <span class="sc">+</span> <span class="fu">factor</span>(agebin), <span class="at">data =</span> hurricane)</span></code></pre></div>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 3,5 ; coefficient may be infinite.</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="cox-proportional-hazard-model.html#cb63-1" tabindex="-1"></a>coxZph <span class="ot">&lt;-</span> <span class="fu">cox.zph</span>(coxModel)</span>
+<span id="cb63-2"><a href="cox-proportional-hazard-model.html#cb63-2" tabindex="-1"></a>coxZph</span></code></pre></div>
+<pre><code>##                  chisq df    p
+## servo            0.279  1 0.60
+## factor(slopebin) 3.360  2 0.19
+## factor(agebin)   0.429  2 0.81
+## GLOBAL           3.857  5 0.57</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="cox-proportional-hazard-model.html#cb65-1" tabindex="-1"></a><span class="fu">ggcoxzph</span>(coxZph, <span class="at">var=</span><span class="st">&#39;factor(slopebin)&#39;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+Slope is definitely time dependent. Need to do tt(slope) in the hurricaneLong Model.</p>
+</div>
+<div id="model-building-and-evaluation" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Model Building and Evaluation<a href="cox-proportional-hazard-model.html#model-building-and-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="cox-proportional-hazard-model.html#cb66-1" tabindex="-1"></a>hurr_long <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/hurrLong.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## New names:
+## Rows: 29661 Columns: 17
+## ── Column specification
+## ──────────────────────────────────────────────────────────────────────── Delimiter: &quot;,&quot; dbl
+## (17): ...1, id, backup, age, bridgecrane, servo, gear, trashrack, slope, elevation, surv...
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ Specify the column
+## types or set `show_col_types = FALSE` to quiet this message.
+## • `` -&gt; `...1`</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="cox-proportional-hazard-model.html#cb68-1" tabindex="-1"></a>hurr_long</span></code></pre></div>
+<pre><code>## # A tibble: 29,661 × 17
+##     ...1    id backup   age bridgecrane servo  gear trashrack slope elevation survive censor
+##    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+##  1     1     1      0     6           0     0     0         1     3         2       1     48
+##  2     2     1      0     6           0     0     0         1     3         2       1     48
+##  3     3     1      0     6           0     0     0         1     3         2       1     48
+##  4     4     1      0     6           0     0     0         1     3         2       1     48
+##  5     5     1      0     6           0     0     0         1     3         2       1     48
+##  6     6     1      0     6           0     0     0         1     3         2       1     48
+##  7     7     1      0     6           0     0     0         1     3         2       1     48
+##  8     8     1      0     6           0     0     0         1     3         2       1     48
+##  9     9     1      0     6           0     0     0         1     3         2       1     48
+## 10    10     1      0     6           0     0     0         1     3         2       1     48
+## # ℹ 29,651 more rows
+## # ℹ 5 more variables: reason &lt;dbl&gt;, reason2 &lt;dbl&gt;, hour &lt;dbl&gt;, pumpOn &lt;dbl&gt;, consecHour &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="cox-proportional-hazard-model.html#cb70-1" tabindex="-1"></a>hurr_long <span class="ot">&lt;-</span> hurr_long <span class="sc">%&gt;%</span> </span>
+<span id="cb70-2"><a href="cox-proportional-hazard-model.html#cb70-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">agebin =</span> <span class="fu">case_when</span>(age<span class="sc">&lt;</span><span class="fl">6.4</span><span class="sc">~</span><span class="dv">0</span>, age<span class="sc">&lt;</span><span class="fl">8.7</span><span class="sc">~</span><span class="dv">1</span>, age<span class="sc">&gt;=</span><span class="fl">8.7</span><span class="sc">~</span><span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb70-3"><a href="cox-proportional-hazard-model.html#cb70-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">slopebin =</span> <span class="fu">case_when</span>(slope<span class="sc">&lt;</span><span class="dv">3</span><span class="sc">~</span><span class="dv">0</span>, slope<span class="sc">&gt;=</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>))</span>
+<span id="cb70-4"><a href="cox-proportional-hazard-model.html#cb70-4" tabindex="-1"></a></span>
+<span id="cb70-5"><a href="cox-proportional-hazard-model.html#cb70-5" tabindex="-1"></a>hurr_long <span class="ot">&lt;-</span> hurr_long <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">stop =</span> hour)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="cox-proportional-hazard-model.html#cb71-1" tabindex="-1"></a>hurr_long <span class="ot">=</span> hurr_long <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">start =</span> stop <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb71-2"><a href="cox-proportional-hazard-model.html#cb71-2" tabindex="-1"></a>hurr_long</span></code></pre></div>
+<pre><code>## # A tibble: 29,661 × 20
+##     ...1    id backup   age bridgecrane servo  gear trashrack slope elevation survive censor
+##    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+##  1     1     1      0     6           0     0     0         1     3         2       1     48
+##  2     2     1      0     6           0     0     0         1     3         2       1     48
+##  3     3     1      0     6           0     0     0         1     3         2       1     48
+##  4     4     1      0     6           0     0     0         1     3         2       1     48
+##  5     5     1      0     6           0     0     0         1     3         2       1     48
+##  6     6     1      0     6           0     0     0         1     3         2       1     48
+##  7     7     1      0     6           0     0     0         1     3         2       1     48
+##  8     8     1      0     6           0     0     0         1     3         2       1     48
+##  9     9     1      0     6           0     0     0         1     3         2       1     48
+## 10    10     1      0     6           0     0     0         1     3         2       1     48
+## # ℹ 29,651 more rows
+## # ℹ 8 more variables: reason &lt;dbl&gt;, reason2 &lt;dbl&gt;, stop &lt;dbl&gt;, pumpOn &lt;dbl&gt;, consecHour &lt;dbl&gt;,
+## #   agebin &lt;dbl&gt;, slopebin &lt;dbl&gt;, start &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="cox-proportional-hazard-model.html#cb73-1" tabindex="-1"></a>mod2 <span class="ot">=</span> <span class="fu">coxph</span>(<span class="at">formula =</span> <span class="fu">Surv</span>(start, stop, reason <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">~</span> <span class="fu">factor</span>(agebin) <span class="sc">+</span> <span class="fu">factor</span>(servo) <span class="sc">+</span> <span class="fu">factor</span>(slopebin) <span class="sc">+</span> <span class="fu">factor</span>(consecHour), <span class="at">data =</span> hurr_long)</span>
+<span id="cb73-2"><a href="cox-proportional-hazard-model.html#cb73-2" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = Surv(start, stop, reason == 2) ~ factor(agebin) + 
+##     factor(servo) + factor(slopebin) + factor(consecHour), data = hurr_long)
+## 
+##   n= 29661, number of events= 112 
+## 
+##                         coef exp(coef) se(coef)       z Pr(&gt;|z|)    
+## factor(agebin)1     -2.25868   0.10449  0.20035 -11.274  &lt; 2e-16 ***
+## factor(agebin)2     -3.82652   0.02179  0.72557  -5.274 1.34e-07 ***
+## factor(servo)1       0.30565   1.35751  0.20792   1.470 0.141558    
+## factor(slopebin)1   -0.90564   0.40428  0.24239  -3.736 0.000187 ***
+## factor(consecHour)1  0.11996   1.12745  0.20596   0.582 0.560278    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##                     exp(coef) exp(-coef) lower .95 upper .95
+## factor(agebin)1       0.10449     9.5705  0.070556   0.15474
+## factor(agebin)2       0.02179    45.9024  0.005255   0.09032
+## factor(servo)1        1.35751     0.7366  0.903145   2.04045
+## factor(slopebin)1     0.40428     2.4735  0.251401   0.65014
+## factor(consecHour)1   1.12745     0.8870  0.752982   1.68814
+## 
+## Concordance= 0.793  (se = 0.024 )
+## Likelihood ratio test= 146.5  on 5 df,   p=&lt;2e-16
+## Wald test            = 151.6  on 5 df,   p=&lt;2e-16
+## Score (logrank) test = 221.1  on 5 df,   p=&lt;2e-16</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="cox-proportional-hazard-model.html#cb75-1" tabindex="-1"></a><span class="fu">AIC</span>(mod2)</span></code></pre></div>
+<pre><code>## [1] 1224.119</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="cox-proportional-hazard-model.html#cb77-1" tabindex="-1"></a>(<span class="fu">exp</span>(mod2<span class="sc">$</span>coefficients)<span class="sc">-</span><span class="dv">1</span>) <span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
+<pre><code>##     factor(agebin)1     factor(agebin)2      factor(servo)1   factor(slopebin)1 
+##           -89.55120           -97.82146            35.75070           -59.57157 
+## factor(consecHour)1 
+##            12.74469</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="cox-proportional-hazard-model.html#cb79-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="fu">exp</span>(mod2<span class="sc">$</span>coefficients)</span></code></pre></div>
+<pre><code>##     factor(agebin)1     factor(agebin)2      factor(servo)1   factor(slopebin)1 
+##           9.5704783          45.9023676           0.7366445           2.4735067 
+## factor(consecHour)1 
+##           0.8869597</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="cox-proportional-hazard-model.html#cb81-1" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">Anova</span>(mod2)</span></code></pre></div>
+<pre><code>## Analysis of Deviance Table (Type II tests)
+##                    LR Chisq Df Pr(&gt;Chisq)    
+## factor(agebin)      131.472  2  &lt; 2.2e-16 ***
+## factor(servo)         2.191  1     0.1389    
+## factor(slopebin)     16.305  1  5.392e-05 ***
+## factor(consecHour)    0.337  1     0.5613    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="cox-proportional-hazard-model.html#cb83-1" tabindex="-1"></a><span class="fu">library</span>(party)</span>
+<span id="cb83-2"><a href="cox-proportional-hazard-model.html#cb83-2" tabindex="-1"></a><span class="fu">library</span>(partykit)</span>
+<span id="cb83-3"><a href="cox-proportional-hazard-model.html#cb83-3" tabindex="-1"></a></span>
+<span id="cb83-4"><a href="cox-proportional-hazard-model.html#cb83-4" tabindex="-1"></a>hurr_long<span class="sc">$</span>y<span class="ot">&lt;-</span><span class="fu">ifelse</span>(hurr_long<span class="sc">$</span>reason<span class="sc">==</span><span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb83-5"><a href="cox-proportional-hazard-model.html#cb83-5" tabindex="-1"></a>hurr_long<span class="sc">$</span>y<span class="ot">&lt;-</span><span class="fu">ordered</span>(hurr_long<span class="sc">$</span>y,<span class="at">levels=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">labels=</span><span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>)</span>
+<span id="cb83-6"><a href="cox-proportional-hazard-model.html#cb83-6" tabindex="-1"></a>model1<span class="ot">&lt;-</span><span class="fu">ctree</span>(y<span class="sc">~</span>age,<span class="at">data=</span>hurr_long)</span>
+<span id="cb83-7"><a href="cox-proportional-hazard-model.html#cb83-7" tabindex="-1"></a>model1</span></code></pre></div>
+<pre><code>## 
+## Model formula:
+## y ~ age
+## 
+## Fitted party:
+## [1] root
+## |   [2] age &lt;= 6.4: No1 (n = 5834, err = 1.1%)
+## |   [3] age &gt; 6.4
+## |   |   [4] age &lt;= 8.7: No1 (n = 20494, err = 0.2%)
+## |   |   [5] age &gt; 8.7: No1 (n = 3333, err = 0.0%)
+## 
+## Number of inner nodes:    2
+## Number of terminal nodes: 3</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="cox-proportional-hazard-model.html#cb85-1" tabindex="-1"></a><span class="fu">plot</span>(model1)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="cox-proportional-hazard-model.html#cb86-1" tabindex="-1"></a>hurr_long<span class="sc">$</span>y<span class="ot">&lt;-</span><span class="fu">ifelse</span>(hurr_long<span class="sc">$</span>reason<span class="sc">==</span><span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb86-2"><a href="cox-proportional-hazard-model.html#cb86-2" tabindex="-1"></a>hurr_long<span class="sc">$</span>y<span class="ot">&lt;-</span><span class="fu">ordered</span>(hurr_long<span class="sc">$</span>y,<span class="at">levels=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">labels=</span><span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>)</span>
+<span id="cb86-3"><a href="cox-proportional-hazard-model.html#cb86-3" tabindex="-1"></a>model1<span class="ot">&lt;-</span><span class="fu">ctree</span>(y<span class="sc">~</span>slope,<span class="at">data=</span>hurr_long)</span>
+<span id="cb86-4"><a href="cox-proportional-hazard-model.html#cb86-4" tabindex="-1"></a>model1</span></code></pre></div>
+<pre><code>## 
+## Model formula:
+## y ~ slope
+## 
+## Fitted party:
+## [1] root
+## |   [2] slope &lt;= 3: No1 (n = 21483, err = 0.5%)
+## |   [3] slope &gt; 3: No1 (n = 8178, err = 0.1%)
+## 
+## Number of inner nodes:    1
+## Number of terminal nodes: 2</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="cox-proportional-hazard-model.html#cb88-1" tabindex="-1"></a><span class="fu">plot</span>(model1)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="accelerated-failure-time-model.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/avalkono/survival-analysis/edit/main/SurvivalAnalysisHW3.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/avalkono/survival-analysis/blob/main/SurvivalAnalysisHW3.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

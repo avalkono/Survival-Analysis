@@ -1,8 +1,4 @@
 ---
-title: "Survival Analysis HW3"
-author: "Blue HW 17"
-date: "2024-11-15"
-output: html_document
 ---
 
 ```{r}
@@ -23,7 +19,9 @@ library(cmprsk)
 library(reticulate)
 ```
 
+# Cox Proportional Hazard Model
 
+##Data Setup
 ```{r}
 bucket_exists(
   bucket = "s3://survival2024/",
@@ -109,8 +107,6 @@ for(i in 1:nrow(hurricane)) {
 ```
 
 
-# Setup to Make Model
-
 ## Initial Variable Screening
 ```{r}
 #hurricane <- hurricane[,-(9:56)]
@@ -155,7 +151,7 @@ ggcoxzph(coxZph, var='factor(slopebin)')
 Slope is definitely time dependent. Need to do tt(slope) in the hurricaneLong Model.
 
 
-
+## Model Building and Evaluation
 ```{r}
 hurr_long = read_csv("~/hurrLong.csv")
 hurr_long
@@ -168,12 +164,10 @@ hurr_long <- hurr_long %>% dplyr::rename(stop = hour)
 ```
 
 
-
 ```{r}
 hurr_long = hurr_long %>% mutate(start = stop - 1)
 hurr_long
 ```
-
 
 ```{r}
 mod2 = coxph(formula = Surv(start, stop, reason == 2) ~ factor(agebin) + factor(servo) + factor(slopebin) + factor(consecHour), data = hurr_long)
@@ -182,7 +176,7 @@ summary(mod2)
 
 
 ```{r}
-AIC(mod)
+AIC(mod2)
 ```
 
 
@@ -197,12 +191,15 @@ AIC(mod)
 
 
 ```{r}
-car::Anova(mod)
+car::Anova(mod2)
 ```
 
 
 
 ```{r}
+library(party)
+library(partykit)
+
 hurr_long$y<-ifelse(hurr_long$reason==2,1,0)
 hurr_long$y<-ordered(hurr_long$y,levels=c(0,1),labels="No","Yes")
 model1<-ctree(y~age,data=hurr_long)

@@ -4,6 +4,8 @@ output: html_document
 date: "2024-11-02"
 ---
 
+# Survival Analysis Intro
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(survival)
@@ -25,6 +27,7 @@ library(ggpubr)
 library(stats)
 library(UsingR)
 ```
+
 
 ```{r}
 bucket_exists(
@@ -215,7 +218,9 @@ Conclusion: Reject the null -> There is a significant difference in survival pro
 
 
 
-Homework 2:
+# Accelerated Failure Time Model
+
+##Model Building
 ```{r}
 hurricane = hurricane %>% mutate(flood = ifelse(reason==1, 1, 0))
 ```
@@ -247,8 +252,8 @@ plot(hurr.aft.ln, type = "cumhaz", ci = TRUE, conf.int = FALSE, las = 1, bty = "
      xlab = "week", ylab = "Cumulative Hazard", main = "Log-Normal Distribution")
 ```
 
+##Goodness-of-Fit Tests 
 ```{r}
-# Goodness-of-Fit Tests 
 
 like.e = flexsurvreg(Surv(hour, flood) ~ backup + age + bridgecrane + servo + gear + trashrack + slope + elevation, data = hurricane, dist = "exp")$loglik
 like.w <- flexsurvreg(Surv(hour, flood) ~ backup + age + bridgecrane + servo + gear + trashrack + slope + elevation, data = hurricane, dist = "weibull")$loglik
@@ -270,9 +275,8 @@ cbind(Tests, P_values)
 ```
 No difference between Weibull and Gam -> use Weibull
 
-
+##Variable Selection
 ```{r}
-#Variable Selection
 full.model <- survreg(Surv(hour, flood) ~ backup + age + bridgecrane + servo + gear + trashrack + slope + elevation, data = hurricane, dist = "weibull")
 empty.model <- survreg(Surv(hour, flood) ~ 1, data = hurricane, dist = "weibull")
 back.model <- step(full.model,
@@ -291,13 +295,12 @@ survprob.75.50.25 = predict(hurr.aft, type = "quantile", se.fit = TRUE,p = c(0.2
 head(survprob.75.50.25$fit)
 ```
 
-
 ```{r}
 exp(coef(hurr.aft)) - 1
 ```
 
 
-
+##Variable Impact
 ```{r}
 hurricane = hurricane %>% dplyr::mutate(pump = row_number())
 #Servo impact
@@ -365,163 +368,6 @@ upgrades = upgrades %>% mutate(servo_impact = 150000/Diff_servo,
 upgrades %>% arrange(desc(Diff_servo))
 upgrades %>% arrange(desc(Diff_backup))
 ```
-
-
-**HW 3**
-```{r}
-hurr_long = read_csv("~/hurrLong.csv")
-hurricane = hurricane %>% mutate(motor = ifelse(reason==2, 1, 0))
-hurr_long
-```
-
-```{r}
-full.model <- coxph(Surv(hour, motor) ~ backup + age + bridgecrane + servo + gear + trashrack + slope + elevation, data = hurricane)
-
-empty.model <- coxph(Surv(hour, motor) ~ 1, data = hurricane)
-
-back.model <- step(full.model,
-                   scope = list(lower = empty.model,
-                               upper = full.model),
-                  direction = 'backward', k = qchisq(0.03, 1, lower.tail=FALSE))
-
-summary(back.model)
-```
-
-```{r}
-coxphmod = coxph(formula = Surv(hour, motor) ~ age + servo + slope, data = hurricane)
-
-summary(coxphmod)
-```
-
-```{r}
-survminer::ggcoxfunctional(coxphmod, data=hurricane)
-```
-
-```{r}
-hurr_long = 
-coxphmod = coxph(formula = Surv(hour, motor) ~ age + servo + slope, data = hurricane)
-
-summary(coxphmod)
-```
-
-
-
-
-
-```{r}
-data_long <- hurricane %>%
-  pivot_longer(cols = matches("^H[0-9]+$"), names_to = "Hour", values_to = "PumpStatus") %>%
-  mutate(Hour = as.numeric(gsub("h", "", Hour))) # Convert H1 to H48 into numeric hour values
-data_long <- data_long %>% mutate(censor = ifelse(reason == 2, 1, 0))
-data_long
-```
-
-```{r}
-library(zoo)
-
-data_long <- data_long %>%
-  group_by(pump) %>% # Assuming there's an ID column for each pump
-  arrange(Hour) %>%
-  mutate(Running12Hours = ifelse(rollapply(PumpStatus, width = 12, FUN = all, fill = 0, align = "right") == 1, 1, 0)) %>%
-  ungroup()
-
-data_long = data_long %>% dplyr::select(-'reason2')
-
-data_long %>% arrange(desc(pump))
-```
-
-```{r}
-data_long = data_long %>% dplyr::select(-c('flood', 'diff'))
-```
-
-```{r}
-data_long = data_long %>% filter(Hour <= hour)
-data_long = data_long %>% mutate(reason = ifelse(Hour == hour, reason, 0))
-
-data_long %>% arrange(desc(pump))
-```
-
-
-```{r}
-surv_object <- Surv(time = hurricane$hour, event = hurricane$survive == 0)
-full.model <- coxph(surv_object ~ backup + age + bridgecrane + servo + gear + trashrack + slope + elevation, data = hurricane)
-summary(full.model)
-```
-
-
-```{r}
-full.model <- coxph(surv_object ~ backup + age + bridgecrane + servo + gear + trashrack + slope + elevation, data = hurricane)
-
-empty.model <- coxph(surv_object ~ 1, data = hurricane)
-
-back.model <- step(full.model,
-                   scope = list(lower = empty.model,
-                               upper = full.model),
-                  direction = 'backward', k = qchisq(0.03, 1, lower.tail=FALSE))
-
-summary(back.model)
-```
-
-
-```{r}
-surv_object <- Surv(time = data_long$Hour, event = data_long$censor == 1)
-
-full.model <- coxph(surv_object ~ backup + age + bridgecrane + servo + gear + trashrack + slope + elevation, data = data_long)
-
-empty.model <- coxph(surv_object ~ 1, data = data_long)
-
-back.model <- step(full.model,
-                   scope = list(lower = empty.model,
-                               upper = full.model),
-                  direction = 'backward', k = qchisq(0.03, 1, lower.tail=FALSE))
-
-summary(back.model)
-```
-
-
-
-
-```{r}
-coxphmod = coxph(formula = surv_object ~ age + bridgecrane + servo + gear + trashrack + slope + elevation, data = data_long)
-summary(coxphmod)
-concordance(coxphmod)
-```
-
-
-```{r}
-survminer::ggcoxfunctional(coxphmod, data=data_long[, c('survive', 'hour', 'age', 'trashrack', 'slope', 'elevation', 'servo', 'backup', 'Running12Hours')])
-```
-```{r}
-simple_coxphmod <- coxph(surv_object ~ age + trashrack +slope + elevation + servo + backup, data = data_long)
-ggcoxfunctional(simple_coxphmod, data = data_long)
-```
-
-```{r}
-data_long1 = data_long %>% mutate(agebin = case_when(age<7~0, age<9~1, age>=9~2))
-
-data_long1 = data_long1 %>% mutate(slopebin = case_when(slope<4~0, slope<10~1, slope>=10~2))
-
-data_long1 = data_long1 %>% mutate(elevationbin = case_when(slope<3~0, slope<5~1, slope>=5~2))
-```
-
-```{r}
-coxphmod2 = coxph(formula = surv_object ~ factor(agebin) + trashrack + factor(slopebin) + factor(elevationbin) + servo + backup + Running12Hours, data = data_long1)
-summary(coxphmod2)
-concordance(coxphmod2)
-```
-
-```{r}
-hurr.ph.zph <- cox.zph(coxphmod2)
-hurr.ph.zph
-
-ggcoxzph(hurr.ph.zph)
-```
-```{r}
-coxphmod3 = coxph(formula = surv_object ~ factor(agebin) + tt(trashrack) + factor(slopebin) + factor(elevationbin) + tt(servo) + tt(backup) + tt(Running12Hours), data = data_long1, tt = function(x, time, ...){x*log(time)})
-
-summary(coxphmod3)
-```
-
 
 
 

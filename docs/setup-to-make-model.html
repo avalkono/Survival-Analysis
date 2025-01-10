@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Setup to Make Model | Survival HW 1</title>
+  <meta name="description" content="Chapter 2 Setup to Make Model | Survival HW 1" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Setup to Make Model | Survival HW 1" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Setup to Make Model | Survival HW 1" />
+  
+  
+  
+
+<meta name="author" content="Blue HW 17" />
+
+
+<meta name="date" content="2024-11-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Survival Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Surivial HW</a></li>
+<li class="chapter" data-level="2" data-path="setup-to-make-model.html"><a href="setup-to-make-model.html"><i class="fa fa-check"></i><b>2</b> Setup to Make Model</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="setup-to-make-model.html"><a href="setup-to-make-model.html#initial-variable-screening"><i class="fa fa-check"></i><b>2.1</b> Initial Variable Screening</a></li>
+<li class="chapter" data-level="2.2" data-path="setup-to-make-model.html"><a href="setup-to-make-model.html#linearity-assumption"><i class="fa fa-check"></i><b>2.2</b> Linearity Assumption</a></li>
+<li class="chapter" data-level="2.3" data-path="setup-to-make-model.html"><a href="setup-to-make-model.html#time-dependency-assumption"><i class="fa fa-check"></i><b>2.3</b> Time Dependency Assumption</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Survival HW 1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="setup-to-make-model" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Setup to Make Model<a href="setup-to-make-model.html#setup-to-make-model" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="initial-variable-screening" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Initial Variable Screening<a href="setup-to-make-model.html#initial-variable-screening" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="setup-to-make-model.html#cb7-1" tabindex="-1"></a><span class="co">#hurricane &lt;- hurricane[,-(9:56)]</span></span>
+<span id="cb7-2"><a href="setup-to-make-model.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="setup-to-make-model.html#cb7-3" tabindex="-1"></a><span class="co">#hurricane &lt;- hurricane %&gt;% dplyr::select(-survive,-reason2,-trashrack)</span></span>
+<span id="cb7-4"><a href="setup-to-make-model.html#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="setup-to-make-model.html#cb7-5" tabindex="-1"></a><span class="co"># Backward stepping</span></span>
+<span id="cb7-6"><a href="setup-to-make-model.html#cb7-6" tabindex="-1"></a>full.model <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(censor, reason <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane)</span>
+<span id="cb7-7"><a href="setup-to-make-model.html#cb7-7" tabindex="-1"></a>empty.model <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(censor, reason <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> hurricane)</span>
+<span id="cb7-8"><a href="setup-to-make-model.html#cb7-8" tabindex="-1"></a>back.model <span class="ot">&lt;-</span> <span class="fu">step</span>(full.model,</span>
+<span id="cb7-9"><a href="setup-to-make-model.html#cb7-9" tabindex="-1"></a>                   <span class="at">scope =</span> <span class="fu">list</span>(<span class="at">lower =</span> empty.model,</span>
+<span id="cb7-10"><a href="setup-to-make-model.html#cb7-10" tabindex="-1"></a>                               <span class="at">upper =</span> full.model),</span>
+<span id="cb7-11"><a href="setup-to-make-model.html#cb7-11" tabindex="-1"></a>                  <span class="at">direction =</span> <span class="st">&#39;backward&#39;</span>, <span class="at">k =</span> <span class="fu">qchisq</span>(<span class="fl">0.03</span>, <span class="dv">1</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>),<span class="at">trace =</span> F)</span>
+<span id="cb7-12"><a href="setup-to-make-model.html#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="setup-to-make-model.html#cb7-13" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb7-14"><a href="setup-to-make-model.html#cb7-14" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="setup-to-make-model.html#cb7-15" tabindex="-1"></a><span class="fu">summary</span>(back.model) <span class="do">## 3 vars. Age, servo slope</span></span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = Surv(censor, reason == 2) ~ age + servo + slope, 
+##     data = hurricane)
+## 
+##   n= 770, number of events= 112 
+## 
+##           coef exp(coef) se(coef)      z Pr(&gt;|z|)    
+## age   -1.51920   0.21889  0.17075 -8.897  &lt; 2e-16 ***
+## servo  0.44075   1.55387  0.20412  2.159   0.0308 *  
+## slope -0.29120   0.74736  0.06677 -4.361 1.29e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##       exp(coef) exp(-coef) lower .95 upper .95
+## age      0.2189     4.5686    0.1566    0.3059
+## servo    1.5539     0.6436    1.0415    2.3182
+## slope    0.7474     1.3380    0.6557    0.8519
+## 
+## Concordance= 0.786  (se = 0.024 )
+## Likelihood ratio test= 132.9  on 3 df,   p=&lt;2e-16
+## Wald test            = 97.26  on 3 df,   p=&lt;2e-16
+## Score (logrank) test = 94.6  on 3 df,   p=&lt;2e-16</code></pre>
+</div>
+<div id="linearity-assumption" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Linearity Assumption<a href="setup-to-make-model.html#linearity-assumption" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="setup-to-make-model.html#cb9-1" tabindex="-1"></a>survminer<span class="sc">::</span><span class="fu">ggcoxfunctional</span>(back.model,<span class="at">data=</span>hurricane)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+Age and slope not linear, adjust them accordingly.</p>
+</div>
+<div id="time-dependency-assumption" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Time Dependency Assumption<a href="setup-to-make-model.html#time-dependency-assumption" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="setup-to-make-model.html#cb10-1" tabindex="-1"></a><span class="do">## Binning </span></span>
+<span id="cb10-2"><a href="setup-to-make-model.html#cb10-2" tabindex="-1"></a>hurricane <span class="ot">&lt;-</span> hurricane <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="setup-to-make-model.html#cb10-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">agebin =</span> <span class="fu">case_when</span>(age<span class="sc">&lt;</span><span class="dv">7</span><span class="sc">~</span><span class="dv">0</span>, age<span class="sc">&lt;</span><span class="dv">9</span><span class="sc">~</span><span class="dv">1</span>, age<span class="sc">&gt;=</span><span class="dv">9</span><span class="sc">~</span><span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-4"><a href="setup-to-make-model.html#cb10-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">slopebin =</span> <span class="fu">case_when</span>(slope<span class="sc">&lt;=</span><span class="dv">3</span><span class="sc">~</span><span class="dv">0</span>, slope<span class="sc">&lt;=</span><span class="dv">5</span><span class="sc">~</span><span class="dv">1</span>, slope<span class="sc">&gt;=</span><span class="dv">10</span><span class="sc">~</span><span class="dv">2</span>))</span>
+<span id="cb10-5"><a href="setup-to-make-model.html#cb10-5" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="setup-to-make-model.html#cb10-6" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="setup-to-make-model.html#cb10-7" tabindex="-1"></a>coxModel <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(censor,reason <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">~</span> servo <span class="sc">+</span> <span class="fu">factor</span>(slopebin) <span class="sc">+</span> <span class="fu">factor</span>(agebin), <span class="at">data =</span> hurricane)</span></code></pre></div>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 3,5 ; coefficient may be infinite.</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="setup-to-make-model.html#cb12-1" tabindex="-1"></a>coxZph <span class="ot">&lt;-</span> <span class="fu">cox.zph</span>(coxModel)</span>
+<span id="cb12-2"><a href="setup-to-make-model.html#cb12-2" tabindex="-1"></a>coxZph</span></code></pre></div>
+<pre><code>##                  chisq df    p
+## servo            0.279  1 0.60
+## factor(slopebin) 3.360  2 0.19
+## factor(agebin)   0.429  2 0.81
+## GLOBAL           3.857  5 0.57</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="setup-to-make-model.html#cb14-1" tabindex="-1"></a><span class="fu">ggcoxzph</span>(coxZph, <span class="at">var=</span><span class="st">&#39;factor(slopebin)&#39;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+Slope is definitely time dependent. Need to do tt(slope) in the hurricaneLong Model.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="setup-to-make-model.html#cb15-1" tabindex="-1"></a>hurr_long <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/hurrLong.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## New names:
+## Rows: 29661 Columns: 17
+## ── Column specification
+## ──────────────────────────────────────────────────────────────────────── Delimiter: &quot;,&quot; dbl
+## (17): ...1, id, backup, age, bridgecrane, servo, gear, trashrack, slope, elevation, surv...
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ Specify the column
+## types or set `show_col_types = FALSE` to quiet this message.
+## • `` -&gt; `...1`</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="setup-to-make-model.html#cb17-1" tabindex="-1"></a>hurr_long</span></code></pre></div>
+<pre><code>## # A tibble: 29,661 × 17
+##     ...1    id backup   age bridgecrane servo  gear trashrack slope elevation survive censor
+##    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+##  1     1     1      0     6           0     0     0         1     3         2       1     48
+##  2     2     1      0     6           0     0     0         1     3         2       1     48
+##  3     3     1      0     6           0     0     0         1     3         2       1     48
+##  4     4     1      0     6           0     0     0         1     3         2       1     48
+##  5     5     1      0     6           0     0     0         1     3         2       1     48
+##  6     6     1      0     6           0     0     0         1     3         2       1     48
+##  7     7     1      0     6           0     0     0         1     3         2       1     48
+##  8     8     1      0     6           0     0     0         1     3         2       1     48
+##  9     9     1      0     6           0     0     0         1     3         2       1     48
+## 10    10     1      0     6           0     0     0         1     3         2       1     48
+## # ℹ 29,651 more rows
+## # ℹ 5 more variables: reason &lt;dbl&gt;, reason2 &lt;dbl&gt;, hour &lt;dbl&gt;, pumpOn &lt;dbl&gt;, consecHour &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="setup-to-make-model.html#cb19-1" tabindex="-1"></a>hurr_long <span class="ot">&lt;-</span> hurr_long <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="setup-to-make-model.html#cb19-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">agebin =</span> <span class="fu">case_when</span>(age<span class="sc">&lt;</span><span class="fl">6.4</span><span class="sc">~</span><span class="dv">0</span>, age<span class="sc">&lt;</span><span class="fl">8.7</span><span class="sc">~</span><span class="dv">1</span>, age<span class="sc">&gt;=</span><span class="fl">8.7</span><span class="sc">~</span><span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="setup-to-make-model.html#cb19-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">slopebin =</span> <span class="fu">case_when</span>(slope<span class="sc">&lt;</span><span class="dv">3</span><span class="sc">~</span><span class="dv">0</span>, slope<span class="sc">&gt;=</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>))</span>
+<span id="cb19-4"><a href="setup-to-make-model.html#cb19-4" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="setup-to-make-model.html#cb19-5" tabindex="-1"></a>hurr_long <span class="ot">&lt;-</span> hurr_long <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">stop =</span> hour)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="setup-to-make-model.html#cb20-1" tabindex="-1"></a>hurr_long <span class="ot">=</span> hurr_long <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">start =</span> stop <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb20-2"><a href="setup-to-make-model.html#cb20-2" tabindex="-1"></a>hurr_long</span></code></pre></div>
+<pre><code>## # A tibble: 29,661 × 20
+##     ...1    id backup   age bridgecrane servo  gear trashrack slope elevation survive censor
+##    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+##  1     1     1      0     6           0     0     0         1     3         2       1     48
+##  2     2     1      0     6           0     0     0         1     3         2       1     48
+##  3     3     1      0     6           0     0     0         1     3         2       1     48
+##  4     4     1      0     6           0     0     0         1     3         2       1     48
+##  5     5     1      0     6           0     0     0         1     3         2       1     48
+##  6     6     1      0     6           0     0     0         1     3         2       1     48
+##  7     7     1      0     6           0     0     0         1     3         2       1     48
+##  8     8     1      0     6           0     0     0         1     3         2       1     48
+##  9     9     1      0     6           0     0     0         1     3         2       1     48
+## 10    10     1      0     6           0     0     0         1     3         2       1     48
+## # ℹ 29,651 more rows
+## # ℹ 8 more variables: reason &lt;dbl&gt;, reason2 &lt;dbl&gt;, stop &lt;dbl&gt;, pumpOn &lt;dbl&gt;, consecHour &lt;dbl&gt;,
+## #   agebin &lt;dbl&gt;, slopebin &lt;dbl&gt;, start &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="setup-to-make-model.html#cb22-1" tabindex="-1"></a>mod2 <span class="ot">=</span> <span class="fu">coxph</span>(<span class="at">formula =</span> <span class="fu">Surv</span>(start, stop, reason <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">~</span> <span class="fu">factor</span>(agebin) <span class="sc">+</span> <span class="fu">factor</span>(servo) <span class="sc">+</span> <span class="fu">factor</span>(slopebin) <span class="sc">+</span> <span class="fu">factor</span>(consecHour), <span class="at">data =</span> hurr_long)</span>
+<span id="cb22-2"><a href="setup-to-make-model.html#cb22-2" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = Surv(start, stop, reason == 2) ~ factor(agebin) + 
+##     factor(servo) + factor(slopebin) + factor(consecHour), data = hurr_long)
+## 
+##   n= 29661, number of events= 112 
+## 
+##                         coef exp(coef) se(coef)       z Pr(&gt;|z|)    
+## factor(agebin)1     -2.25868   0.10449  0.20035 -11.274  &lt; 2e-16 ***
+## factor(agebin)2     -3.82652   0.02179  0.72557  -5.274 1.34e-07 ***
+## factor(servo)1       0.30565   1.35751  0.20792   1.470 0.141558    
+## factor(slopebin)1   -0.90564   0.40428  0.24239  -3.736 0.000187 ***
+## factor(consecHour)1  0.11996   1.12745  0.20596   0.582 0.560278    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##                     exp(coef) exp(-coef) lower .95 upper .95
+## factor(agebin)1       0.10449     9.5705  0.070556   0.15474
+## factor(agebin)2       0.02179    45.9024  0.005255   0.09032
+## factor(servo)1        1.35751     0.7366  0.903145   2.04045
+## factor(slopebin)1     0.40428     2.4735  0.251401   0.65014
+## factor(consecHour)1   1.12745     0.8870  0.752982   1.68814
+## 
+## Concordance= 0.793  (se = 0.024 )
+## Likelihood ratio test= 146.5  on 5 df,   p=&lt;2e-16
+## Wald test            = 151.6  on 5 df,   p=&lt;2e-16
+## Score (logrank) test = 221.1  on 5 df,   p=&lt;2e-16</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="setup-to-make-model.html#cb24-1" tabindex="-1"></a><span class="fu">AIC</span>(mod2)</span></code></pre></div>
+<pre><code>## [1] 1224.119</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="setup-to-make-model.html#cb26-1" tabindex="-1"></a>(<span class="fu">exp</span>(mod2<span class="sc">$</span>coefficients)<span class="sc">-</span><span class="dv">1</span>) <span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
+<pre><code>##     factor(agebin)1     factor(agebin)2      factor(servo)1   factor(slopebin)1 
+##           -89.55120           -97.82146            35.75070           -59.57157 
+## factor(consecHour)1 
+##            12.74469</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="setup-to-make-model.html#cb28-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="fu">exp</span>(mod2<span class="sc">$</span>coefficients)</span></code></pre></div>
+<pre><code>##     factor(agebin)1     factor(agebin)2      factor(servo)1   factor(slopebin)1 
+##           9.5704783          45.9023676           0.7366445           2.4735067 
+## factor(consecHour)1 
+##           0.8869597</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="setup-to-make-model.html#cb30-1" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">Anova</span>(mod2)</span></code></pre></div>
+<pre><code>## Analysis of Deviance Table (Type II tests)
+##                    LR Chisq Df Pr(&gt;Chisq)    
+## factor(agebin)      131.472  2  &lt; 2.2e-16 ***
+## factor(servo)         2.191  1     0.1389    
+## factor(slopebin)     16.305  1  5.392e-05 ***
+## factor(consecHour)    0.337  1     0.5613    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="setup-to-make-model.html#cb32-1" tabindex="-1"></a><span class="fu">library</span>(party)</span>
+<span id="cb32-2"><a href="setup-to-make-model.html#cb32-2" tabindex="-1"></a><span class="fu">library</span>(partykit)</span>
+<span id="cb32-3"><a href="setup-to-make-model.html#cb32-3" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="setup-to-make-model.html#cb32-4" tabindex="-1"></a>hurr_long<span class="sc">$</span>y<span class="ot">&lt;-</span><span class="fu">ifelse</span>(hurr_long<span class="sc">$</span>reason<span class="sc">==</span><span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb32-5"><a href="setup-to-make-model.html#cb32-5" tabindex="-1"></a>hurr_long<span class="sc">$</span>y<span class="ot">&lt;-</span><span class="fu">ordered</span>(hurr_long<span class="sc">$</span>y,<span class="at">levels=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">labels=</span><span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>)</span>
+<span id="cb32-6"><a href="setup-to-make-model.html#cb32-6" tabindex="-1"></a>model1<span class="ot">&lt;-</span><span class="fu">ctree</span>(y<span class="sc">~</span>age,<span class="at">data=</span>hurr_long)</span>
+<span id="cb32-7"><a href="setup-to-make-model.html#cb32-7" tabindex="-1"></a>model1</span></code></pre></div>
+<pre><code>## 
+## Model formula:
+## y ~ age
+## 
+## Fitted party:
+## [1] root
+## |   [2] age &lt;= 6.4: No1 (n = 5834, err = 1.1%)
+## |   [3] age &gt; 6.4
+## |   |   [4] age &lt;= 8.7: No1 (n = 20494, err = 0.2%)
+## |   |   [5] age &gt; 8.7: No1 (n = 3333, err = 0.0%)
+## 
+## Number of inner nodes:    2
+## Number of terminal nodes: 3</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="setup-to-make-model.html#cb34-1" tabindex="-1"></a><span class="fu">plot</span>(model1)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="setup-to-make-model.html#cb35-1" tabindex="-1"></a>hurr_long<span class="sc">$</span>y<span class="ot">&lt;-</span><span class="fu">ifelse</span>(hurr_long<span class="sc">$</span>reason<span class="sc">==</span><span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb35-2"><a href="setup-to-make-model.html#cb35-2" tabindex="-1"></a>hurr_long<span class="sc">$</span>y<span class="ot">&lt;-</span><span class="fu">ordered</span>(hurr_long<span class="sc">$</span>y,<span class="at">levels=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">labels=</span><span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>)</span>
+<span id="cb35-3"><a href="setup-to-make-model.html#cb35-3" tabindex="-1"></a>model1<span class="ot">&lt;-</span><span class="fu">ctree</span>(y<span class="sc">~</span>slope,<span class="at">data=</span>hurr_long)</span>
+<span id="cb35-4"><a href="setup-to-make-model.html#cb35-4" tabindex="-1"></a>model1</span></code></pre></div>
+<pre><code>## 
+## Model formula:
+## y ~ slope
+## 
+## Fitted party:
+## [1] root
+## |   [2] slope &lt;= 3: No1 (n = 21483, err = 0.5%)
+## |   [3] slope &gt; 3: No1 (n = 8178, err = 0.1%)
+## 
+## Number of inner nodes:    1
+## Number of terminal nodes: 2</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="setup-to-make-model.html#cb37-1" tabindex="-1"></a><span class="fu">plot</span>(model1)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="setup-to-make-model.html#cb38-1" tabindex="-1"></a><span class="fu">bucket_exists</span>(</span>
+<span id="cb38-2"><a href="setup-to-make-model.html#cb38-2" tabindex="-1"></a>  <span class="at">bucket =</span> <span class="st">&quot;s3://survival2024/&quot;</span>,</span>
+<span id="cb38-3"><a href="setup-to-make-model.html#cb38-3" tabindex="-1"></a>  <span class="at">region =</span> <span class="st">&quot;us-east-1&quot;</span></span>
+<span id="cb38-4"><a href="setup-to-make-model.html#cb38-4" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] TRUE
+## attr(,&quot;x-amz-id-2&quot;)
+## [1] &quot;mXPUol41LJfWZcoT9KDSShHI+jUVUBrkZ0ncPWgcAigtgYefERFgd6tuJJ33Kab0Tcqpy39EsRp7IAvrf0f3dXfL38rqlTuCuIprlCbtHRU=&quot;
+## attr(,&quot;x-amz-request-id&quot;)
+## [1] &quot;3NZGJ6G56E887GFP&quot;
+## attr(,&quot;date&quot;)
+## [1] &quot;Fri, 10 Jan 2025 18:58:13 GMT&quot;
+## attr(,&quot;x-amz-bucket-region&quot;)
+## [1] &quot;us-east-1&quot;
+## attr(,&quot;x-amz-access-point-alias&quot;)
+## [1] &quot;false&quot;
+## attr(,&quot;content-type&quot;)
+## [1] &quot;application/xml&quot;
+## attr(,&quot;transfer-encoding&quot;)
+## [1] &quot;chunked&quot;
+## attr(,&quot;server&quot;)
+## [1] &quot;AmazonS3&quot;</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="setup-to-make-model.html#cb40-1" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">get_bucket_df</span>(</span>
+<span id="cb40-2"><a href="setup-to-make-model.html#cb40-2" tabindex="-1"></a>  <span class="at">bucket =</span> <span class="st">&quot;s3://survival2024/&quot;</span>,</span>
+<span id="cb40-3"><a href="setup-to-make-model.html#cb40-3" tabindex="-1"></a>  <span class="at">region =</span> <span class="st">&quot;us-east-1&quot;</span>,</span>
+<span id="cb40-4"><a href="setup-to-make-model.html#cb40-4" tabindex="-1"></a>  <span class="at">max =</span> <span class="dv">20000</span></span>
+<span id="cb40-5"><a href="setup-to-make-model.html#cb40-5" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-6"><a href="setup-to-make-model.html#cb40-6" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb40-7"><a href="setup-to-make-model.html#cb40-7" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="setup-to-make-model.html#cb40-8" tabindex="-1"></a><span class="co">#Downloading files</span></span>
+<span id="cb40-9"><a href="setup-to-make-model.html#cb40-9" tabindex="-1"></a><span class="fu">save_object</span>(</span>
+<span id="cb40-10"><a href="setup-to-make-model.html#cb40-10" tabindex="-1"></a>  <span class="at">object =</span> <span class="st">&quot;hurricane.csv&quot;</span>, <span class="co">#Change</span></span>
+<span id="cb40-11"><a href="setup-to-make-model.html#cb40-11" tabindex="-1"></a>  <span class="at">bucket =</span> <span class="st">&quot;s3://survival2024/&quot;</span>,</span>
+<span id="cb40-12"><a href="setup-to-make-model.html#cb40-12" tabindex="-1"></a>  <span class="at">region =</span> <span class="st">&quot;us-east-1&quot;</span>,</span>
+<span id="cb40-13"><a href="setup-to-make-model.html#cb40-13" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">&quot;hurricane&quot;</span> <span class="co">#Change</span></span>
+<span id="cb40-14"><a href="setup-to-make-model.html#cb40-14" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;hurricane&quot;</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="setup-to-make-model.html#cb42-1" tabindex="-1"></a><span class="co">#You can now start Wrangling the data...</span></span>
+<span id="cb42-2"><a href="setup-to-make-model.html#cb42-2" tabindex="-1"></a>hurricane <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;hurricane&quot;</span>) <span class="co">#Change</span></span>
+<span id="cb42-3"><a href="setup-to-make-model.html#cb42-3" tabindex="-1"></a>hurricane <span class="ot">=</span> hurricane <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Index =</span> <span class="fu">row_number</span>())</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Give the percentage of pumps within each failure type and percentage of pumps that did not fail.</li>
+</ol>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="setup-to-make-model.html#cb43-1" tabindex="-1"></a><span class="co"># Frequency table for the REASON variable</span></span>
+<span id="cb43-2"><a href="setup-to-make-model.html#cb43-2" tabindex="-1"></a>reason_counts <span class="ot">&lt;-</span> <span class="fu">table</span>(hurricane<span class="sc">$</span>reason)</span>
+<span id="cb43-3"><a href="setup-to-make-model.html#cb43-3" tabindex="-1"></a>reason_counts</span></code></pre></div>
+<pre><code>## 
+##   0   1   2   3   4 
+## 316 115 112 111 116</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="setup-to-make-model.html#cb45-1" tabindex="-1"></a><span class="co"># Total number of pumps</span></span>
+<span id="cb45-2"><a href="setup-to-make-model.html#cb45-2" tabindex="-1"></a>total_pumps <span class="ot">&lt;-</span> <span class="fu">sum</span>(reason_counts)</span>
+<span id="cb45-3"><a href="setup-to-make-model.html#cb45-3" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="setup-to-make-model.html#cb45-4" tabindex="-1"></a><span class="co"># Calculate percentages for each failure type</span></span>
+<span id="cb45-5"><a href="setup-to-make-model.html#cb45-5" tabindex="-1"></a>reason_percentages <span class="ot">&lt;-</span> (reason_counts <span class="sc">/</span> total_pumps) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb45-6"><a href="setup-to-make-model.html#cb45-6" tabindex="-1"></a>reason_percentages</span></code></pre></div>
+<pre><code>## 
+##        0        1        2        3        4 
+## 41.03896 14.93506 14.54545 14.41558 15.06494</code></pre>
+<p>No failure: 41.03%
+Reason 1: 14.94%
+Reason 2: 14.55%
+Reason 3: 14.42%
+Reason 4: 15.06%</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Give the average time until failure for each failure type. Are means a good measure for length of survival? Discuss why or why not.</li>
+</ol>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="setup-to-make-model.html#cb47-1" tabindex="-1"></a><span class="co"># Calculate mean failure time for each failure type</span></span>
+<span id="cb47-2"><a href="setup-to-make-model.html#cb47-2" tabindex="-1"></a>average_failure_time <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(hurricane<span class="sc">$</span>hour, <span class="at">by =</span> <span class="fu">list</span>(hurricane<span class="sc">$</span>reason), <span class="at">FUN =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb47-3"><a href="setup-to-make-model.html#cb47-3" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="setup-to-make-model.html#cb47-4" tabindex="-1"></a><span class="co"># Rename columns for clarity</span></span>
+<span id="cb47-5"><a href="setup-to-make-model.html#cb47-5" tabindex="-1"></a><span class="fu">colnames</span>(average_failure_time) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Failure_Type&quot;</span>, <span class="st">&quot;Average_Time_Until_Failure&quot;</span>)</span>
+<span id="cb47-6"><a href="setup-to-make-model.html#cb47-6" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="setup-to-make-model.html#cb47-7" tabindex="-1"></a><span class="co"># Print the results</span></span>
+<span id="cb47-8"><a href="setup-to-make-model.html#cb47-8" tabindex="-1"></a>average_failure_time</span></code></pre></div>
+<pre><code>##   Failure_Type Average_Time_Until_Failure
+## 1            0                   48.00000
+## 2            1                   26.44348
+## 3            2                   41.04464
+## 4            3                   38.82883
+## 5            4                   21.93966</code></pre>
+<p>Reason 1: 26.44 hr
+Reason 2: 41.04 hr
+Reason 3: 38.83 hr
+Reason 4: 21.94 hr
+Means are not a good measure of length of survival because censored values included in the mean can impact the mean survival time. Median is a better measure.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Create and upload the survival probability across time for pumps broken down by failure type overlaid into one graph.</li>
+</ol>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="setup-to-make-model.html#cb49-1" tabindex="-1"></a><span class="co"># Assuming the SURVIVE variable is coded as 1 for failed and 0 for not failed</span></span>
+<span id="cb49-2"><a href="setup-to-make-model.html#cb49-2" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> hurricane<span class="sc">$</span>hour, <span class="at">event =</span> hurricane<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb49-3"><a href="setup-to-make-model.html#cb49-3" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="setup-to-make-model.html#cb49-4" tabindex="-1"></a><span class="co"># Fit the Kaplan-Meier survival model, stratified by failure type (REASON)</span></span>
+<span id="cb49-5"><a href="setup-to-make-model.html#cb49-5" tabindex="-1"></a>km_fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(surv_object <span class="sc">~</span> hurricane<span class="sc">$</span>reason, <span class="at">data =</span> hurricane)</span>
+<span id="cb49-6"><a href="setup-to-make-model.html#cb49-6" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="setup-to-make-model.html#cb49-7" tabindex="-1"></a><span class="co"># Plot survival curves with ggplot2 styling for readability</span></span>
+<span id="cb49-8"><a href="setup-to-make-model.html#cb49-8" tabindex="-1"></a>surv_plot <span class="ot">&lt;-</span> <span class="fu">ggsurvplot</span>(</span>
+<span id="cb49-9"><a href="setup-to-make-model.html#cb49-9" tabindex="-1"></a>  km_fit, </span>
+<span id="cb49-10"><a href="setup-to-make-model.html#cb49-10" tabindex="-1"></a>  <span class="at">data =</span> hurricane,</span>
+<span id="cb49-11"><a href="setup-to-make-model.html#cb49-11" tabindex="-1"></a>  <span class="at">conf.int =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb49-12"><a href="setup-to-make-model.html#cb49-12" tabindex="-1"></a>  <span class="at">legend.title =</span> <span class="st">&quot;Failure Type&quot;</span>,</span>
+<span id="cb49-13"><a href="setup-to-make-model.html#cb49-13" tabindex="-1"></a>  <span class="at">legend.labs =</span> <span class="fu">c</span>(<span class="st">&quot;No Failure&quot;</span>, <span class="st">&quot;Flood&quot;</span>, <span class="st">&quot;Motor&quot;</span>, <span class="st">&quot;Surge&quot;</span>, <span class="st">&quot;Jammed&quot;</span>),</span>
+<span id="cb49-14"><a href="setup-to-make-model.html#cb49-14" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Time (hours)&quot;</span>,</span>
+<span id="cb49-15"><a href="setup-to-make-model.html#cb49-15" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Survival Probability&quot;</span>,</span>
+<span id="cb49-16"><a href="setup-to-make-model.html#cb49-16" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Survival Probability Across Time by Failure Type&quot;</span>,</span>
+<span id="cb49-17"><a href="setup-to-make-model.html#cb49-17" tabindex="-1"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb49-18"><a href="setup-to-make-model.html#cb49-18" tabindex="-1"></a>)</span>
+<span id="cb49-19"><a href="setup-to-make-model.html#cb49-19" tabindex="-1"></a></span>
+<span id="cb49-20"><a href="setup-to-make-model.html#cb49-20" tabindex="-1"></a>surv_plot</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Create and upload the graph of conditional failure probabilities across time for pumps broken down by failure type overlaid into one graph.</li>
+</ol>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="setup-to-make-model.html#cb50-1" tabindex="-1"></a>km_fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(surv_object <span class="sc">~</span> hurricane<span class="sc">$</span>reason, <span class="at">data =</span> hurricane)</span>
+<span id="cb50-2"><a href="setup-to-make-model.html#cb50-2" tabindex="-1"></a>h <span class="ot">=</span> km_fit<span class="sc">$</span>n.event<span class="sc">/</span>km_fit<span class="sc">$</span>n.risk</span>
+<span id="cb50-3"><a href="setup-to-make-model.html#cb50-3" tabindex="-1"></a>index.h<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="at">length=</span>(<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)<span class="sc">+</span><span class="dv">1</span>)) <span class="co">#Need to add 0</span></span>
+<span id="cb50-4"><a href="setup-to-make-model.html#cb50-4" tabindex="-1"></a>index.h[(km_fit<span class="sc">$</span>time)<span class="sc">+</span><span class="dv">1</span>]<span class="ot">=</span>h <span class="co">#Because of 0</span></span>
+<span id="cb50-5"><a href="setup-to-make-model.html#cb50-5" tabindex="-1"></a>haz.plot<span class="ot">=</span><span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)), index.h))</span>
+<span id="cb50-6"><a href="setup-to-make-model.html#cb50-6" tabindex="-1"></a><span class="fu">colnames</span>(haz.plot)<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Time&quot;</span>,<span class="st">&quot;Hazard&quot;</span>)</span>
+<span id="cb50-7"><a href="setup-to-make-model.html#cb50-7" tabindex="-1"></a><span class="fu">ggplot</span>(haz.plot,<span class="fu">aes</span>(<span class="at">x=</span>Time,<span class="at">y=</span>Hazard))<span class="sc">+</span><span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="setup-to-make-model.html#cb51-1" tabindex="-1"></a><span class="fu">ggsurvplot</span>(km_fit, <span class="at">data =</span> hurricane, <span class="at">fun =</span> <span class="st">&quot;cumhaz&quot;</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">&quot;Time (hour)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Cumulative Hazard&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Conditional Failure Probabilities&quot;</span>,   <span class="at">legend.title =</span> <span class="st">&quot;Failure Type&quot;</span>,</span>
+<span id="cb51-2"><a href="setup-to-make-model.html#cb51-2" tabindex="-1"></a>  <span class="at">legend.labs =</span> <span class="fu">c</span>(<span class="st">&quot;No Failure&quot;</span>, <span class="st">&quot;Flood&quot;</span>, <span class="st">&quot;Motor&quot;</span>, <span class="st">&quot;Surge&quot;</span>, <span class="st">&quot;Jammed&quot;</span>))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-20-2.png" width="672" /></p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="setup-to-make-model.html#cb52-1" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">1</span>)<span class="sc">$</span>hour, <span class="at">event =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">1</span>)<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb52-2"><a href="setup-to-make-model.html#cb52-2" tabindex="-1"></a>km_fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(surv_object <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">1</span>))</span>
+<span id="cb52-3"><a href="setup-to-make-model.html#cb52-3" tabindex="-1"></a>h1 <span class="ot">=</span> km_fit<span class="sc">$</span>n.event<span class="sc">/</span>km_fit<span class="sc">$</span>n.risk</span>
+<span id="cb52-4"><a href="setup-to-make-model.html#cb52-4" tabindex="-1"></a>index.h1<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="at">length=</span>(<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)<span class="sc">+</span><span class="dv">1</span>)) <span class="co">#Need to add 0</span></span>
+<span id="cb52-5"><a href="setup-to-make-model.html#cb52-5" tabindex="-1"></a>index.h1[(km_fit<span class="sc">$</span>time)<span class="sc">+</span><span class="dv">1</span>]<span class="ot">=</span>h1 <span class="co">#Because of 0</span></span>
+<span id="cb52-6"><a href="setup-to-make-model.html#cb52-6" tabindex="-1"></a>haz.plot1<span class="ot">=</span><span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)), index.h1))</span>
+<span id="cb52-7"><a href="setup-to-make-model.html#cb52-7" tabindex="-1"></a>haz.plot1<span class="sc">$</span>Reason1 <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb52-8"><a href="setup-to-make-model.html#cb52-8" tabindex="-1"></a></span>
+<span id="cb52-9"><a href="setup-to-make-model.html#cb52-9" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">2</span>)<span class="sc">$</span>hour, <span class="at">event =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">2</span>)<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb52-10"><a href="setup-to-make-model.html#cb52-10" tabindex="-1"></a>km_fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(surv_object <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">2</span>))</span>
+<span id="cb52-11"><a href="setup-to-make-model.html#cb52-11" tabindex="-1"></a>h2 <span class="ot">=</span> km_fit<span class="sc">$</span>n.event<span class="sc">/</span>km_fit<span class="sc">$</span>n.risk</span>
+<span id="cb52-12"><a href="setup-to-make-model.html#cb52-12" tabindex="-1"></a>index.h2<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="at">length=</span>(<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)<span class="sc">+</span><span class="dv">1</span>)) <span class="co">#Need to add 0</span></span>
+<span id="cb52-13"><a href="setup-to-make-model.html#cb52-13" tabindex="-1"></a>index.h2[(km_fit<span class="sc">$</span>time)<span class="sc">+</span><span class="dv">1</span>]<span class="ot">=</span>h2 <span class="co">#Because of 0</span></span>
+<span id="cb52-14"><a href="setup-to-make-model.html#cb52-14" tabindex="-1"></a>haz.plot2<span class="ot">=</span><span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)), index.h2))</span>
+<span id="cb52-15"><a href="setup-to-make-model.html#cb52-15" tabindex="-1"></a>haz.plot2<span class="sc">$</span>Reason2 <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb52-16"><a href="setup-to-make-model.html#cb52-16" tabindex="-1"></a></span>
+<span id="cb52-17"><a href="setup-to-make-model.html#cb52-17" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">3</span>)<span class="sc">$</span>hour, <span class="at">event =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">3</span>)<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb52-18"><a href="setup-to-make-model.html#cb52-18" tabindex="-1"></a>km_fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(surv_object <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">3</span>))</span>
+<span id="cb52-19"><a href="setup-to-make-model.html#cb52-19" tabindex="-1"></a>h3 <span class="ot">=</span> km_fit<span class="sc">$</span>n.event<span class="sc">/</span>km_fit<span class="sc">$</span>n.risk</span>
+<span id="cb52-20"><a href="setup-to-make-model.html#cb52-20" tabindex="-1"></a>index.h3<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="at">length=</span>(<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)<span class="sc">+</span><span class="dv">1</span>)) <span class="co">#Need to add 0</span></span>
+<span id="cb52-21"><a href="setup-to-make-model.html#cb52-21" tabindex="-1"></a>index.h3[(km_fit<span class="sc">$</span>time)<span class="sc">+</span><span class="dv">1</span>]<span class="ot">=</span>h3 <span class="co">#Because of 0</span></span>
+<span id="cb52-22"><a href="setup-to-make-model.html#cb52-22" tabindex="-1"></a>haz.plot3<span class="ot">=</span><span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)), index.h3))</span>
+<span id="cb52-23"><a href="setup-to-make-model.html#cb52-23" tabindex="-1"></a>haz.plot3<span class="sc">$</span>Reason3 <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb52-24"><a href="setup-to-make-model.html#cb52-24" tabindex="-1"></a></span>
+<span id="cb52-25"><a href="setup-to-make-model.html#cb52-25" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">4</span>)<span class="sc">$</span>hour, <span class="at">event =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">4</span>)<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb52-26"><a href="setup-to-make-model.html#cb52-26" tabindex="-1"></a>km_fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(surv_object <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">4</span>))</span>
+<span id="cb52-27"><a href="setup-to-make-model.html#cb52-27" tabindex="-1"></a>h4 <span class="ot">=</span> km_fit<span class="sc">$</span>n.event<span class="sc">/</span>km_fit<span class="sc">$</span>n.risk</span>
+<span id="cb52-28"><a href="setup-to-make-model.html#cb52-28" tabindex="-1"></a>index.h4<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="at">length=</span>(<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)<span class="sc">+</span><span class="dv">1</span>)) <span class="co">#Need to add 0</span></span>
+<span id="cb52-29"><a href="setup-to-make-model.html#cb52-29" tabindex="-1"></a>index.h4[(km_fit<span class="sc">$</span>time)<span class="sc">+</span><span class="dv">1</span>]<span class="ot">=</span>h4 <span class="co">#Because of 0</span></span>
+<span id="cb52-30"><a href="setup-to-make-model.html#cb52-30" tabindex="-1"></a>haz.plot4<span class="ot">=</span><span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)), index.h4))</span>
+<span id="cb52-31"><a href="setup-to-make-model.html#cb52-31" tabindex="-1"></a>haz.plot4<span class="sc">$</span>Reason4 <span class="ot">=</span> <span class="dv">4</span></span>
+<span id="cb52-32"><a href="setup-to-make-model.html#cb52-32" tabindex="-1"></a></span>
+<span id="cb52-33"><a href="setup-to-make-model.html#cb52-33" tabindex="-1"></a>haz.plot.all <span class="ot">=</span> <span class="fu">cbind</span>(haz.plot1, haz.plot2, haz.plot3, haz.plot4)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="setup-to-make-model.html#cb53-1" tabindex="-1"></a>haz.plot.all2 <span class="ot">=</span> haz.plot.all <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="dv">1</span>, index.h1, index.h2, index.h3, index.h4)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="setup-to-make-model.html#cb54-1" tabindex="-1"></a><span class="fu">ggplot</span>(haz.plot.all2, <span class="fu">aes</span>(<span class="at">x=</span>V1)) <span class="sc">+</span></span>
+<span id="cb54-2"><a href="setup-to-make-model.html#cb54-2" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> index.h1, <span class="at">color=</span><span class="st">&#39;Flood&#39;</span>)) <span class="sc">+</span></span>
+<span id="cb54-3"><a href="setup-to-make-model.html#cb54-3" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> index.h2, <span class="at">color=</span><span class="st">&#39;Motor&#39;</span>)) <span class="sc">+</span></span>
+<span id="cb54-4"><a href="setup-to-make-model.html#cb54-4" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> index.h3, <span class="at">color =</span> <span class="st">&#39;Surge&#39;</span>)) <span class="sc">+</span></span>
+<span id="cb54-5"><a href="setup-to-make-model.html#cb54-5" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> index.h4, <span class="at">color=</span> <span class="st">&#39;Jammed&#39;</span>)) <span class="sc">+</span></span>
+<span id="cb54-6"><a href="setup-to-make-model.html#cb54-6" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb54-7"><a href="setup-to-make-model.html#cb54-7" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Hazard Rates by Failure Type&quot;</span>,</span>
+<span id="cb54-8"><a href="setup-to-make-model.html#cb54-8" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;Hours&quot;</span>,</span>
+<span id="cb54-9"><a href="setup-to-make-model.html#cb54-9" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Hazard&quot;</span>,</span>
+<span id="cb54-10"><a href="setup-to-make-model.html#cb54-10" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">&quot;Failure Type&quot;</span></span>
+<span id="cb54-11"><a href="setup-to-make-model.html#cb54-11" tabindex="-1"></a>    ) <span class="sc">+</span> <span class="fu">scale_color_manual</span>(</span>
+<span id="cb54-12"><a href="setup-to-make-model.html#cb54-12" tabindex="-1"></a>        <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;Flood&#39;</span> <span class="ot">=</span> <span class="st">&#39;blue&#39;</span>, <span class="st">&#39;Motor&#39;</span> <span class="ot">=</span> <span class="st">&#39;red&#39;</span>, <span class="st">&#39;Surge&#39;</span> <span class="ot">=</span> <span class="st">&#39;orange&#39;</span>, <span class="st">&#39;Jammed&#39;</span> <span class="ot">=</span> <span class="st">&#39;green&#39;</span>),</span>
+<span id="cb54-13"><a href="setup-to-make-model.html#cb54-13" tabindex="-1"></a>        <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Flood&quot;</span>, <span class="st">&quot;Motor&quot;</span>, <span class="st">&quot;Surge&quot;</span>, <span class="st">&quot;Jammed&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb54-14"><a href="setup-to-make-model.html#cb54-14" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb54-15"><a href="setup-to-make-model.html#cb54-15" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">48</span>, <span class="at">by =</span> <span class="dv">6</span>))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Provide a statistical test to see if the major types of failure have similar survival probabilities across time (include null and alternative hypotheses, test statistic, p-value and conclusion).</li>
+</ol>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="setup-to-make-model.html#cb55-1" tabindex="-1"></a><span class="co"># Log-Rank Test </span></span>
+<span id="cb55-2"><a href="setup-to-make-model.html#cb55-2" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> hurricane<span class="sc">$</span>hour, <span class="at">event =</span> hurricane<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb55-3"><a href="setup-to-make-model.html#cb55-3" tabindex="-1"></a><span class="fu">survdiff</span>(surv_object <span class="sc">~</span> hurricane<span class="sc">$</span>reason, <span class="at">data=</span>hurricane,<span class="at">rho=</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## Call:
+## survdiff(formula = surv_object ~ hurricane$reason, data = hurricane, 
+##     rho = 0)
+## 
+##                      N Observed Expected (O-E)^2/E (O-E)^2/V
+## hurricane$reason=0 316        0    275.1     275.1     797.8
+## hurricane$reason=1 115      115     32.2     213.5     242.4
+## hurricane$reason=2 112      112     68.0      28.4      35.1
+## hurricane$reason=3 111      111     55.6      55.2      66.0
+## hurricane$reason=4 116      116     23.1     373.8     435.3
+## 
+##  Chisq= 1120  on 4 degrees of freedom, p= &lt;2e-16</code></pre>
+<p>Log-Rank Test:</p>
+<p>H0: No significant difference in survival probabilities.</p>
+<p>Ha: Significant difference in survival probabilities.</p>
+<p>Test statistic: 1120 on 4 degrees of freedom</p>
+<p>p-value: &lt;2e-16</p>
+<p>Conclusion: Reject the null -&gt; There is a significant difference in survival probabilities over time across failure types.</p>
+<p>Homework 2:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="setup-to-make-model.html#cb57-1" tabindex="-1"></a>hurricane <span class="ot">=</span> hurricane <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">flood =</span> <span class="fu">ifelse</span>(reason<span class="sc">==</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="setup-to-make-model.html#cb58-1" tabindex="-1"></a>hurr.aft.w <span class="ot">&lt;-</span> <span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;weibull&quot;</span>)</span>
+<span id="cb58-2"><a href="setup-to-make-model.html#cb58-2" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="setup-to-make-model.html#cb58-3" tabindex="-1"></a><span class="fu">plot</span>(hurr.aft.w, <span class="at">type =</span> <span class="st">&quot;cumhaz&quot;</span>, <span class="at">ci =</span> <span class="cn">TRUE</span>, <span class="at">conf.int =</span> <span class="cn">FALSE</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb58-4"><a href="setup-to-make-model.html#cb58-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;week&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Cumulative Hazard&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Weibull Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="setup-to-make-model.html#cb59-1" tabindex="-1"></a>hurr.aft.e <span class="ot">&lt;-</span> <span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;exp&quot;</span>)</span>
+<span id="cb59-2"><a href="setup-to-make-model.html#cb59-2" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="setup-to-make-model.html#cb59-3" tabindex="-1"></a><span class="fu">plot</span>(hurr.aft.e, <span class="at">type =</span> <span class="st">&quot;cumhaz&quot;</span>, <span class="at">ci =</span> <span class="cn">TRUE</span>, <span class="at">conf.int =</span> <span class="cn">FALSE</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb59-4"><a href="setup-to-make-model.html#cb59-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;week&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Cumulative Hazard&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Exponential Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-26-2.png" width="672" /></p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="setup-to-make-model.html#cb60-1" tabindex="-1"></a>hurr.aft.g <span class="ot">&lt;-</span> <span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;gamma&quot;</span>)</span>
+<span id="cb60-2"><a href="setup-to-make-model.html#cb60-2" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="setup-to-make-model.html#cb60-3" tabindex="-1"></a><span class="fu">plot</span>(hurr.aft.g, <span class="at">type =</span> <span class="st">&quot;cumhaz&quot;</span>, <span class="at">ci =</span> <span class="cn">TRUE</span>, <span class="at">conf.int =</span> <span class="cn">FALSE</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb60-4"><a href="setup-to-make-model.html#cb60-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;week&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Cumulative Hazard&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Gamma Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-26-3.png" width="672" /></p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="setup-to-make-model.html#cb61-1" tabindex="-1"></a>hurr.aft.ll <span class="ot">&lt;-</span> <span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;llogis&quot;</span>)</span>
+<span id="cb61-2"><a href="setup-to-make-model.html#cb61-2" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="setup-to-make-model.html#cb61-3" tabindex="-1"></a><span class="fu">plot</span>(hurr.aft.ll, <span class="at">type =</span> <span class="st">&quot;cumhaz&quot;</span>, <span class="at">ci =</span> <span class="cn">TRUE</span>, <span class="at">conf.int =</span> <span class="cn">FALSE</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb61-4"><a href="setup-to-make-model.html#cb61-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;week&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Cumulative Hazard&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Log-Logistic Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-26-4.png" width="672" /></p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="setup-to-make-model.html#cb62-1" tabindex="-1"></a>hurr.aft.ln <span class="ot">&lt;-</span> <span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;lognormal&quot;</span>)</span>
+<span id="cb62-2"><a href="setup-to-make-model.html#cb62-2" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="setup-to-make-model.html#cb62-3" tabindex="-1"></a><span class="fu">plot</span>(hurr.aft.ln, <span class="at">type =</span> <span class="st">&quot;cumhaz&quot;</span>, <span class="at">ci =</span> <span class="cn">TRUE</span>, <span class="at">conf.int =</span> <span class="cn">FALSE</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb62-4"><a href="setup-to-make-model.html#cb62-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;week&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Cumulative Hazard&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Log-Normal Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-26-5.png" width="672" /></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="setup-to-make-model.html#cb63-1" tabindex="-1"></a><span class="co"># Goodness-of-Fit Tests </span></span>
+<span id="cb63-2"><a href="setup-to-make-model.html#cb63-2" tabindex="-1"></a></span>
+<span id="cb63-3"><a href="setup-to-make-model.html#cb63-3" tabindex="-1"></a>like.e <span class="ot">=</span> <span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;exp&quot;</span>)<span class="sc">$</span>loglik</span>
+<span id="cb63-4"><a href="setup-to-make-model.html#cb63-4" tabindex="-1"></a>like.w <span class="ot">&lt;-</span> <span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;weibull&quot;</span>)<span class="sc">$</span>loglik</span>
+<span id="cb63-5"><a href="setup-to-make-model.html#cb63-5" tabindex="-1"></a>like.ln <span class="ot">&lt;-</span> <span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;lnorm&quot;</span>)<span class="sc">$</span>loglik</span>
+<span id="cb63-6"><a href="setup-to-make-model.html#cb63-6" tabindex="-1"></a>like.g <span class="ot">=</span> <span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;gamma&quot;</span>)<span class="sc">$</span>loglik</span>
+<span id="cb63-7"><a href="setup-to-make-model.html#cb63-7" tabindex="-1"></a>like.ll <span class="ot">=</span> <span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;llogis&quot;</span>)<span class="sc">$</span>loglik</span>
+<span id="cb63-8"><a href="setup-to-make-model.html#cb63-8" tabindex="-1"></a>like.f <span class="ot">=</span> <span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;genf&quot;</span>)<span class="sc">$</span>loglik</span>
+<span id="cb63-9"><a href="setup-to-make-model.html#cb63-9" tabindex="-1"></a></span>
+<span id="cb63-10"><a href="setup-to-make-model.html#cb63-10" tabindex="-1"></a></span>
+<span id="cb63-11"><a href="setup-to-make-model.html#cb63-11" tabindex="-1"></a>pval.e.g <span class="ot">=</span> <span class="fu">pchisq</span>((<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>(like.e<span class="sc">-</span>like.g)), <span class="dv">2</span>,<span class="at">lower.tail=</span>F)</span>
+<span id="cb63-12"><a href="setup-to-make-model.html#cb63-12" tabindex="-1"></a>pval.w.g <span class="ot">=</span> <span class="fu">pchisq</span>((<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>(like.w<span class="sc">-</span>like.g)), <span class="dv">1</span>,<span class="at">lower.tail=</span>F)</span>
+<span id="cb63-13"><a href="setup-to-make-model.html#cb63-13" tabindex="-1"></a>pval.ln.g <span class="ot">=</span> <span class="fu">pchisq</span>((<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>(like.ln<span class="sc">-</span>like.g)), <span class="dv">1</span>,<span class="at">lower.tail=</span>F)</span>
+<span id="cb63-14"><a href="setup-to-make-model.html#cb63-14" tabindex="-1"></a><span class="do">##pval.g.f = pchisq((-2*(like.g-like.f)), 1,lower.tail=F)</span></span>
+<span id="cb63-15"><a href="setup-to-make-model.html#cb63-15" tabindex="-1"></a></span>
+<span id="cb63-16"><a href="setup-to-make-model.html#cb63-16" tabindex="-1"></a></span>
+<span id="cb63-17"><a href="setup-to-make-model.html#cb63-17" tabindex="-1"></a>Tests <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;Exp vs. Gam&#39;</span>, <span class="st">&#39;Wei vs. Gam&#39;</span>, <span class="st">&#39;LogN vs. Gam&#39;</span>)</span>
+<span id="cb63-18"><a href="setup-to-make-model.html#cb63-18" tabindex="-1"></a>P_values <span class="ot">=</span> <span class="fu">c</span>(pval.e.g, pval.w.g, pval.ln.g)</span>
+<span id="cb63-19"><a href="setup-to-make-model.html#cb63-19" tabindex="-1"></a><span class="fu">cbind</span>(Tests, P_values)</span></code></pre></div>
+<pre><code>##      Tests          P_values              
+## [1,] &quot;Exp vs. Gam&quot;  &quot;1.15756879954454e-05&quot;
+## [2,] &quot;Wei vs. Gam&quot;  &quot;1&quot;                   
+## [3,] &quot;LogN vs. Gam&quot; &quot;0.0113749320431249&quot;</code></pre>
+<p>No difference between Weibull and Gam -&gt; use Weibull</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="setup-to-make-model.html#cb65-1" tabindex="-1"></a><span class="co">#Variable Selection</span></span>
+<span id="cb65-2"><a href="setup-to-make-model.html#cb65-2" tabindex="-1"></a>full.model <span class="ot">&lt;-</span> <span class="fu">survreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;weibull&quot;</span>)</span>
+<span id="cb65-3"><a href="setup-to-make-model.html#cb65-3" tabindex="-1"></a>empty.model <span class="ot">&lt;-</span> <span class="fu">survreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;weibull&quot;</span>)</span>
+<span id="cb65-4"><a href="setup-to-make-model.html#cb65-4" tabindex="-1"></a>back.model <span class="ot">&lt;-</span> <span class="fu">step</span>(full.model,</span>
+<span id="cb65-5"><a href="setup-to-make-model.html#cb65-5" tabindex="-1"></a>                   <span class="at">scope =</span> <span class="fu">list</span>(<span class="at">lower =</span> empty.model,</span>
+<span id="cb65-6"><a href="setup-to-make-model.html#cb65-6" tabindex="-1"></a>                               <span class="at">upper =</span> full.model),</span>
+<span id="cb65-7"><a href="setup-to-make-model.html#cb65-7" tabindex="-1"></a>                  <span class="at">direction =</span> <span class="st">&#39;backward&#39;</span>, <span class="at">k =</span> <span class="fu">qchisq</span>(<span class="fl">0.03</span>, <span class="dv">1</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>))</span></code></pre></div>
+<pre><code>## Start:  AIC=1496.55
+## Surv(hour, flood) ~ backup + age + bridgecrane + servo + gear + 
+##     trashrack + slope + elevation
+## 
+##               Df    AIC
+## - elevation    1 1492.3
+## - age          1 1492.4
+## - bridgecrane  1 1492.8
+## - gear         1 1494.8
+## - servo        1 1495.6
+## - trashrack    1 1495.8
+## - backup       1 1495.9
+## &lt;none&gt;           1496.5
+## - slope        1 1502.5
+## 
+## Step:  AIC=1492.31
+## Surv(hour, flood) ~ backup + age + bridgecrane + servo + gear + 
+##     trashrack + slope
+## 
+##               Df    AIC
+## - age          1 1488.1
+## - bridgecrane  1 1488.5
+## - gear         1 1490.5
+## - trashrack    1 1491.7
+## - servo        1 1491.7
+## - backup       1 1491.8
+## &lt;none&gt;           1492.3
+## - slope        1 1499.2
+## 
+## Step:  AIC=1488.11
+## Surv(hour, flood) ~ backup + bridgecrane + servo + gear + trashrack + 
+##     slope
+## 
+##               Df    AIC
+## - bridgecrane  1 1484.2
+## - gear         1 1486.5
+## - trashrack    1 1487.3
+## - backup       1 1488.1
+## &lt;none&gt;           1488.1
+## - servo        1 1488.9
+## - slope        1 1495.0
+## 
+## Step:  AIC=1484.21
+## Surv(hour, flood) ~ backup + servo + gear + trashrack + slope
+## 
+##             Df    AIC
+## - gear       1 1483.0
+## - trashrack  1 1483.5
+## - backup     1 1483.9
+## &lt;none&gt;         1484.2
+## - servo      1 1485.2
+## - slope      1 1490.9
+## 
+## Step:  AIC=1482.97
+## Surv(hour, flood) ~ backup + servo + trashrack + slope
+## 
+##             Df    AIC
+## - trashrack  1 1481.9
+## - backup     1 1482.5
+## &lt;none&gt;         1483.0
+## - servo      1 1487.7
+## - slope      1 1488.9
+## 
+## Step:  AIC=1481.88
+## Surv(hour, flood) ~ backup + servo + slope
+## 
+##          Df    AIC
+## &lt;none&gt;      1481.9
+## - backup  1 1482.2
+## - servo   1 1486.4
+## - slope   1 1487.8</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="setup-to-make-model.html#cb67-1" tabindex="-1"></a>hurr.aft <span class="ot">=</span> <span class="fu">survreg</span>(<span class="fu">Surv</span>(hour, flood) <span class="sc">~</span> backup <span class="sc">+</span> servo <span class="sc">+</span> slope, <span class="at">data =</span> hurricane, <span class="at">dist =</span> <span class="st">&quot;weibull&quot;</span>)</span>
+<span id="cb67-2"><a href="setup-to-make-model.html#cb67-2" tabindex="-1"></a><span class="fu">summary</span>(hurr.aft)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## survreg(formula = Surv(hour, flood) ~ backup + servo + slope, 
+##     data = hurricane, dist = &quot;weibull&quot;)
+##               Value Std. Error     z       p
+## (Intercept)  4.7711     0.1524 31.31 &lt; 2e-16
+## backup       0.2710     0.1236  2.19 0.02831
+## servo        0.3859     0.1306  2.95 0.00313
+## slope       -0.0606     0.0174 -3.47 0.00051
+## Log(scale)  -0.4381     0.0860 -5.10 3.5e-07
+## 
+## Scale= 0.645 
+## 
+## Weibull distribution
+## Loglik(model)= -729.2   Loglik(intercept only)= -744.8
+##  Chisq= 31.21 on 3 degrees of freedom, p= 7.7e-07 
+## Number of Newton-Raphson Iterations: 7 
+## n= 770</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="setup-to-make-model.html#cb69-1" tabindex="-1"></a>survprob.<span class="dv">75</span>.<span class="fl">50.25</span> <span class="ot">=</span> <span class="fu">predict</span>(hurr.aft, <span class="at">type =</span> <span class="st">&quot;quantile&quot;</span>, <span class="at">se.fit =</span> <span class="cn">TRUE</span>,<span class="at">p =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>))</span>
+<span id="cb69-2"><a href="setup-to-make-model.html#cb69-2" tabindex="-1"></a><span class="fu">head</span>(survprob.<span class="dv">75</span>.<span class="fl">50.25</span><span class="sc">$</span>fit)</span></code></pre></div>
+<pre><code>##          [,1]      [,2]      [,3]
+## [1,] 44.05062  77.69575 121.52050
+## [2,] 34.56747  60.96954  95.35976
+## [3,] 44.05062  77.69575 121.52050
+## [4,] 54.36369  95.88577 149.97070
+## [5,] 64.79470 114.28381 178.74628
+## [6,] 69.27767 122.19080 191.11324</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="setup-to-make-model.html#cb71-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(hurr.aft)) <span class="sc">-</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>##  (Intercept)       backup        servo        slope 
+## 117.05233813   0.31122730   0.47091467  -0.05880652</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="setup-to-make-model.html#cb73-1" tabindex="-1"></a>hurricane <span class="ot">=</span> hurricane <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pump =</span> <span class="fu">row_number</span>())</span>
+<span id="cb73-2"><a href="setup-to-make-model.html#cb73-2" tabindex="-1"></a><span class="co">#Servo impact</span></span>
+<span id="cb73-3"><a href="setup-to-make-model.html#cb73-3" tabindex="-1"></a>survprob.actual <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">psurvreg</span>(hurricane<span class="sc">$</span>hour,</span>
+<span id="cb73-4"><a href="setup-to-make-model.html#cb73-4" tabindex="-1"></a>      <span class="at">mean =</span> <span class="fu">predict</span>(hurr.aft, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>),</span>
+<span id="cb73-5"><a href="setup-to-make-model.html#cb73-5" tabindex="-1"></a>      <span class="at">scale =</span> hurr.aft<span class="sc">$</span>scale, <span class="at">distribution =</span> hurr.aft<span class="sc">$</span>dist)</span>
+<span id="cb73-6"><a href="setup-to-make-model.html#cb73-6" tabindex="-1"></a></span>
+<span id="cb73-7"><a href="setup-to-make-model.html#cb73-7" tabindex="-1"></a>new_time <span class="ot">=</span> <span class="fu">qsurvreg</span>(<span class="dv">1</span> <span class="sc">-</span> survprob.actual,</span>
+<span id="cb73-8"><a href="setup-to-make-model.html#cb73-8" tabindex="-1"></a><span class="at">mean =</span> <span class="fu">predict</span>(hurr.aft, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>) <span class="sc">+</span></span>
+<span id="cb73-9"><a href="setup-to-make-model.html#cb73-9" tabindex="-1"></a><span class="fu">coef</span>(hurr.aft)[<span class="st">&#39;servo&#39;</span>],</span>
+<span id="cb73-10"><a href="setup-to-make-model.html#cb73-10" tabindex="-1"></a><span class="at">scale =</span> hurr.aft<span class="sc">$</span>scale,</span>
+<span id="cb73-11"><a href="setup-to-make-model.html#cb73-11" tabindex="-1"></a><span class="at">distribution =</span> hurr.aft<span class="sc">$</span>dist)</span>
+<span id="cb73-12"><a href="setup-to-make-model.html#cb73-12" tabindex="-1"></a></span>
+<span id="cb73-13"><a href="setup-to-make-model.html#cb73-13" tabindex="-1"></a>hurricane<span class="sc">$</span>new_time <span class="ot">=</span> new_time</span>
+<span id="cb73-14"><a href="setup-to-make-model.html#cb73-14" tabindex="-1"></a>hurricane<span class="sc">$</span>diff <span class="ot">=</span> hurricane<span class="sc">$</span>new_time <span class="sc">-</span> hurricane<span class="sc">$</span>hour</span>
+<span id="cb73-15"><a href="setup-to-make-model.html#cb73-15" tabindex="-1"></a>impact.servo<span class="ot">=</span><span class="fu">data.frame</span>(hurricane<span class="sc">$</span>hour, hurricane<span class="sc">$</span>new_time, hurricane<span class="sc">$</span>diff, hurricane<span class="sc">$</span>flood, hurricane<span class="sc">$</span>servo, hurricane<span class="sc">$</span>pump)</span>
+<span id="cb73-16"><a href="setup-to-make-model.html#cb73-16" tabindex="-1"></a><span class="fu">colnames</span>(impact.servo)<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;O.hour&quot;</span>,<span class="st">&quot;N.hour&quot;</span>,<span class="st">&quot;Diff_servo&quot;</span>,<span class="st">&quot;flood&quot;</span>,<span class="st">&quot;servo&quot;</span>, <span class="st">&quot;pump&quot;</span>)</span>
+<span id="cb73-17"><a href="setup-to-make-model.html#cb73-17" tabindex="-1"></a>impact.servo<span class="ot">=</span><span class="fu">subset</span>(impact.servo,flood<span class="sc">==</span><span class="dv">1</span> <span class="sc">&amp;</span> servo<span class="sc">==</span><span class="dv">0</span>)</span>
+<span id="cb73-18"><a href="setup-to-make-model.html#cb73-18" tabindex="-1"></a>impact.servo <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Diff_servo)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(O.hour <span class="sc">&lt;</span><span class="dv">48</span> <span class="sc">&amp;</span> N.hour <span class="sc">&gt;</span><span class="dv">48</span>)</span></code></pre></div>
+<pre><code>##    O.hour   N.hour Diff_servo flood servo pump
+## 1      45 66.19116   21.19116     1     0  375
+## 2      44 64.72025   20.72025     1     0  339
+## 3      43 63.24933   20.24933     1     0  357
+## 4      42 61.77842   19.77842     1     0  331
+## 5      42 61.77842   19.77842     1     0  366
+## 6      42 61.77842   19.77842     1     0  370
+## 7      42 61.77842   19.77842     1     0  394
+## 8      40 58.83659   18.83659     1     0  342
+## 9      40 58.83659   18.83659     1     0  380
+## 10     37 54.42384   17.42384     1     0  317
+## 11     37 54.42384   17.42384     1     0  358
+## 12     36 52.95293   16.95293     1     0  419
+## 13     35 51.48201   16.48201     1     0  364
+## 14     34 50.01110   16.01110     1     0  417
+## 15     33 48.54018   15.54018     1     0  318
+## 16     33 48.54018   15.54018     1     0  397
+## 17     33 48.54018   15.54018     1     0  343</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="setup-to-make-model.html#cb75-1" tabindex="-1"></a>testing <span class="ot">=</span> impact.servo <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Diff_servo)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(N.hour <span class="sc">&lt;</span> <span class="dv">49</span> <span class="sc">&amp;</span> N.hour <span class="sc">&gt;</span><span class="dv">33</span>)</span>
+<span id="cb75-2"><a href="setup-to-make-model.html#cb75-2" tabindex="-1"></a>testing</span></code></pre></div>
+<pre><code>##    O.hour   N.hour Diff_servo flood servo pump
+## 1      33 48.54018   15.54018     1     0  318
+## 2      33 48.54018   15.54018     1     0  397
+## 3      33 48.54018   15.54018     1     0  343
+## 4      32 47.06927   15.06927     1     0  329
+## 5      32 47.06927   15.06927     1     0  347
+## 6      31 45.59835   14.59835     1     0  350
+## 7      31 45.59835   14.59835     1     0  410
+## 8      30 44.12744   14.12744     1     0  352
+## 9      30 44.12744   14.12744     1     0  367
+## 10     30 44.12744   14.12744     1     0  369
+## 11     30 44.12744   14.12744     1     0  376
+## 12     28 41.18561   13.18561     1     0  319
+## 13     26 38.24378   12.24378     1     0  321
+## 14     25 36.77287   11.77287     1     0  404
+## 15     25 36.77287   11.77287     1     0  408
+## 16     24 35.30195   11.30195     1     0  399
+## 17     23 33.83104   10.83104     1     0  377
+## 18     23 33.83104   10.83104     1     0  403</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="setup-to-make-model.html#cb77-1" tabindex="-1"></a><span class="co">#Backup impact</span></span>
+<span id="cb77-2"><a href="setup-to-make-model.html#cb77-2" tabindex="-1"></a>survprob.actual <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">psurvreg</span>(hurricane<span class="sc">$</span>hour,</span>
+<span id="cb77-3"><a href="setup-to-make-model.html#cb77-3" tabindex="-1"></a>      <span class="at">mean =</span> <span class="fu">predict</span>(hurr.aft, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>),</span>
+<span id="cb77-4"><a href="setup-to-make-model.html#cb77-4" tabindex="-1"></a>      <span class="at">scale =</span> hurr.aft<span class="sc">$</span>scale, <span class="at">distribution =</span> hurr.aft<span class="sc">$</span>dist)</span>
+<span id="cb77-5"><a href="setup-to-make-model.html#cb77-5" tabindex="-1"></a><span class="fu">head</span>(survprob.actual, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##  [1] 0.7199136 0.6197293 0.7199136 0.7888291 0.8346742 0.8496614 0.7414375 0.6468896 0.7615909
+## [10] 0.7414375</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="setup-to-make-model.html#cb79-1" tabindex="-1"></a>new_time <span class="ot">=</span> <span class="fu">qsurvreg</span>(<span class="dv">1</span> <span class="sc">-</span> survprob.actual,</span>
+<span id="cb79-2"><a href="setup-to-make-model.html#cb79-2" tabindex="-1"></a><span class="at">mean =</span> <span class="fu">predict</span>(hurr.aft, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>) <span class="sc">+</span></span>
+<span id="cb79-3"><a href="setup-to-make-model.html#cb79-3" tabindex="-1"></a><span class="fu">coef</span>(hurr.aft)[<span class="st">&#39;backup&#39;</span>],</span>
+<span id="cb79-4"><a href="setup-to-make-model.html#cb79-4" tabindex="-1"></a><span class="at">scale =</span> hurr.aft<span class="sc">$</span>scale,</span>
+<span id="cb79-5"><a href="setup-to-make-model.html#cb79-5" tabindex="-1"></a><span class="at">distribution =</span> hurr.aft<span class="sc">$</span>dist)</span>
+<span id="cb79-6"><a href="setup-to-make-model.html#cb79-6" tabindex="-1"></a></span>
+<span id="cb79-7"><a href="setup-to-make-model.html#cb79-7" tabindex="-1"></a>hurricane<span class="sc">$</span>new_time <span class="ot">=</span> new_time</span>
+<span id="cb79-8"><a href="setup-to-make-model.html#cb79-8" tabindex="-1"></a>hurricane<span class="sc">$</span>diff <span class="ot">=</span> hurricane<span class="sc">$</span>new_time <span class="sc">-</span> hurricane<span class="sc">$</span>hour</span>
+<span id="cb79-9"><a href="setup-to-make-model.html#cb79-9" tabindex="-1"></a>impact.backup<span class="ot">=</span><span class="fu">data.frame</span>(hurricane<span class="sc">$</span>hour, hurricane<span class="sc">$</span>new_time, hurricane<span class="sc">$</span>diff, hurricane<span class="sc">$</span>flood, hurricane<span class="sc">$</span>backup, hurricane<span class="sc">$</span>pump)</span>
+<span id="cb79-10"><a href="setup-to-make-model.html#cb79-10" tabindex="-1"></a><span class="fu">colnames</span>(impact.backup)<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;O.hour&quot;</span>,<span class="st">&quot;N.hour&quot;</span>,<span class="st">&quot;Diff_backup&quot;</span>,<span class="st">&quot;flood&quot;</span>,<span class="st">&quot;backup&quot;</span>, <span class="st">&quot;pump&quot;</span>)</span>
+<span id="cb79-11"><a href="setup-to-make-model.html#cb79-11" tabindex="-1"></a>impact.backup<span class="ot">=</span><span class="fu">subset</span>(impact.backup,flood<span class="sc">==</span><span class="dv">1</span> <span class="sc">&amp;</span> backup<span class="sc">==</span><span class="dv">0</span>)</span>
+<span id="cb79-12"><a href="setup-to-make-model.html#cb79-12" tabindex="-1"></a>impact.backup <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Diff_backup)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(N.hour <span class="sc">&gt;</span><span class="dv">48</span>)</span></code></pre></div>
+<pre><code>##    O.hour   N.hour Diff_backup flood backup pump
+## 1      48 62.93891    14.93891     1      0  361
+## 2      48 62.93891    14.93891     1      0  389
+## 3      48 62.93891    14.93891     1      0  392
+## 4      48 62.93891    14.93891     1      0  426
+## 5      46 60.31646    14.31646     1      0  373
+## 6      45 59.00523    14.00523     1      0  387
+## 7      45 59.00523    14.00523     1      0  423
+## 8      44 57.69400    13.69400     1      0  339
+## 9      43 56.38277    13.38277     1      0  357
+## 10     42 55.07155    13.07155     1      0  366
+## 11     42 55.07155    13.07155     1      0  370
+## 12     41 53.76032    12.76032     1      0  345
+## 13     41 53.76032    12.76032     1      0  349
+## 14     40 52.44909    12.44909     1      0  337
+## 15     40 52.44909    12.44909     1      0  342
+## 16     40 52.44909    12.44909     1      0  372
+## 17     40 52.44909    12.44909     1      0  380
+## 18     37 48.51541    11.51541     1      0  317
+## 19     37 48.51541    11.51541     1      0  324
+## 20     37 48.51541    11.51541     1      0  333</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="setup-to-make-model.html#cb81-1" tabindex="-1"></a>testing2 <span class="ot">=</span> impact.backup <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Diff_backup)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(N.hour <span class="sc">&lt;</span> <span class="dv">49</span>  <span class="sc">&amp;</span> N.hour <span class="sc">&gt;</span><span class="dv">33</span>)</span>
+<span id="cb81-2"><a href="setup-to-make-model.html#cb81-2" tabindex="-1"></a>testing2</span></code></pre></div>
+<pre><code>##    O.hour   N.hour Diff_backup flood backup pump
+## 1      37 48.51541   11.515410     1      0  317
+## 2      37 48.51541   11.515410     1      0  324
+## 3      37 48.51541   11.515410     1      0  333
+## 4      36 47.20418   11.204183     1      0  395
+## 5      35 45.89296   10.892955     1      0  364
+## 6      34 44.58173   10.581728     1      0  322
+## 7      34 44.58173   10.581728     1      0  427
+## 8      32 41.95927    9.959274     1      0  325
+## 9      30 39.33682    9.336819     1      0  367
+## 10     30 39.33682    9.336819     1      0  369
+## 11     30 39.33682    9.336819     1      0  376
+## 12     29 38.02559    9.025592     1      0  359
+## 13     28 36.71436    8.714364     1      0  319
+## 14     26 34.09191    8.091910     1      0  321
+## 15     26 34.09191    8.091910     1      0  374</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="setup-to-make-model.html#cb83-1" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> testing<span class="sc">$</span>pump</span>
+<span id="cb83-2"><a href="setup-to-make-model.html#cb83-2" tabindex="-1"></a>list2 <span class="ot">&lt;-</span> testing2<span class="sc">$</span>pump</span>
+<span id="cb83-3"><a href="setup-to-make-model.html#cb83-3" tabindex="-1"></a></span>
+<span id="cb83-4"><a href="setup-to-make-model.html#cb83-4" tabindex="-1"></a><span class="co"># Find items in list1 that are not in list2</span></span>
+<span id="cb83-5"><a href="setup-to-make-model.html#cb83-5" tabindex="-1"></a>not_in_list2 <span class="ot">&lt;-</span> list1[list1 <span class="sc">%in%</span> list2]</span>
+<span id="cb83-6"><a href="setup-to-make-model.html#cb83-6" tabindex="-1"></a><span class="fu">print</span>(not_in_list2)</span></code></pre></div>
+<pre><code>## [1] 367 369 376 319 321</code></pre>
+<p>367, 369, 376, 319, 321 all inc more with Servo</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="setup-to-make-model.html#cb85-1" tabindex="-1"></a>upgrades <span class="ot">=</span> <span class="fu">merge</span>(impact.servo, impact.backup, <span class="at">by=</span><span class="st">&quot;pump&quot;</span>, <span class="at">all=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(Diff_servo, Diff_backup, pump) </span>
+<span id="cb85-2"><a href="setup-to-make-model.html#cb85-2" tabindex="-1"></a>upgrades[<span class="fu">is.na</span>(upgrades)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb85-3"><a href="setup-to-make-model.html#cb85-3" tabindex="-1"></a>upgrades <span class="ot">=</span> upgrades <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">servo_impact =</span> <span class="dv">150000</span><span class="sc">/</span>Diff_servo,</span>
+<span id="cb85-4"><a href="setup-to-make-model.html#cb85-4" tabindex="-1"></a>                               <span class="at">backup_impact =</span> <span class="dv">100000</span><span class="sc">/</span>Diff_backup,</span>
+<span id="cb85-5"><a href="setup-to-make-model.html#cb85-5" tabindex="-1"></a>                               <span class="at">better =</span> <span class="fu">ifelse</span>(backup_impact <span class="sc">&gt;</span> servo_impact, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb85-6"><a href="setup-to-make-model.html#cb85-6" tabindex="-1"></a>upgrades <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Diff_servo))</span></code></pre></div>
+<pre><code>##    Diff_servo Diff_backup pump servo_impact backup_impact better
+## 1  22.6039042  14.9389103  361     6636.022      6693.929      1
+## 2  21.1911602   0.0000000  375     7078.423           Inf      1
+## 3  20.7202455  13.6940011  339     7239.296      7302.468      1
+## 4  20.2493308  13.3827738  357     7407.652      7472.292      1
+## 5  19.7784162   0.0000000  331     7584.025           Inf      1
+## 6  19.7784162  13.0715465  366     7584.025      7650.204      1
+## 7  19.7784162  13.0715465  370     7584.025      7650.204      1
+## 8  19.7784162   0.0000000  394     7584.025           Inf      1
+## 9  18.8365868  12.4490919  342     7963.226      8032.714      1
+## 10 18.8365868  12.4490919  380     7963.226      8032.714      1
+## 11 17.4238428  11.5154100  317     8608.893      8684.016      1
+## 12 17.4238428   0.0000000  358     8608.893           Inf      1
+## 13 16.9529282   0.0000000  419     8848.029           Inf      1
+## 14 16.4820135  10.8929554  364     9100.830      9180.245      1
+## 15 16.0110988   0.0000000  417     9368.501           Inf      1
+## 16 15.5401841   0.0000000  318     9652.395           Inf      1
+## 17 15.5401841   0.0000000  397     9652.395           Inf      1
+## 18 15.5401841   0.0000000  343     9652.395           Inf      1
+## 19 15.0692695   0.0000000  329     9954.033           Inf      1
+## 20 15.0692695   0.0000000  347     9954.033           Inf      1
+## 21 14.5983548   0.0000000  350    10275.130           Inf      1
+## 22 14.5983548   0.0000000  410    10275.130           Inf      1
+## 23 14.1274401   0.0000000  352    10617.635           Inf      1
+## 24 14.1274401   9.3368189  367    10617.635     10710.286      1
+## 25 14.1274401   9.3368189  369    10617.635     10710.286      1
+## 26 14.1274401   9.3368189  376    10617.635     10710.286      1
+## 27 13.1856108   8.7143643  319    11376.037     11475.306      1
+## 28 12.2437814   8.0919097  321    12251.117     12358.022      1
+## 29 11.7728668   7.7806824  404    12741.162     12852.343      1
+## 30 11.7728668   7.7806824  408    12741.162     12852.343      1
+## 31 11.3019521   7.4694551  399    13272.044     13387.857      1
+## 32 10.8310374   7.1582278  377    13849.089     13969.938      1
+## 33 10.8310374   7.1582278  403    13849.089     13969.938      1
+## 34  9.4182934   0.0000000  368    15926.452           Inf      1
+## 35  8.9473787   5.9133186  416    16764.687     16910.978      1
+## 36  8.4764641   0.0000000  353    17696.058           Inf      1
+## 37  8.4764641   0.0000000  384    17696.058           Inf      1
+## 38  8.4764641   0.0000000  406    17696.058           Inf      1
+## 39  8.4764641   5.6020913  346    17696.058     17850.477      1
+## 40  8.4764641   5.6020913  412    17696.058     17850.477      1
+## 41  8.0055494   0.0000000  336    18737.003           Inf      1
+## 42  8.0055494   5.2908640  365    18737.003     18900.505      1
+## 43  7.5346347   4.9796368  340    19908.065     20081.786      1
+## 44  7.5346347   4.9796368  341    19908.065     20081.786      1
+## 45  7.5346347   4.9796368  363    19908.065     20081.786      1
+## 46  7.0637201   4.6684095  428    21235.270     21420.572      1
+## 47  7.0637201   0.0000000  405    21235.270           Inf      1
+## 48  6.5928054   0.0000000  330    22752.075           Inf      1
+## 49  6.5928054   0.0000000  385    22752.075           Inf      1
+## 50  6.1218907   4.0459549  360    24502.234     24716.044      1
+## 51  6.1218907   4.0459549  398    24502.234     24716.044      1
+## 52  5.6509761   3.7347276  401    26544.087     26775.715      1
+## 53  4.7091467   0.0000000  320    31852.904           Inf      1
+## 54  4.7091467   3.1122730  356    31852.904     32130.858      1
+## 55  4.2382320   2.8010457  390    35392.116     35700.953      1
+## 56  3.7673174   0.0000000  424    39816.131           Inf      1
+## 57  3.2964027   0.0000000  383    45504.149           Inf      1
+## 58  3.2964027   2.1785911  381    45504.149     45901.225      1
+## 59  2.8254880   0.0000000  327    53088.174           Inf      1
+## 60  2.8254880   1.8673638  328    53088.174     53551.430      1
+## 61  2.3545734   1.5561365  355    63705.809     64261.715      1
+## 62  1.4127440   0.9336819  418   106176.348    107102.859      1
+## 63  0.4709147   0.3112273  382   318529.044    321308.577      1
+## 64  0.0000000  10.5817281  322          Inf      9450.252      0
+## 65  0.0000000   7.1582278  323          Inf     13969.938      0
+## 66  0.0000000  11.5154100  324          Inf      8684.016      0
+## 67  0.0000000   9.9592735  325          Inf     10040.893      0
+## 68  0.0000000   1.2449092  332          Inf     80327.144      0
+## 69  0.0000000  11.5154100  333          Inf      8684.016      0
+## 70  0.0000000  12.4490919  337          Inf      8032.714      0
+## 71  0.0000000  12.7603192  345          Inf      7836.795      0
+## 72  0.0000000  12.7603192  349          Inf      7836.795      0
+## 73  0.0000000   9.0255916  359          Inf     11079.606      0
+## 74  0.0000000  12.4490919  372          Inf      8032.714      0
+## 75  0.0000000  14.3164557  373          Inf      6984.969      0
+## 76  0.0000000   8.0919097  374          Inf     12358.022      0
+## 77  0.0000000   7.7806824  379          Inf     12852.343      0
+## 78  0.0000000   5.2908640  386          Inf     18900.505      0
+## 79  0.0000000  14.0052284  387          Inf      7140.191      0
+## 80  0.0000000  14.9389103  389          Inf      6693.929      0
+## 81  0.0000000  14.9389103  392          Inf      6693.929      0
+## 82  0.0000000   7.4694551  393          Inf     13387.857      0
+## 83  0.0000000  11.2041827  395          Inf      8925.238      0
+## 84  0.0000000   6.8470005  407          Inf     14604.935      0
+## 85  0.0000000   5.9133186  409          Inf     16910.978      0
+## 86  0.0000000   6.5357732  411          Inf     15300.408      0
+## 87  0.0000000   2.1785911  420          Inf     45901.225      0
+## 88  0.0000000  14.0052284  423          Inf      7140.191      0
+## 89  0.0000000   7.4694551  425          Inf     13387.857      0
+## 90  0.0000000  14.9389103  426          Inf      6693.929      0
+## 91  0.0000000  10.5817281  427          Inf      9450.252      0
+## 92  0.0000000   6.8470005  430          Inf     14604.935      0
+## 93  0.0000000   0.6224546  431          Inf    160654.289      0</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="setup-to-make-model.html#cb87-1" tabindex="-1"></a>upgrades <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Diff_backup))</span></code></pre></div>
+<pre><code>##    Diff_servo Diff_backup pump servo_impact backup_impact better
+## 1  22.6039042  14.9389103  361     6636.022      6693.929      1
+## 2   0.0000000  14.9389103  389          Inf      6693.929      0
+## 3   0.0000000  14.9389103  392          Inf      6693.929      0
+## 4   0.0000000  14.9389103  426          Inf      6693.929      0
+## 5   0.0000000  14.3164557  373          Inf      6984.969      0
+## 6   0.0000000  14.0052284  387          Inf      7140.191      0
+## 7   0.0000000  14.0052284  423          Inf      7140.191      0
+## 8  20.7202455  13.6940011  339     7239.296      7302.468      1
+## 9  20.2493308  13.3827738  357     7407.652      7472.292      1
+## 10 19.7784162  13.0715465  366     7584.025      7650.204      1
+## 11 19.7784162  13.0715465  370     7584.025      7650.204      1
+## 12  0.0000000  12.7603192  345          Inf      7836.795      0
+## 13  0.0000000  12.7603192  349          Inf      7836.795      0
+## 14  0.0000000  12.4490919  337          Inf      8032.714      0
+## 15 18.8365868  12.4490919  342     7963.226      8032.714      1
+## 16  0.0000000  12.4490919  372          Inf      8032.714      0
+## 17 18.8365868  12.4490919  380     7963.226      8032.714      1
+## 18 17.4238428  11.5154100  317     8608.893      8684.016      1
+## 19  0.0000000  11.5154100  324          Inf      8684.016      0
+## 20  0.0000000  11.5154100  333          Inf      8684.016      0
+## 21  0.0000000  11.2041827  395          Inf      8925.238      0
+## 22 16.4820135  10.8929554  364     9100.830      9180.245      1
+## 23  0.0000000  10.5817281  322          Inf      9450.252      0
+## 24  0.0000000  10.5817281  427          Inf      9450.252      0
+## 25  0.0000000   9.9592735  325          Inf     10040.893      0
+## 26 14.1274401   9.3368189  367    10617.635     10710.286      1
+## 27 14.1274401   9.3368189  369    10617.635     10710.286      1
+## 28 14.1274401   9.3368189  376    10617.635     10710.286      1
+## 29  0.0000000   9.0255916  359          Inf     11079.606      0
+## 30 13.1856108   8.7143643  319    11376.037     11475.306      1
+## 31 12.2437814   8.0919097  321    12251.117     12358.022      1
+## 32  0.0000000   8.0919097  374          Inf     12358.022      0
+## 33 11.7728668   7.7806824  408    12741.162     12852.343      1
+## 34  0.0000000   7.7806824  379          Inf     12852.343      0
+## 35 11.7728668   7.7806824  404    12741.162     12852.343      1
+## 36 11.3019521   7.4694551  399    13272.044     13387.857      1
+## 37  0.0000000   7.4694551  425          Inf     13387.857      0
+## 38  0.0000000   7.4694551  393          Inf     13387.857      0
+## 39 10.8310374   7.1582278  377    13849.089     13969.938      1
+## 40  0.0000000   7.1582278  323          Inf     13969.938      0
+## 41 10.8310374   7.1582278  403    13849.089     13969.938      1
+## 42  0.0000000   6.8470005  430          Inf     14604.935      0
+## 43  0.0000000   6.8470005  407          Inf     14604.935      0
+## 44  0.0000000   6.5357732  411          Inf     15300.408      0
+## 45  8.9473787   5.9133186  416    16764.687     16910.978      1
+## 46  0.0000000   5.9133186  409          Inf     16910.978      0
+## 47  8.4764641   5.6020913  346    17696.058     17850.477      1
+## 48  8.4764641   5.6020913  412    17696.058     17850.477      1
+## 49  0.0000000   5.2908640  386          Inf     18900.505      0
+## 50  8.0055494   5.2908640  365    18737.003     18900.505      1
+## 51  7.5346347   4.9796368  340    19908.065     20081.786      1
+## 52  7.5346347   4.9796368  341    19908.065     20081.786      1
+## 53  7.5346347   4.9796368  363    19908.065     20081.786      1
+## 54  7.0637201   4.6684095  428    21235.270     21420.572      1
+## 55  6.1218907   4.0459549  360    24502.234     24716.044      1
+## 56  6.1218907   4.0459549  398    24502.234     24716.044      1
+## 57  5.6509761   3.7347276  401    26544.087     26775.715      1
+## 58  4.7091467   3.1122730  356    31852.904     32130.858      1
+## 59  4.2382320   2.8010457  390    35392.116     35700.953      1
+## 60  0.0000000   2.1785911  420          Inf     45901.225      0
+## 61  3.2964027   2.1785911  381    45504.149     45901.225      1
+## 62  2.8254880   1.8673638  328    53088.174     53551.430      1
+## 63  2.3545734   1.5561365  355    63705.809     64261.715      1
+## 64  0.0000000   1.2449092  332          Inf     80327.144      0
+## 65  1.4127440   0.9336819  418   106176.348    107102.859      1
+## 66  0.0000000   0.6224546  431          Inf    160654.289      0
+## 67  0.4709147   0.3112273  382   318529.044    321308.577      1
+## 68 15.5401841   0.0000000  318     9652.395           Inf      1
+## 69  4.7091467   0.0000000  320    31852.904           Inf      1
+## 70  2.8254880   0.0000000  327    53088.174           Inf      1
+## 71 15.0692695   0.0000000  329     9954.033           Inf      1
+## 72  6.5928054   0.0000000  330    22752.075           Inf      1
+## 73 19.7784162   0.0000000  331     7584.025           Inf      1
+## 74  8.0055494   0.0000000  336    18737.003           Inf      1
+## 75 15.5401841   0.0000000  343     9652.395           Inf      1
+## 76 15.0692695   0.0000000  347     9954.033           Inf      1
+## 77 14.5983548   0.0000000  350    10275.130           Inf      1
+## 78 14.1274401   0.0000000  352    10617.635           Inf      1
+## 79  8.4764641   0.0000000  353    17696.058           Inf      1
+## 80 17.4238428   0.0000000  358     8608.893           Inf      1
+## 81  9.4182934   0.0000000  368    15926.452           Inf      1
+## 82 21.1911602   0.0000000  375     7078.423           Inf      1
+## 83  3.2964027   0.0000000  383    45504.149           Inf      1
+## 84  8.4764641   0.0000000  384    17696.058           Inf      1
+## 85  6.5928054   0.0000000  385    22752.075           Inf      1
+## 86 19.7784162   0.0000000  394     7584.025           Inf      1
+## 87 15.5401841   0.0000000  397     9652.395           Inf      1
+## 88  7.0637201   0.0000000  405    21235.270           Inf      1
+## 89  8.4764641   0.0000000  406    17696.058           Inf      1
+## 90 14.5983548   0.0000000  410    10275.130           Inf      1
+## 91 16.0110988   0.0000000  417     9368.501           Inf      1
+## 92 16.9529282   0.0000000  419     8848.029           Inf      1
+## 93  3.7673174   0.0000000  424    39816.131           Inf      1</code></pre>
+<p><strong>HW 3</strong></p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="setup-to-make-model.html#cb89-1" tabindex="-1"></a>hurr_long <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/hurrLong.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## New names:
+## Rows: 29661 Columns: 17
+## ── Column specification
+## ──────────────────────────────────────────────────────────────────────── Delimiter: &quot;,&quot; dbl
+## (17): ...1, id, backup, age, bridgecrane, servo, gear, trashrack, slope, elevation, surv...
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ Specify the column
+## types or set `show_col_types = FALSE` to quiet this message.
+## • `` -&gt; `...1`</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="setup-to-make-model.html#cb91-1" tabindex="-1"></a>hurricane <span class="ot">=</span> hurricane <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">motor =</span> <span class="fu">ifelse</span>(reason<span class="sc">==</span><span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb91-2"><a href="setup-to-make-model.html#cb91-2" tabindex="-1"></a>hurr_long</span></code></pre></div>
+<pre><code>## # A tibble: 29,661 × 17
+##     ...1    id backup   age bridgecrane servo  gear trashrack slope elevation survive censor
+##    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+##  1     1     1      0     6           0     0     0         1     3         2       1     48
+##  2     2     1      0     6           0     0     0         1     3         2       1     48
+##  3     3     1      0     6           0     0     0         1     3         2       1     48
+##  4     4     1      0     6           0     0     0         1     3         2       1     48
+##  5     5     1      0     6           0     0     0         1     3         2       1     48
+##  6     6     1      0     6           0     0     0         1     3         2       1     48
+##  7     7     1      0     6           0     0     0         1     3         2       1     48
+##  8     8     1      0     6           0     0     0         1     3         2       1     48
+##  9     9     1      0     6           0     0     0         1     3         2       1     48
+## 10    10     1      0     6           0     0     0         1     3         2       1     48
+## # ℹ 29,651 more rows
+## # ℹ 5 more variables: reason &lt;dbl&gt;, reason2 &lt;dbl&gt;, hour &lt;dbl&gt;, pumpOn &lt;dbl&gt;, consecHour &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="setup-to-make-model.html#cb93-1" tabindex="-1"></a>full.model <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(hour, motor) <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane)</span></code></pre></div>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 6 ; coefficient may be infinite.</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="setup-to-make-model.html#cb95-1" tabindex="-1"></a>empty.model <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(hour, motor) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> hurricane)</span>
+<span id="cb95-2"><a href="setup-to-make-model.html#cb95-2" tabindex="-1"></a></span>
+<span id="cb95-3"><a href="setup-to-make-model.html#cb95-3" tabindex="-1"></a>back.model <span class="ot">&lt;-</span> <span class="fu">step</span>(full.model,</span>
+<span id="cb95-4"><a href="setup-to-make-model.html#cb95-4" tabindex="-1"></a>                   <span class="at">scope =</span> <span class="fu">list</span>(<span class="at">lower =</span> empty.model,</span>
+<span id="cb95-5"><a href="setup-to-make-model.html#cb95-5" tabindex="-1"></a>                               <span class="at">upper =</span> full.model),</span>
+<span id="cb95-6"><a href="setup-to-make-model.html#cb95-6" tabindex="-1"></a>                  <span class="at">direction =</span> <span class="st">&#39;backward&#39;</span>, <span class="at">k =</span> <span class="fu">qchisq</span>(<span class="fl">0.03</span>, <span class="dv">1</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>))</span></code></pre></div>
+<pre><code>## Start:  AIC=1118.09
+## Surv(hour, motor) ~ backup + age + bridgecrane + servo + gear + 
+##     trashrack + slope + elevation</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 6 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 6 ; coefficient may be infinite.</code></pre>
+<pre><code>##               Df    AIC
+## - elevation    1 1113.4
+## - gear         1 1113.4
+## - backup       1 1113.5
+## - bridgecrane  1 1113.6
+## &lt;none&gt;           1118.1
+## - servo        1 1118.4
+## - slope        1 1134.5
+## - age          1 1188.9
+## - trashrack    1 1260.0</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 6 ; coefficient may be infinite.</code></pre>
+<pre><code>## 
+## Step:  AIC=1113.4
+## Surv(hour, motor) ~ backup + age + bridgecrane + servo + gear + 
+##     trashrack + slope</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 6 ; coefficient may be infinite.</code></pre>
+<pre><code>##               Df    AIC
+## - gear         1 1108.7
+## - backup       1 1108.8
+## - bridgecrane  1 1108.9
+## &lt;none&gt;           1113.4
+## - servo        1 1113.8
+## - slope        1 1130.9
+## - age          1 1184.3
+## - trashrack    1 1255.3</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.</code></pre>
+<pre><code>## 
+## Step:  AIC=1108.73
+## Surv(hour, motor) ~ backup + age + bridgecrane + servo + trashrack + 
+##     slope</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 4 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 4 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 4 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 4 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.</code></pre>
+<pre><code>##               Df    AIC
+## - backup       1 1104.1
+## - bridgecrane  1 1104.2
+## &lt;none&gt;           1108.7
+## - servo        1 1109.3
+## - slope        1 1126.2
+## - age          1 1179.6
+## - trashrack    1 1250.6</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 4 ; coefficient may be infinite.</code></pre>
+<pre><code>## 
+## Step:  AIC=1104.11
+## Surv(hour, motor) ~ age + bridgecrane + servo + trashrack + slope</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 3 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 3 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 3 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 4 ; coefficient may be infinite.</code></pre>
+<pre><code>##               Df    AIC
+## - bridgecrane  1 1099.6
+## &lt;none&gt;           1104.1
+## - servo        1 1104.7
+## - slope        1 1123.0
+## - age          1 1176.0
+## - trashrack    1 1245.9</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 3 ; coefficient may be infinite.</code></pre>
+<pre><code>## 
+## Step:  AIC=1099.61
+## Surv(hour, motor) ~ age + servo + trashrack + slope</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 2 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 2 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 3 ; coefficient may be infinite.</code></pre>
+<pre><code>##             Df    AIC
+## &lt;none&gt;         1099.6
+## - servo      1 1100.2
+## - slope      1 1118.3
+## - age        1 1171.8
+## - trashrack  1 1241.8</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="setup-to-make-model.html#cb125-1" tabindex="-1"></a><span class="fu">summary</span>(back.model)</span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = Surv(hour, motor) ~ age + servo + trashrack + 
+##     slope, data = hurricane)
+## 
+##   n= 770, number of events= 112 
+## 
+##                 coef  exp(coef)   se(coef)      z Pr(&gt;|z|)    
+## age       -1.100e+00  3.328e-01  1.447e-01 -7.602 2.92e-14 ***
+## servo      4.687e-01  1.598e+00  2.050e-01  2.287   0.0222 *  
+## trashrack -2.033e+01  1.484e-09  2.435e+03 -0.008   0.9933    
+## slope     -2.615e-01  7.699e-01  6.394e-02 -4.090 4.32e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##           exp(coef) exp(-coef) lower .95 upper .95
+## age       3.328e-01  3.005e+00    0.2506    0.4419
+## servo     1.598e+00  6.258e-01    1.0693    2.3880
+## trashrack 1.484e-09  6.737e+08    0.0000       Inf
+## slope     7.699e-01  1.299e+00    0.6792    0.8727
+## 
+## Concordance= 0.894  (se = 0.012 )
+## Likelihood ratio test= 279.8  on 4 df,   p=&lt;2e-16
+## Wald test            = 75.61  on 4 df,   p=1e-15
+## Score (logrank) test = 227.3  on 4 df,   p=&lt;2e-16</code></pre>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="setup-to-make-model.html#cb127-1" tabindex="-1"></a>coxphmod <span class="ot">=</span> <span class="fu">coxph</span>(<span class="at">formula =</span> <span class="fu">Surv</span>(hour, motor) <span class="sc">~</span> age <span class="sc">+</span> servo <span class="sc">+</span> slope, <span class="at">data =</span> hurricane)</span>
+<span id="cb127-2"><a href="setup-to-make-model.html#cb127-2" tabindex="-1"></a></span>
+<span id="cb127-3"><a href="setup-to-make-model.html#cb127-3" tabindex="-1"></a><span class="fu">summary</span>(coxphmod)</span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = Surv(hour, motor) ~ age + servo + slope, data = hurricane)
+## 
+##   n= 770, number of events= 112 
+## 
+##           coef exp(coef) se(coef)      z Pr(&gt;|z|)    
+## age   -1.51920   0.21889  0.17075 -8.897  &lt; 2e-16 ***
+## servo  0.44075   1.55387  0.20412  2.159   0.0308 *  
+## slope -0.29120   0.74736  0.06677 -4.361 1.29e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##       exp(coef) exp(-coef) lower .95 upper .95
+## age      0.2189     4.5686    0.1566    0.3059
+## servo    1.5539     0.6436    1.0415    2.3182
+## slope    0.7474     1.3380    0.6557    0.8519
+## 
+## Concordance= 0.786  (se = 0.024 )
+## Likelihood ratio test= 132.9  on 3 df,   p=&lt;2e-16
+## Wald test            = 97.26  on 3 df,   p=&lt;2e-16
+## Score (logrank) test = 94.6  on 3 df,   p=&lt;2e-16</code></pre>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="setup-to-make-model.html#cb129-1" tabindex="-1"></a>survminer<span class="sc">::</span><span class="fu">ggcoxfunctional</span>(coxphmod, <span class="at">data=</span>hurricane)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="setup-to-make-model.html#cb130-1" tabindex="-1"></a>hurr_long <span class="ot">=</span> </span>
+<span id="cb130-2"><a href="setup-to-make-model.html#cb130-2" tabindex="-1"></a>coxphmod <span class="ot">=</span> <span class="fu">coxph</span>(<span class="at">formula =</span> <span class="fu">Surv</span>(hour, motor) <span class="sc">~</span> age <span class="sc">+</span> servo <span class="sc">+</span> slope, <span class="at">data =</span> hurricane)</span>
+<span id="cb130-3"><a href="setup-to-make-model.html#cb130-3" tabindex="-1"></a></span>
+<span id="cb130-4"><a href="setup-to-make-model.html#cb130-4" tabindex="-1"></a><span class="fu">summary</span>(coxphmod)</span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = Surv(hour, motor) ~ age + servo + slope, data = hurricane)
+## 
+##   n= 770, number of events= 112 
+## 
+##           coef exp(coef) se(coef)      z Pr(&gt;|z|)    
+## age   -1.51920   0.21889  0.17075 -8.897  &lt; 2e-16 ***
+## servo  0.44075   1.55387  0.20412  2.159   0.0308 *  
+## slope -0.29120   0.74736  0.06677 -4.361 1.29e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##       exp(coef) exp(-coef) lower .95 upper .95
+## age      0.2189     4.5686    0.1566    0.3059
+## servo    1.5539     0.6436    1.0415    2.3182
+## slope    0.7474     1.3380    0.6557    0.8519
+## 
+## Concordance= 0.786  (se = 0.024 )
+## Likelihood ratio test= 132.9  on 3 df,   p=&lt;2e-16
+## Wald test            = 97.26  on 3 df,   p=&lt;2e-16
+## Score (logrank) test = 94.6  on 3 df,   p=&lt;2e-16</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="setup-to-make-model.html#cb132-1" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> hurricane <span class="sc">%&gt;%</span></span>
+<span id="cb132-2"><a href="setup-to-make-model.html#cb132-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">matches</span>(<span class="st">&quot;^H[0-9]+$&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;Hour&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;PumpStatus&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb132-3"><a href="setup-to-make-model.html#cb132-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Hour =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">&quot;h&quot;</span>, <span class="st">&quot;&quot;</span>, Hour))) <span class="co"># Convert H1 to H48 into numeric hour values</span></span>
+<span id="cb132-4"><a href="setup-to-make-model.html#cb132-4" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> data_long <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">censor =</span> <span class="fu">ifelse</span>(reason <span class="sc">==</span> <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb132-5"><a href="setup-to-make-model.html#cb132-5" tabindex="-1"></a>data_long</span></code></pre></div>
+<pre><code>## # A tibble: 36,960 × 21
+##    backup   age bridgecrane servo  gear trashrack slope elevation survive  hour reason reason2
+##     &lt;int&gt; &lt;dbl&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;int&gt; &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;int&gt;  &lt;int&gt;   &lt;int&gt;
+##  1      0     6           0     0     0         1     3         2       1    48      0       5
+##  2      0     6           0     0     0         1     3         2       1    48      0       5
+##  3      0     6           0     0     0         1     3         2       1    48      0       5
+##  4      0     6           0     0     0         1     3         2       1    48      0       5
+##  5      0     6           0     0     0         1     3         2       1    48      0       5
+##  6      0     6           0     0     0         1     3         2       1    48      0       5
+##  7      0     6           0     0     0         1     3         2       1    48      0       5
+##  8      0     6           0     0     0         1     3         2       1    48      0       5
+##  9      0     6           0     0     0         1     3         2       1    48      0       5
+## 10      0     6           0     0     0         1     3         2       1    48      0       5
+## # ℹ 36,950 more rows
+## # ℹ 9 more variables: Index &lt;int&gt;, flood &lt;dbl&gt;, pump &lt;int&gt;, new_time &lt;dbl&gt;, diff &lt;dbl&gt;,
+## #   motor &lt;dbl&gt;, Hour &lt;dbl&gt;, PumpStatus &lt;int&gt;, censor &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="setup-to-make-model.html#cb134-1" tabindex="-1"></a><span class="fu">library</span>(zoo)</span>
+<span id="cb134-2"><a href="setup-to-make-model.html#cb134-2" tabindex="-1"></a></span>
+<span id="cb134-3"><a href="setup-to-make-model.html#cb134-3" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> data_long <span class="sc">%&gt;%</span></span>
+<span id="cb134-4"><a href="setup-to-make-model.html#cb134-4" tabindex="-1"></a>  <span class="fu">group_by</span>(pump) <span class="sc">%&gt;%</span> <span class="co"># Assuming there&#39;s an ID column for each pump</span></span>
+<span id="cb134-5"><a href="setup-to-make-model.html#cb134-5" tabindex="-1"></a>  <span class="fu">arrange</span>(Hour) <span class="sc">%&gt;%</span></span>
+<span id="cb134-6"><a href="setup-to-make-model.html#cb134-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Running12Hours =</span> <span class="fu">ifelse</span>(<span class="fu">rollapply</span>(PumpStatus, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">FUN =</span> all, <span class="at">fill =</span> <span class="dv">0</span>, <span class="at">align =</span> <span class="st">&quot;right&quot;</span>) <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb134-7"><a href="setup-to-make-model.html#cb134-7" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb134-8"><a href="setup-to-make-model.html#cb134-8" tabindex="-1"></a></span>
+<span id="cb134-9"><a href="setup-to-make-model.html#cb134-9" tabindex="-1"></a>data_long <span class="ot">=</span> data_long <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="st">&#39;reason2&#39;</span>)</span>
+<span id="cb134-10"><a href="setup-to-make-model.html#cb134-10" tabindex="-1"></a></span>
+<span id="cb134-11"><a href="setup-to-make-model.html#cb134-11" tabindex="-1"></a>data_long <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(pump))</span></code></pre></div>
+<pre><code>## # A tibble: 36,960 × 21
+##    backup   age bridgecrane servo  gear trashrack slope elevation survive  hour reason Index
+##     &lt;int&gt; &lt;dbl&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;int&gt; &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt;
+##  1      1   8.5           0     1     1         1     3         2       0    25      4   770
+##  2      1   8.5           0     1     1         1     3         2       0    25      4   770
+##  3      1   8.5           0     1     1         1     3         2       0    25      4   770
+##  4      1   8.5           0     1     1         1     3         2       0    25      4   770
+##  5      1   8.5           0     1     1         1     3         2       0    25      4   770
+##  6      1   8.5           0     1     1         1     3         2       0    25      4   770
+##  7      1   8.5           0     1     1         1     3         2       0    25      4   770
+##  8      1   8.5           0     1     1         1     3         2       0    25      4   770
+##  9      1   8.5           0     1     1         1     3         2       0    25      4   770
+## 10      1   8.5           0     1     1         1     3         2       0    25      4   770
+## # ℹ 36,950 more rows
+## # ℹ 9 more variables: flood &lt;dbl&gt;, pump &lt;int&gt;, new_time &lt;dbl&gt;, diff &lt;dbl&gt;, motor &lt;dbl&gt;,
+## #   Hour &lt;dbl&gt;, PumpStatus &lt;int&gt;, censor &lt;dbl&gt;, Running12Hours &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="setup-to-make-model.html#cb136-1" tabindex="-1"></a>data_long <span class="ot">=</span> data_long <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">&#39;flood&#39;</span>, <span class="st">&#39;diff&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="setup-to-make-model.html#cb137-1" tabindex="-1"></a>data_long <span class="ot">=</span> data_long <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Hour <span class="sc">&lt;=</span> hour)</span>
+<span id="cb137-2"><a href="setup-to-make-model.html#cb137-2" tabindex="-1"></a>data_long <span class="ot">=</span> data_long <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">reason =</span> <span class="fu">ifelse</span>(Hour <span class="sc">==</span> hour, reason, <span class="dv">0</span>))</span>
+<span id="cb137-3"><a href="setup-to-make-model.html#cb137-3" tabindex="-1"></a></span>
+<span id="cb137-4"><a href="setup-to-make-model.html#cb137-4" tabindex="-1"></a>data_long <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(pump))</span></code></pre></div>
+<pre><code>## # A tibble: 29,661 × 19
+##    backup   age bridgecrane servo  gear trashrack slope elevation survive  hour reason Index
+##     &lt;int&gt; &lt;dbl&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;int&gt; &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;int&gt;
+##  1      1   8.5           0     1     1         1     3         2       0    25      0   770
+##  2      1   8.5           0     1     1         1     3         2       0    25      0   770
+##  3      1   8.5           0     1     1         1     3         2       0    25      0   770
+##  4      1   8.5           0     1     1         1     3         2       0    25      0   770
+##  5      1   8.5           0     1     1         1     3         2       0    25      0   770
+##  6      1   8.5           0     1     1         1     3         2       0    25      0   770
+##  7      1   8.5           0     1     1         1     3         2       0    25      0   770
+##  8      1   8.5           0     1     1         1     3         2       0    25      0   770
+##  9      1   8.5           0     1     1         1     3         2       0    25      0   770
+## 10      1   8.5           0     1     1         1     3         2       0    25      0   770
+## # ℹ 29,651 more rows
+## # ℹ 7 more variables: pump &lt;int&gt;, new_time &lt;dbl&gt;, motor &lt;dbl&gt;, Hour &lt;dbl&gt;, PumpStatus &lt;int&gt;,
+## #   censor &lt;dbl&gt;, Running12Hours &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="setup-to-make-model.html#cb139-1" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> hurricane<span class="sc">$</span>hour, <span class="at">event =</span> hurricane<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb139-2"><a href="setup-to-make-model.html#cb139-2" tabindex="-1"></a>full.model <span class="ot">&lt;-</span> <span class="fu">coxph</span>(surv_object <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane)</span>
+<span id="cb139-3"><a href="setup-to-make-model.html#cb139-3" tabindex="-1"></a><span class="fu">summary</span>(full.model)</span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = surv_object ~ backup + age + bridgecrane + servo + 
+##     gear + trashrack + slope + elevation, data = hurricane)
+## 
+##   n= 770, number of events= 454 
+## 
+##                 coef exp(coef) se(coef)      z Pr(&gt;|z|)    
+## backup      -0.18418   0.83179  0.09582 -1.922 0.054588 .  
+## age         -0.20053   0.81830  0.05468 -3.668 0.000245 ***
+## bridgecrane  0.08455   1.08823  0.14043  0.602 0.547111    
+## servo        0.12694   1.13534  0.10875  1.167 0.243143    
+## gear        -0.09570   0.90874  0.15179 -0.630 0.528373    
+## trashrack   -0.29578   0.74395  0.09570 -3.091 0.001996 ** 
+## slope        0.08020   1.08351  0.01556  5.156 2.52e-07 ***
+## elevation   -0.23413   0.79126  0.06267 -3.736 0.000187 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##             exp(coef) exp(-coef) lower .95 upper .95
+## backup         0.8318     1.2022    0.6894    1.0036
+## age            0.8183     1.2220    0.7351    0.9109
+## bridgecrane    1.0882     0.9189    0.8264    1.4330
+## servo          1.1353     0.8808    0.9174    1.4051
+## gear           0.9087     1.1004    0.6749    1.2236
+## trashrack      0.7440     1.3442    0.6167    0.8974
+## slope          1.0835     0.9229    1.0510    1.1171
+## elevation      0.7913     1.2638    0.6998    0.8947
+## 
+## Concordance= 0.635  (se = 0.014 )
+## Likelihood ratio test= 80.7  on 8 df,   p=4e-14
+## Wald test            = 81.74  on 8 df,   p=2e-14
+## Score (logrank) test = 83.41  on 8 df,   p=1e-14</code></pre>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="setup-to-make-model.html#cb141-1" tabindex="-1"></a>full.model <span class="ot">&lt;-</span> <span class="fu">coxph</span>(surv_object <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> hurricane)</span>
+<span id="cb141-2"><a href="setup-to-make-model.html#cb141-2" tabindex="-1"></a></span>
+<span id="cb141-3"><a href="setup-to-make-model.html#cb141-3" tabindex="-1"></a>empty.model <span class="ot">&lt;-</span> <span class="fu">coxph</span>(surv_object <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> hurricane)</span>
+<span id="cb141-4"><a href="setup-to-make-model.html#cb141-4" tabindex="-1"></a></span>
+<span id="cb141-5"><a href="setup-to-make-model.html#cb141-5" tabindex="-1"></a>back.model <span class="ot">&lt;-</span> <span class="fu">step</span>(full.model,</span>
+<span id="cb141-6"><a href="setup-to-make-model.html#cb141-6" tabindex="-1"></a>                   <span class="at">scope =</span> <span class="fu">list</span>(<span class="at">lower =</span> empty.model,</span>
+<span id="cb141-7"><a href="setup-to-make-model.html#cb141-7" tabindex="-1"></a>                               <span class="at">upper =</span> full.model),</span>
+<span id="cb141-8"><a href="setup-to-make-model.html#cb141-8" tabindex="-1"></a>                  <span class="at">direction =</span> <span class="st">&#39;backward&#39;</span>, <span class="at">k =</span> <span class="fu">qchisq</span>(<span class="fl">0.03</span>, <span class="dv">1</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>))</span></code></pre></div>
+<pre><code>## Start:  AIC=5647.68
+## surv_object ~ backup + age + bridgecrane + servo + gear + trashrack + 
+##     slope + elevation
+## 
+##               Df    AIC
+## - bridgecrane  1 5643.3
+## - gear         1 5643.4
+## - servo        1 5644.3
+## - backup       1 5646.7
+## &lt;none&gt;           5647.7
+## - trashrack    1 5652.6
+## - age          1 5657.1
+## - elevation    1 5657.6
+## - slope        1 5666.8
+## 
+## Step:  AIC=5643.34
+## surv_object ~ backup + age + servo + gear + trashrack + slope + 
+##     elevation
+## 
+##             Df    AIC
+## - gear       1 5639.1
+## - servo      1 5639.9
+## - backup     1 5642.1
+## &lt;none&gt;         5643.3
+## - trashrack  1 5648.2
+## - age        1 5652.6
+## - elevation  1 5652.9
+## - slope      1 5662.2
+## 
+## Step:  AIC=5639.12
+## surv_object ~ backup + age + servo + trashrack + slope + elevation
+## 
+##             Df    AIC
+## - servo      1 5635.4
+## - backup     1 5637.9
+## &lt;none&gt;         5639.1
+## - trashrack  1 5644.3
+## - elevation  1 5648.6
+## - age        1 5649.0
+## - slope      1 5657.5
+## 
+## Step:  AIC=5635.39
+## surv_object ~ backup + age + trashrack + slope + elevation
+## 
+##             Df    AIC
+## - backup     1 5634.3
+## &lt;none&gt;         5635.4
+## - trashrack  1 5640.6
+## - age        1 5644.4
+## - elevation  1 5644.4
+## - slope      1 5652.8
+## 
+## Step:  AIC=5634.29
+## surv_object ~ age + trashrack + slope + elevation
+## 
+##             Df    AIC
+## &lt;none&gt;         5634.3
+## - trashrack  1 5638.6
+## - elevation  1 5644.2
+## - age        1 5644.9
+## - slope      1 5650.5</code></pre>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="setup-to-make-model.html#cb143-1" tabindex="-1"></a><span class="fu">summary</span>(back.model)</span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = surv_object ~ age + trashrack + slope + elevation, 
+##     data = hurricane)
+## 
+##   n= 770, number of events= 454 
+## 
+##               coef exp(coef) se(coef)      z Pr(&gt;|z|)    
+## age       -0.19371   0.82390  0.05086 -3.808  0.00014 ***
+## trashrack -0.28485   0.75212  0.09520 -2.992  0.00277 ** 
+## slope      0.07252   1.07521  0.01494  4.853 1.21e-06 ***
+## elevation -0.23304   0.79212  0.06245 -3.731  0.00019 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##           exp(coef) exp(-coef) lower .95 upper .95
+## age          0.8239     1.2137    0.7457    0.9103
+## trashrack    0.7521     1.3296    0.6241    0.9064
+## slope        1.0752     0.9301    1.0442    1.1072
+## elevation    0.7921     1.2624    0.7009    0.8953
+## 
+## Concordance= 0.634  (se = 0.014 )
+## Likelihood ratio test= 75.25  on 4 df,   p=2e-15
+## Wald test            = 76.18  on 4 df,   p=1e-15
+## Score (logrank) test = 77.85  on 4 df,   p=5e-16</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="setup-to-make-model.html#cb145-1" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> data_long<span class="sc">$</span>Hour, <span class="at">event =</span> data_long<span class="sc">$</span>censor <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb145-2"><a href="setup-to-make-model.html#cb145-2" tabindex="-1"></a></span>
+<span id="cb145-3"><a href="setup-to-make-model.html#cb145-3" tabindex="-1"></a>full.model <span class="ot">&lt;-</span> <span class="fu">coxph</span>(surv_object <span class="sc">~</span> backup <span class="sc">+</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> data_long)</span></code></pre></div>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 6 ; coefficient may be infinite.</code></pre>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="setup-to-make-model.html#cb147-1" tabindex="-1"></a>empty.model <span class="ot">&lt;-</span> <span class="fu">coxph</span>(surv_object <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> data_long)</span>
+<span id="cb147-2"><a href="setup-to-make-model.html#cb147-2" tabindex="-1"></a></span>
+<span id="cb147-3"><a href="setup-to-make-model.html#cb147-3" tabindex="-1"></a>back.model <span class="ot">&lt;-</span> <span class="fu">step</span>(full.model,</span>
+<span id="cb147-4"><a href="setup-to-make-model.html#cb147-4" tabindex="-1"></a>                   <span class="at">scope =</span> <span class="fu">list</span>(<span class="at">lower =</span> empty.model,</span>
+<span id="cb147-5"><a href="setup-to-make-model.html#cb147-5" tabindex="-1"></a>                               <span class="at">upper =</span> full.model),</span>
+<span id="cb147-6"><a href="setup-to-make-model.html#cb147-6" tabindex="-1"></a>                  <span class="at">direction =</span> <span class="st">&#39;backward&#39;</span>, <span class="at">k =</span> <span class="fu">qchisq</span>(<span class="fl">0.03</span>, <span class="dv">1</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>))</span></code></pre></div>
+<pre><code>## Start:  AIC=75667.46
+## surv_object ~ backup + age + bridgecrane + servo + gear + trashrack + 
+##     slope + elevation</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 6 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 6 ; coefficient may be infinite.</code></pre>
+<pre><code>##               Df   AIC
+## - backup       1 75663
+## &lt;none&gt;           75667
+## - bridgecrane  1 75672
+## - gear         1 75681
+## - elevation    1 75686
+## - servo        1 75770
+## - slope        1 76459
+## - age          1 78097
+## - trashrack    1 81132</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.</code></pre>
+<pre><code>## 
+## Step:  AIC=75662.89
+## surv_object ~ age + bridgecrane + servo + gear + trashrack + 
+##     slope + elevation</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 4 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 4 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 4 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 4 ; coefficient may be infinite.</code></pre>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.
+## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.</code></pre>
+<pre><code>##               Df   AIC
+## &lt;none&gt;           75663
+## - bridgecrane  1 75667
+## - gear         1 75677
+## - elevation    1 75682
+## - servo        1 75766
+## - slope        1 76473
+## - age          1 78113
+## - trashrack    1 81131</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="setup-to-make-model.html#cb159-1" tabindex="-1"></a><span class="fu">summary</span>(back.model)</span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = surv_object ~ age + bridgecrane + servo + gear + 
+##     trashrack + slope + elevation, data = data_long)
+## 
+##   n= 29661, number of events= 4597 
+## 
+##                   coef  exp(coef)   se(coef)       z Pr(&gt;|z|)    
+## age         -9.119e-01  4.018e-01  2.075e-02 -43.955  &lt; 2e-16 ***
+## bridgecrane -1.362e-01  8.727e-01  4.443e-02  -3.064  0.00218 ** 
+## servo        3.344e-01  1.397e+00  3.237e-02  10.330  &lt; 2e-16 ***
+## gear         2.224e-01  1.249e+00  5.024e-02   4.426 9.58e-06 ***
+## trashrack   -1.918e+01  4.663e-09  2.300e+02  -0.083  0.93352    
+## slope       -2.441e-01  7.834e-01  1.001e-02 -24.379  &lt; 2e-16 ***
+## elevation    9.153e-02  1.096e+00  1.881e-02   4.867 1.13e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##             exp(coef) exp(-coef)  lower .95  upper .95
+## age         4.018e-01  2.489e+00  3.858e-01  4.184e-01
+## bridgecrane 8.727e-01  1.146e+00  7.999e-01  9.521e-01
+## servo       1.397e+00  7.158e-01  1.311e+00  1.489e+00
+## gear        1.249e+00  8.006e-01  1.132e+00  1.378e+00
+## trashrack   4.663e-09  2.144e+08 8.101e-205 2.685e+187
+## slope       7.834e-01  1.277e+00  7.681e-01  7.989e-01
+## elevation   1.096e+00  9.125e-01  1.056e+00  1.137e+00
+## 
+## Concordance= 0.876  (se = 0.002 )
+## Likelihood ratio test= 10338  on 7 df,   p=&lt;2e-16
+## Wald test            = 2735  on 7 df,   p=&lt;2e-16
+## Score (logrank) test = 8365  on 7 df,   p=&lt;2e-16</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="setup-to-make-model.html#cb161-1" tabindex="-1"></a>coxphmod <span class="ot">=</span> <span class="fu">coxph</span>(<span class="at">formula =</span> surv_object <span class="sc">~</span> age <span class="sc">+</span> bridgecrane <span class="sc">+</span> servo <span class="sc">+</span> gear <span class="sc">+</span> trashrack <span class="sc">+</span> slope <span class="sc">+</span> elevation, <span class="at">data =</span> data_long)</span></code></pre></div>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 5 ; coefficient may be infinite.</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="setup-to-make-model.html#cb163-1" tabindex="-1"></a><span class="fu">summary</span>(coxphmod)</span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = surv_object ~ age + bridgecrane + servo + gear + 
+##     trashrack + slope + elevation, data = data_long)
+## 
+##   n= 29661, number of events= 4597 
+## 
+##                   coef  exp(coef)   se(coef)       z Pr(&gt;|z|)    
+## age         -9.119e-01  4.018e-01  2.075e-02 -43.955  &lt; 2e-16 ***
+## bridgecrane -1.362e-01  8.727e-01  4.443e-02  -3.064  0.00218 ** 
+## servo        3.344e-01  1.397e+00  3.237e-02  10.330  &lt; 2e-16 ***
+## gear         2.224e-01  1.249e+00  5.024e-02   4.426 9.58e-06 ***
+## trashrack   -1.918e+01  4.663e-09  2.300e+02  -0.083  0.93352    
+## slope       -2.441e-01  7.834e-01  1.001e-02 -24.379  &lt; 2e-16 ***
+## elevation    9.153e-02  1.096e+00  1.881e-02   4.867 1.13e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##             exp(coef) exp(-coef)  lower .95  upper .95
+## age         4.018e-01  2.489e+00  3.858e-01  4.184e-01
+## bridgecrane 8.727e-01  1.146e+00  7.999e-01  9.521e-01
+## servo       1.397e+00  7.158e-01  1.311e+00  1.489e+00
+## gear        1.249e+00  8.006e-01  1.132e+00  1.378e+00
+## trashrack   4.663e-09  2.144e+08 8.101e-205 2.685e+187
+## slope       7.834e-01  1.277e+00  7.681e-01  7.989e-01
+## elevation   1.096e+00  9.125e-01  1.056e+00  1.137e+00
+## 
+## Concordance= 0.876  (se = 0.002 )
+## Likelihood ratio test= 10338  on 7 df,   p=&lt;2e-16
+## Wald test            = 2735  on 7 df,   p=&lt;2e-16
+## Score (logrank) test = 8365  on 7 df,   p=&lt;2e-16</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="setup-to-make-model.html#cb165-1" tabindex="-1"></a><span class="fu">concordance</span>(coxphmod)</span></code></pre></div>
+<pre><code>## Call:
+## concordance.coxph(object = coxphmod)
+## 
+## n= 29661 
+## Concordance= 0.8758 se= 0.002045
+## concordant discordant     tied.x     tied.y    tied.xy 
+##   59170905    8335201     126957     227485        421</code></pre>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="setup-to-make-model.html#cb167-1" tabindex="-1"></a>survminer<span class="sc">::</span><span class="fu">ggcoxfunctional</span>(coxphmod, <span class="at">data=</span>data_long[, <span class="fu">c</span>(<span class="st">&#39;survive&#39;</span>, <span class="st">&#39;hour&#39;</span>, <span class="st">&#39;age&#39;</span>, <span class="st">&#39;trashrack&#39;</span>, <span class="st">&#39;slope&#39;</span>, <span class="st">&#39;elevation&#39;</span>, <span class="st">&#39;servo&#39;</span>, <span class="st">&#39;backup&#39;</span>, <span class="st">&#39;bridgecrane&#39;</span>, <span class="st">&#39;gear&#39;</span>, <span class="st">&#39;Running12Hours&#39;</span>)])</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="setup-to-make-model.html#cb168-1" tabindex="-1"></a>simple_coxphmod <span class="ot">&lt;-</span> <span class="fu">coxph</span>(surv_object <span class="sc">~</span> age <span class="sc">+</span> trashrack <span class="sc">+</span>slope <span class="sc">+</span> elevation <span class="sc">+</span> servo <span class="sc">+</span> backup, <span class="at">data =</span> data_long)</span></code></pre></div>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 2 ; coefficient may be infinite.</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="setup-to-make-model.html#cb170-1" tabindex="-1"></a><span class="fu">ggcoxfunctional</span>(simple_coxphmod, <span class="at">data =</span> data_long)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="setup-to-make-model.html#cb171-1" tabindex="-1"></a>data_long1 <span class="ot">=</span> data_long <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">agebin =</span> <span class="fu">case_when</span>(age<span class="sc">&lt;</span><span class="dv">7</span><span class="sc">~</span><span class="dv">0</span>, age<span class="sc">&lt;</span><span class="dv">9</span><span class="sc">~</span><span class="dv">1</span>, age<span class="sc">&gt;=</span><span class="dv">9</span><span class="sc">~</span><span class="dv">2</span>))</span>
+<span id="cb171-2"><a href="setup-to-make-model.html#cb171-2" tabindex="-1"></a></span>
+<span id="cb171-3"><a href="setup-to-make-model.html#cb171-3" tabindex="-1"></a>data_long1 <span class="ot">=</span> data_long1 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">slopebin =</span> <span class="fu">case_when</span>(slope<span class="sc">&lt;</span><span class="dv">4</span><span class="sc">~</span><span class="dv">0</span>, slope<span class="sc">&lt;</span><span class="dv">10</span><span class="sc">~</span><span class="dv">1</span>, slope<span class="sc">&gt;=</span><span class="dv">10</span><span class="sc">~</span><span class="dv">2</span>))</span>
+<span id="cb171-4"><a href="setup-to-make-model.html#cb171-4" tabindex="-1"></a></span>
+<span id="cb171-5"><a href="setup-to-make-model.html#cb171-5" tabindex="-1"></a>data_long1 <span class="ot">=</span> data_long1 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">elevationbin =</span> <span class="fu">case_when</span>(slope<span class="sc">&lt;</span><span class="dv">3</span><span class="sc">~</span><span class="dv">0</span>, slope<span class="sc">&lt;</span><span class="dv">5</span><span class="sc">~</span><span class="dv">1</span>, slope<span class="sc">&gt;=</span><span class="dv">5</span><span class="sc">~</span><span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="setup-to-make-model.html#cb172-1" tabindex="-1"></a>coxphmod2 <span class="ot">=</span> <span class="fu">coxph</span>(<span class="at">formula =</span> surv_object <span class="sc">~</span> <span class="fu">factor</span>(agebin) <span class="sc">+</span> trashrack <span class="sc">+</span> <span class="fu">factor</span>(slopebin) <span class="sc">+</span> <span class="fu">factor</span>(elevationbin) <span class="sc">+</span> servo <span class="sc">+</span> backup <span class="sc">+</span> Running12Hours, <span class="at">data =</span> data_long1)</span></code></pre></div>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Loglik converged
+## before variable 2,3,7 ; coefficient may be infinite.</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="setup-to-make-model.html#cb174-1" tabindex="-1"></a><span class="fu">summary</span>(coxphmod2)</span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = surv_object ~ factor(agebin) + trashrack + factor(slopebin) + 
+##     factor(elevationbin) + servo + backup + Running12Hours, data = data_long1)
+## 
+##   n= 29639, number of events= 4594 
+##    (22 observations deleted due to missingness)
+## 
+##                             coef  exp(coef)   se(coef)       z Pr(&gt;|z|)    
+## factor(agebin)1       -9.820e-01  3.746e-01  3.484e-02 -28.189   &lt;2e-16 ***
+## factor(agebin)2       -1.980e+01  2.512e-09  7.423e+02  -0.027   0.9787    
+## trashrack             -2.027e+01  1.570e-09  3.671e+02  -0.055   0.9560    
+## factor(slopebin)1     -8.605e-01  4.229e-01  7.552e-02 -11.395   &lt;2e-16 ***
+## factor(slopebin)2     -1.726e+00  1.780e-01  1.498e+03  -0.001   0.9991    
+## factor(elevationbin)1  1.088e-01  1.115e+00  4.443e-02   2.449   0.0143 *  
+## factor(elevationbin)2 -1.834e+01  1.079e-08  6.399e+02  -0.029   0.9771    
+## servo                  3.196e-01  1.377e+00  3.233e-02   9.884   &lt;2e-16 ***
+## backup                 2.671e-02  1.027e+00  3.073e-02   0.869   0.3847    
+## Running12Hours        -4.280e-01  6.518e-01  3.503e-02 -12.219   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##                       exp(coef) exp(-coef)  lower .95  upper .95
+## factor(agebin)1       3.746e-01  2.670e+00  3.498e-01  4.010e-01
+## factor(agebin)2       2.512e-09  3.981e+08  0.000e+00        Inf
+## trashrack             1.570e-09  6.371e+08 4.891e-322 5.016e+303
+## factor(slopebin)1     4.229e-01  2.364e+00  3.648e-01  4.904e-01
+## factor(slopebin)2     1.780e-01  5.618e+00  0.000e+00        Inf
+## factor(elevationbin)1 1.115e+00  8.969e-01  1.022e+00  1.216e+00
+## factor(elevationbin)2 1.079e-08  9.265e+07  0.000e+00        Inf
+## servo                 1.377e+00  7.265e-01  1.292e+00  1.467e+00
+## backup                1.027e+00  9.736e-01  9.670e-01  1.091e+00
+## Running12Hours        6.518e-01  1.534e+00  6.086e-01  6.981e-01
+## 
+## Concordance= 0.877  (se = 0.002 )
+## Likelihood ratio test= 10474  on 10 df,   p=&lt;2e-16
+## Wald test            = 1137  on 10 df,   p=&lt;2e-16
+## Score (logrank) test = 7903  on 10 df,   p=&lt;2e-16</code></pre>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="setup-to-make-model.html#cb176-1" tabindex="-1"></a><span class="fu">concordance</span>(coxphmod2)</span></code></pre></div>
+<pre><code>## Call:
+## concordance.coxph(object = coxphmod2)
+## 
+## n= 29639 
+## Concordance= 0.8766 se= 0.00196
+## concordant discordant     tied.x     tied.y    tied.xy 
+##   58397314    7538906    1585244     210112      17476</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="setup-to-make-model.html#cb178-1" tabindex="-1"></a>hurr.ph.zph <span class="ot">&lt;-</span> <span class="fu">cox.zph</span>(coxphmod2)</span>
+<span id="cb178-2"><a href="setup-to-make-model.html#cb178-2" tabindex="-1"></a>hurr.ph.zph</span></code></pre></div>
+<pre><code>##                         chisq df      p
+## factor(agebin)       4.99e-01  2 0.7790
+## trashrack            4.61e-08  1 0.9998
+## factor(slopebin)     3.59e+00  2 0.1660
+## factor(elevationbin) 3.31e+00  2 0.1911
+## servo                6.99e-01  1 0.4031
+## backup               6.92e+00  1 0.0085
+## Running12Hours       2.31e+02  1 &lt;2e-16
+## GLOBAL               2.45e+02 10 &lt;2e-16</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="setup-to-make-model.html#cb180-1" tabindex="-1"></a><span class="fu">ggcoxzph</span>(hurr.ph.zph)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="setup-to-make-model.html#cb181-1" tabindex="-1"></a>coxphmod3 <span class="ot">=</span> <span class="fu">coxph</span>(<span class="at">formula =</span> surv_object <span class="sc">~</span> <span class="fu">factor</span>(agebin) <span class="sc">+</span> <span class="fu">tt</span>(trashrack) <span class="sc">+</span> <span class="fu">factor</span>(slopebin) <span class="sc">+</span> <span class="fu">factor</span>(elevationbin) <span class="sc">+</span> <span class="fu">tt</span>(servo) <span class="sc">+</span> <span class="fu">tt</span>(backup) <span class="sc">+</span> <span class="fu">tt</span>(Running12Hours), <span class="at">data =</span> data_long1, <span class="at">tt =</span> <span class="cf">function</span>(x, time, ...){x<span class="sc">*</span><span class="fu">log</span>(time)})</span></code></pre></div>
+<pre><code>## Warning in coxph.fit(X, Y, istrat, offset, init, control, weights = weights, : Ran out of
+## iterations and did not converge</code></pre>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="setup-to-make-model.html#cb183-1" tabindex="-1"></a><span class="fu">summary</span>(coxphmod3)</span></code></pre></div>
+<pre><code>## Call:
+## coxph(formula = surv_object ~ factor(agebin) + tt(trashrack) + 
+##     factor(slopebin) + factor(elevationbin) + tt(servo) + tt(backup) + 
+##     tt(Running12Hours), data = data_long1, tt = function(x, time, 
+##     ...) {
+##     x * log(time)
+## })
+## 
+##   n= 29639, number of events= 4594 
+##    (22 observations deleted due to missingness)
+## 
+##                             coef  exp(coef)   se(coef)       z Pr(&gt;|z|)    
+## factor(agebin)1       -1.004e+00  3.665e-01  3.263e-02 -30.754  &lt; 2e-16 ***
+## factor(agebin)2       -2.084e+01  8.857e-10  1.229e+03  -0.017    0.986    
+## tt(trashrack)         -2.215e+01  2.406e-10  2.981e+02  -0.074    0.941    
+## factor(slopebin)1     -8.436e-01  4.302e-01  6.211e-02 -13.584  &lt; 2e-16 ***
+## factor(slopebin)2     -1.700e+00  1.828e-01  2.188e+03  -0.001    0.999    
+## factor(elevationbin)1  9.123e-02  1.096e+00  3.751e-02   2.432    0.015 *  
+## factor(elevationbin)2 -1.935e+01  3.953e-09  9.461e+02  -0.020    0.984    
+## tt(servo)              1.002e-01  1.105e+00  1.023e-02   9.795  &lt; 2e-16 ***
+## tt(backup)             1.271e-02  1.013e+00  9.955e-03   1.277    0.202    
+## tt(Running12Hours)    -8.079e-02  9.224e-01  1.086e-02  -7.438 1.02e-13 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##                       exp(coef) exp(-coef)  lower .95  upper .95
+## factor(agebin)1       3.665e-01  2.728e+00  3.438e-01  3.907e-01
+## factor(agebin)2       8.857e-10  1.129e+09  0.000e+00        Inf
+## tt(trashrack)         2.406e-10  4.156e+09 4.704e-264 1.231e+244
+## factor(slopebin)1     4.302e-01  2.325e+00  3.809e-01  4.858e-01
+## factor(slopebin)2     1.828e-01  5.471e+00  0.000e+00        Inf
+## factor(elevationbin)1 1.096e+00  9.128e-01  1.018e+00  1.179e+00
+## factor(elevationbin)2 3.953e-09  2.530e+08  0.000e+00        Inf
+## tt(servo)             1.105e+00  9.047e-01  1.083e+00  1.128e+00
+## tt(backup)            1.013e+00  9.874e-01  9.932e-01  1.033e+00
+## tt(Running12Hours)    9.224e-01  1.084e+00  9.030e-01  9.422e-01
+## 
+## Concordance= 0.866  (se = 0.002 )
+## Likelihood ratio test= 10218  on 10 df,   p=&lt;2e-16
+## Wald test            = 1289  on 10 df,   p=&lt;2e-16
+## Score (logrank) test = 7414  on 10 df,   p=&lt;2e-16</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/avalkono/survival-analysis/edit/main/SurvivalAnalysisHW3.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/avalkono/survival-analysis/blob/main/SurvivalAnalysisHW3.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

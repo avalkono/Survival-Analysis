@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Survival HW 1</title>
+  <meta name="description" content="Survival HW 1" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Survival HW 1" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Survival HW 1" />
+  
+  
+  
+
+
+
+<meta name="date" content="2024-11-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="accelerated-failure-time-model.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Survival Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="survival-analysis-intro.html"><a href="survival-analysis-intro.html"><i class="fa fa-check"></i><b>1</b> Survival Analysis Intro</a></li>
+<li class="chapter" data-level="2" data-path="accelerated-failure-time-model.html"><a href="accelerated-failure-time-model.html"><i class="fa fa-check"></i><b>2</b> Accelerated Failure Time Model</a></li>
+<li class="chapter" data-level="3" data-path="cox-proportional-hazard-model.html"><a href="cox-proportional-hazard-model.html"><i class="fa fa-check"></i><b>3</b> Cox Proportional Hazard Model</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cox-proportional-hazard-model.html"><a href="cox-proportional-hazard-model.html#initial-variable-screening"><i class="fa fa-check"></i><b>3.1</b> Initial Variable Screening</a></li>
+<li class="chapter" data-level="3.2" data-path="cox-proportional-hazard-model.html"><a href="cox-proportional-hazard-model.html#linearity-assumption"><i class="fa fa-check"></i><b>3.2</b> Linearity Assumption</a></li>
+<li class="chapter" data-level="3.3" data-path="cox-proportional-hazard-model.html"><a href="cox-proportional-hazard-model.html#time-dependency-assumption"><i class="fa fa-check"></i><b>3.3</b> Time Dependency Assumption</a></li>
+<li class="chapter" data-level="3.4" data-path="cox-proportional-hazard-model.html"><a href="cox-proportional-hazard-model.html#model-building-and-evaluation"><i class="fa fa-check"></i><b>3.4</b> Model Building and Evaluation</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Survival HW 1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Survival HW 1</h1>
+<p class="date"><em>2024-11-02</em></p>
+</div>
+<div id="survival-analysis-intro" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number"> 1</span> Survival Analysis Intro<a href="survival-analysis-intro.html#survival-analysis-intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="survival-analysis-intro.html#cb1-1" tabindex="-1"></a><span class="fu">bucket_exists</span>(</span>
+<span id="cb1-2"><a href="survival-analysis-intro.html#cb1-2" tabindex="-1"></a>  <span class="at">bucket =</span> <span class="st">&quot;s3://survival2024/&quot;</span>,</span>
+<span id="cb1-3"><a href="survival-analysis-intro.html#cb1-3" tabindex="-1"></a>  <span class="at">region =</span> <span class="st">&quot;us-east-1&quot;</span></span>
+<span id="cb1-4"><a href="survival-analysis-intro.html#cb1-4" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] TRUE
+## attr(,&quot;x-amz-id-2&quot;)
+## [1] &quot;ejLhvt8IjWLi/t/pKMMh972nBz5Zt0YvpWesOuyW/We7oHOHxPvlsRhZh+k+PUtABTt1pkphtjs=&quot;
+## attr(,&quot;x-amz-request-id&quot;)
+## [1] &quot;JSKDE3WYKTX9A6VH&quot;
+## attr(,&quot;date&quot;)
+## [1] &quot;Fri, 10 Jan 2025 19:35:25 GMT&quot;
+## attr(,&quot;x-amz-bucket-region&quot;)
+## [1] &quot;us-east-1&quot;
+## attr(,&quot;x-amz-access-point-alias&quot;)
+## [1] &quot;false&quot;
+## attr(,&quot;content-type&quot;)
+## [1] &quot;application/xml&quot;
+## attr(,&quot;transfer-encoding&quot;)
+## [1] &quot;chunked&quot;
+## attr(,&quot;server&quot;)
+## [1] &quot;AmazonS3&quot;</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="survival-analysis-intro.html#cb3-1" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">get_bucket_df</span>(</span>
+<span id="cb3-2"><a href="survival-analysis-intro.html#cb3-2" tabindex="-1"></a>  <span class="at">bucket =</span> <span class="st">&quot;s3://survival2024/&quot;</span>,</span>
+<span id="cb3-3"><a href="survival-analysis-intro.html#cb3-3" tabindex="-1"></a>  <span class="at">region =</span> <span class="st">&quot;us-east-1&quot;</span>,</span>
+<span id="cb3-4"><a href="survival-analysis-intro.html#cb3-4" tabindex="-1"></a>  <span class="at">max =</span> <span class="dv">20000</span></span>
+<span id="cb3-5"><a href="survival-analysis-intro.html#cb3-5" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="survival-analysis-intro.html#cb3-6" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb3-7"><a href="survival-analysis-intro.html#cb3-7" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="survival-analysis-intro.html#cb3-8" tabindex="-1"></a><span class="co">#Downloading files</span></span>
+<span id="cb3-9"><a href="survival-analysis-intro.html#cb3-9" tabindex="-1"></a><span class="fu">save_object</span>(</span>
+<span id="cb3-10"><a href="survival-analysis-intro.html#cb3-10" tabindex="-1"></a>  <span class="at">object =</span> <span class="st">&quot;hurricane.csv&quot;</span>, <span class="co">#Change</span></span>
+<span id="cb3-11"><a href="survival-analysis-intro.html#cb3-11" tabindex="-1"></a>  <span class="at">bucket =</span> <span class="st">&quot;s3://survival2024/&quot;</span>,</span>
+<span id="cb3-12"><a href="survival-analysis-intro.html#cb3-12" tabindex="-1"></a>  <span class="at">region =</span> <span class="st">&quot;us-east-1&quot;</span>,</span>
+<span id="cb3-13"><a href="survival-analysis-intro.html#cb3-13" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">&quot;hurricane&quot;</span> <span class="co">#Change</span></span>
+<span id="cb3-14"><a href="survival-analysis-intro.html#cb3-14" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;hurricane&quot;</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="survival-analysis-intro.html#cb5-1" tabindex="-1"></a><span class="co">#You can now start Wrangling the data...</span></span>
+<span id="cb5-2"><a href="survival-analysis-intro.html#cb5-2" tabindex="-1"></a>hurricane <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;hurricane&quot;</span>) <span class="co">#Change</span></span>
+<span id="cb5-3"><a href="survival-analysis-intro.html#cb5-3" tabindex="-1"></a>hurricane <span class="ot">=</span> hurricane <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Index =</span> <span class="fu">row_number</span>())</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Give the percentage of pumps within each failure type and percentage of pumps that did not fail.</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="survival-analysis-intro.html#cb6-1" tabindex="-1"></a><span class="co"># Frequency table for the REASON variable</span></span>
+<span id="cb6-2"><a href="survival-analysis-intro.html#cb6-2" tabindex="-1"></a>reason_counts <span class="ot">&lt;-</span> <span class="fu">table</span>(hurricane<span class="sc">$</span>reason)</span>
+<span id="cb6-3"><a href="survival-analysis-intro.html#cb6-3" tabindex="-1"></a>reason_counts</span></code></pre></div>
+<pre><code>## 
+##   0   1   2   3   4 
+## 316 115 112 111 116</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="survival-analysis-intro.html#cb8-1" tabindex="-1"></a><span class="co"># Total number of pumps</span></span>
+<span id="cb8-2"><a href="survival-analysis-intro.html#cb8-2" tabindex="-1"></a>total_pumps <span class="ot">&lt;-</span> <span class="fu">sum</span>(reason_counts)</span>
+<span id="cb8-3"><a href="survival-analysis-intro.html#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="survival-analysis-intro.html#cb8-4" tabindex="-1"></a><span class="co"># Calculate percentages for each failure type</span></span>
+<span id="cb8-5"><a href="survival-analysis-intro.html#cb8-5" tabindex="-1"></a>reason_percentages <span class="ot">&lt;-</span> (reason_counts <span class="sc">/</span> total_pumps) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb8-6"><a href="survival-analysis-intro.html#cb8-6" tabindex="-1"></a>reason_percentages</span></code></pre></div>
+<pre><code>## 
+##        0        1        2        3        4 
+## 41.03896 14.93506 14.54545 14.41558 15.06494</code></pre>
+<p>No failure: 41.03%
+Reason 1: 14.94%
+Reason 2: 14.55%
+Reason 3: 14.42%
+Reason 4: 15.06%</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Give the average time until failure for each failure type. Are means a good measure for length of survival? Discuss why or why not.</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="survival-analysis-intro.html#cb10-1" tabindex="-1"></a><span class="co"># Calculate mean failure time for each failure type</span></span>
+<span id="cb10-2"><a href="survival-analysis-intro.html#cb10-2" tabindex="-1"></a>average_failure_time <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(hurricane<span class="sc">$</span>hour, <span class="at">by =</span> <span class="fu">list</span>(hurricane<span class="sc">$</span>reason), <span class="at">FUN =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-3"><a href="survival-analysis-intro.html#cb10-3" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="survival-analysis-intro.html#cb10-4" tabindex="-1"></a><span class="co"># Rename columns for clarity</span></span>
+<span id="cb10-5"><a href="survival-analysis-intro.html#cb10-5" tabindex="-1"></a><span class="fu">colnames</span>(average_failure_time) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Failure_Type&quot;</span>, <span class="st">&quot;Average_Time_Until_Failure&quot;</span>)</span>
+<span id="cb10-6"><a href="survival-analysis-intro.html#cb10-6" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="survival-analysis-intro.html#cb10-7" tabindex="-1"></a><span class="co"># Print the results</span></span>
+<span id="cb10-8"><a href="survival-analysis-intro.html#cb10-8" tabindex="-1"></a>average_failure_time</span></code></pre></div>
+<pre><code>##   Failure_Type Average_Time_Until_Failure
+## 1            0                   48.00000
+## 2            1                   26.44348
+## 3            2                   41.04464
+## 4            3                   38.82883
+## 5            4                   21.93966</code></pre>
+<p>Reason 1: 26.44 hr
+Reason 2: 41.04 hr
+Reason 3: 38.83 hr
+Reason 4: 21.94 hr
+Means are not a good measure of length of survival because censored values included in the mean can impact the mean survival time. Median is a better measure.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Create and upload the survival probability across time for pumps broken down by failure type overlaid into one graph.</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="survival-analysis-intro.html#cb12-1" tabindex="-1"></a><span class="co"># Assuming the SURVIVE variable is coded as 1 for failed and 0 for not failed</span></span>
+<span id="cb12-2"><a href="survival-analysis-intro.html#cb12-2" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> hurricane<span class="sc">$</span>hour, <span class="at">event =</span> hurricane<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb12-3"><a href="survival-analysis-intro.html#cb12-3" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="survival-analysis-intro.html#cb12-4" tabindex="-1"></a><span class="co"># Fit the Kaplan-Meier survival model, stratified by failure type (REASON)</span></span>
+<span id="cb12-5"><a href="survival-analysis-intro.html#cb12-5" tabindex="-1"></a>km_fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(surv_object <span class="sc">~</span> hurricane<span class="sc">$</span>reason, <span class="at">data =</span> hurricane)</span>
+<span id="cb12-6"><a href="survival-analysis-intro.html#cb12-6" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="survival-analysis-intro.html#cb12-7" tabindex="-1"></a><span class="co"># Plot survival curves with ggplot2 styling for readability</span></span>
+<span id="cb12-8"><a href="survival-analysis-intro.html#cb12-8" tabindex="-1"></a>surv_plot <span class="ot">&lt;-</span> <span class="fu">ggsurvplot</span>(</span>
+<span id="cb12-9"><a href="survival-analysis-intro.html#cb12-9" tabindex="-1"></a>  km_fit, </span>
+<span id="cb12-10"><a href="survival-analysis-intro.html#cb12-10" tabindex="-1"></a>  <span class="at">data =</span> hurricane,</span>
+<span id="cb12-11"><a href="survival-analysis-intro.html#cb12-11" tabindex="-1"></a>  <span class="at">conf.int =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-12"><a href="survival-analysis-intro.html#cb12-12" tabindex="-1"></a>  <span class="at">legend.title =</span> <span class="st">&quot;Failure Type&quot;</span>,</span>
+<span id="cb12-13"><a href="survival-analysis-intro.html#cb12-13" tabindex="-1"></a>  <span class="at">legend.labs =</span> <span class="fu">c</span>(<span class="st">&quot;No Failure&quot;</span>, <span class="st">&quot;Flood&quot;</span>, <span class="st">&quot;Motor&quot;</span>, <span class="st">&quot;Surge&quot;</span>, <span class="st">&quot;Jammed&quot;</span>),</span>
+<span id="cb12-14"><a href="survival-analysis-intro.html#cb12-14" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Time (hours)&quot;</span>,</span>
+<span id="cb12-15"><a href="survival-analysis-intro.html#cb12-15" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Survival Probability&quot;</span>,</span>
+<span id="cb12-16"><a href="survival-analysis-intro.html#cb12-16" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Survival Probability Across Time by Failure Type&quot;</span>,</span>
+<span id="cb12-17"><a href="survival-analysis-intro.html#cb12-17" tabindex="-1"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb12-18"><a href="survival-analysis-intro.html#cb12-18" tabindex="-1"></a>)</span>
+<span id="cb12-19"><a href="survival-analysis-intro.html#cb12-19" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="survival-analysis-intro.html#cb12-20" tabindex="-1"></a>surv_plot</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Create and upload the graph of conditional failure probabilities across time for pumps broken down by failure type overlaid into one graph.</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="survival-analysis-intro.html#cb13-1" tabindex="-1"></a>km_fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(surv_object <span class="sc">~</span> hurricane<span class="sc">$</span>reason, <span class="at">data =</span> hurricane)</span>
+<span id="cb13-2"><a href="survival-analysis-intro.html#cb13-2" tabindex="-1"></a>h <span class="ot">=</span> km_fit<span class="sc">$</span>n.event<span class="sc">/</span>km_fit<span class="sc">$</span>n.risk</span>
+<span id="cb13-3"><a href="survival-analysis-intro.html#cb13-3" tabindex="-1"></a>index.h<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="at">length=</span>(<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)<span class="sc">+</span><span class="dv">1</span>)) <span class="co">#Need to add 0</span></span>
+<span id="cb13-4"><a href="survival-analysis-intro.html#cb13-4" tabindex="-1"></a>index.h[(km_fit<span class="sc">$</span>time)<span class="sc">+</span><span class="dv">1</span>]<span class="ot">=</span>h <span class="co">#Because of 0</span></span>
+<span id="cb13-5"><a href="survival-analysis-intro.html#cb13-5" tabindex="-1"></a>haz.plot<span class="ot">=</span><span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)), index.h))</span>
+<span id="cb13-6"><a href="survival-analysis-intro.html#cb13-6" tabindex="-1"></a><span class="fu">colnames</span>(haz.plot)<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Time&quot;</span>,<span class="st">&quot;Hazard&quot;</span>)</span>
+<span id="cb13-7"><a href="survival-analysis-intro.html#cb13-7" tabindex="-1"></a><span class="fu">ggplot</span>(haz.plot,<span class="fu">aes</span>(<span class="at">x=</span>Time,<span class="at">y=</span>Hazard))<span class="sc">+</span><span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="survival-analysis-intro.html#cb14-1" tabindex="-1"></a><span class="fu">ggsurvplot</span>(km_fit, <span class="at">data =</span> hurricane, <span class="at">fun =</span> <span class="st">&quot;cumhaz&quot;</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">&quot;Time (hour)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Cumulative Hazard&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Conditional Failure Probabilities&quot;</span>,   <span class="at">legend.title =</span> <span class="st">&quot;Failure Type&quot;</span>,</span>
+<span id="cb14-2"><a href="survival-analysis-intro.html#cb14-2" tabindex="-1"></a>  <span class="at">legend.labs =</span> <span class="fu">c</span>(<span class="st">&quot;No Failure&quot;</span>, <span class="st">&quot;Flood&quot;</span>, <span class="st">&quot;Motor&quot;</span>, <span class="st">&quot;Surge&quot;</span>, <span class="st">&quot;Jammed&quot;</span>))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="survival-analysis-intro.html#cb15-1" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">1</span>)<span class="sc">$</span>hour, <span class="at">event =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">1</span>)<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb15-2"><a href="survival-analysis-intro.html#cb15-2" tabindex="-1"></a>km_fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(surv_object <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">1</span>))</span>
+<span id="cb15-3"><a href="survival-analysis-intro.html#cb15-3" tabindex="-1"></a>h1 <span class="ot">=</span> km_fit<span class="sc">$</span>n.event<span class="sc">/</span>km_fit<span class="sc">$</span>n.risk</span>
+<span id="cb15-4"><a href="survival-analysis-intro.html#cb15-4" tabindex="-1"></a>index.h1<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="at">length=</span>(<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)<span class="sc">+</span><span class="dv">1</span>)) <span class="co">#Need to add 0</span></span>
+<span id="cb15-5"><a href="survival-analysis-intro.html#cb15-5" tabindex="-1"></a>index.h1[(km_fit<span class="sc">$</span>time)<span class="sc">+</span><span class="dv">1</span>]<span class="ot">=</span>h1 <span class="co">#Because of 0</span></span>
+<span id="cb15-6"><a href="survival-analysis-intro.html#cb15-6" tabindex="-1"></a>haz.plot1<span class="ot">=</span><span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)), index.h1))</span>
+<span id="cb15-7"><a href="survival-analysis-intro.html#cb15-7" tabindex="-1"></a>haz.plot1<span class="sc">$</span>Reason1 <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb15-8"><a href="survival-analysis-intro.html#cb15-8" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="survival-analysis-intro.html#cb15-9" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">2</span>)<span class="sc">$</span>hour, <span class="at">event =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">2</span>)<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb15-10"><a href="survival-analysis-intro.html#cb15-10" tabindex="-1"></a>km_fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(surv_object <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">2</span>))</span>
+<span id="cb15-11"><a href="survival-analysis-intro.html#cb15-11" tabindex="-1"></a>h2 <span class="ot">=</span> km_fit<span class="sc">$</span>n.event<span class="sc">/</span>km_fit<span class="sc">$</span>n.risk</span>
+<span id="cb15-12"><a href="survival-analysis-intro.html#cb15-12" tabindex="-1"></a>index.h2<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="at">length=</span>(<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)<span class="sc">+</span><span class="dv">1</span>)) <span class="co">#Need to add 0</span></span>
+<span id="cb15-13"><a href="survival-analysis-intro.html#cb15-13" tabindex="-1"></a>index.h2[(km_fit<span class="sc">$</span>time)<span class="sc">+</span><span class="dv">1</span>]<span class="ot">=</span>h2 <span class="co">#Because of 0</span></span>
+<span id="cb15-14"><a href="survival-analysis-intro.html#cb15-14" tabindex="-1"></a>haz.plot2<span class="ot">=</span><span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)), index.h2))</span>
+<span id="cb15-15"><a href="survival-analysis-intro.html#cb15-15" tabindex="-1"></a>haz.plot2<span class="sc">$</span>Reason2 <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb15-16"><a href="survival-analysis-intro.html#cb15-16" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="survival-analysis-intro.html#cb15-17" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">3</span>)<span class="sc">$</span>hour, <span class="at">event =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">3</span>)<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb15-18"><a href="survival-analysis-intro.html#cb15-18" tabindex="-1"></a>km_fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(surv_object <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">3</span>))</span>
+<span id="cb15-19"><a href="survival-analysis-intro.html#cb15-19" tabindex="-1"></a>h3 <span class="ot">=</span> km_fit<span class="sc">$</span>n.event<span class="sc">/</span>km_fit<span class="sc">$</span>n.risk</span>
+<span id="cb15-20"><a href="survival-analysis-intro.html#cb15-20" tabindex="-1"></a>index.h3<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="at">length=</span>(<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)<span class="sc">+</span><span class="dv">1</span>)) <span class="co">#Need to add 0</span></span>
+<span id="cb15-21"><a href="survival-analysis-intro.html#cb15-21" tabindex="-1"></a>index.h3[(km_fit<span class="sc">$</span>time)<span class="sc">+</span><span class="dv">1</span>]<span class="ot">=</span>h3 <span class="co">#Because of 0</span></span>
+<span id="cb15-22"><a href="survival-analysis-intro.html#cb15-22" tabindex="-1"></a>haz.plot3<span class="ot">=</span><span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)), index.h3))</span>
+<span id="cb15-23"><a href="survival-analysis-intro.html#cb15-23" tabindex="-1"></a>haz.plot3<span class="sc">$</span>Reason3 <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb15-24"><a href="survival-analysis-intro.html#cb15-24" tabindex="-1"></a></span>
+<span id="cb15-25"><a href="survival-analysis-intro.html#cb15-25" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">4</span>)<span class="sc">$</span>hour, <span class="at">event =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">4</span>)<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb15-26"><a href="survival-analysis-intro.html#cb15-26" tabindex="-1"></a>km_fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(surv_object <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> <span class="fu">filter</span>(hurricane, reason<span class="sc">==</span><span class="dv">4</span>))</span>
+<span id="cb15-27"><a href="survival-analysis-intro.html#cb15-27" tabindex="-1"></a>h4 <span class="ot">=</span> km_fit<span class="sc">$</span>n.event<span class="sc">/</span>km_fit<span class="sc">$</span>n.risk</span>
+<span id="cb15-28"><a href="survival-analysis-intro.html#cb15-28" tabindex="-1"></a>index.h4<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="at">length=</span>(<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)<span class="sc">+</span><span class="dv">1</span>)) <span class="co">#Need to add 0</span></span>
+<span id="cb15-29"><a href="survival-analysis-intro.html#cb15-29" tabindex="-1"></a>index.h4[(km_fit<span class="sc">$</span>time)<span class="sc">+</span><span class="dv">1</span>]<span class="ot">=</span>h4 <span class="co">#Because of 0</span></span>
+<span id="cb15-30"><a href="survival-analysis-intro.html#cb15-30" tabindex="-1"></a>haz.plot4<span class="ot">=</span><span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(hurricane<span class="sc">$</span>hour)), index.h4))</span>
+<span id="cb15-31"><a href="survival-analysis-intro.html#cb15-31" tabindex="-1"></a>haz.plot4<span class="sc">$</span>Reason4 <span class="ot">=</span> <span class="dv">4</span></span>
+<span id="cb15-32"><a href="survival-analysis-intro.html#cb15-32" tabindex="-1"></a></span>
+<span id="cb15-33"><a href="survival-analysis-intro.html#cb15-33" tabindex="-1"></a>haz.plot.all <span class="ot">=</span> <span class="fu">cbind</span>(haz.plot1, haz.plot2, haz.plot3, haz.plot4)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="survival-analysis-intro.html#cb16-1" tabindex="-1"></a>haz.plot.all2 <span class="ot">=</span> haz.plot.all <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="dv">1</span>, index.h1, index.h2, index.h3, index.h4)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="survival-analysis-intro.html#cb17-1" tabindex="-1"></a><span class="fu">ggplot</span>(haz.plot.all2, <span class="fu">aes</span>(<span class="at">x=</span>V1)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="survival-analysis-intro.html#cb17-2" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> index.h1, <span class="at">color=</span><span class="st">&#39;Flood&#39;</span>)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="survival-analysis-intro.html#cb17-3" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> index.h2, <span class="at">color=</span><span class="st">&#39;Motor&#39;</span>)) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="survival-analysis-intro.html#cb17-4" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> index.h3, <span class="at">color =</span> <span class="st">&#39;Surge&#39;</span>)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="survival-analysis-intro.html#cb17-5" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> index.h4, <span class="at">color=</span> <span class="st">&#39;Jammed&#39;</span>)) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="survival-analysis-intro.html#cb17-6" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb17-7"><a href="survival-analysis-intro.html#cb17-7" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Hazard Rates by Failure Type&quot;</span>,</span>
+<span id="cb17-8"><a href="survival-analysis-intro.html#cb17-8" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;Hours&quot;</span>,</span>
+<span id="cb17-9"><a href="survival-analysis-intro.html#cb17-9" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Hazard&quot;</span>,</span>
+<span id="cb17-10"><a href="survival-analysis-intro.html#cb17-10" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">&quot;Failure Type&quot;</span></span>
+<span id="cb17-11"><a href="survival-analysis-intro.html#cb17-11" tabindex="-1"></a>    ) <span class="sc">+</span> <span class="fu">scale_color_manual</span>(</span>
+<span id="cb17-12"><a href="survival-analysis-intro.html#cb17-12" tabindex="-1"></a>        <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;Flood&#39;</span> <span class="ot">=</span> <span class="st">&#39;blue&#39;</span>, <span class="st">&#39;Motor&#39;</span> <span class="ot">=</span> <span class="st">&#39;red&#39;</span>, <span class="st">&#39;Surge&#39;</span> <span class="ot">=</span> <span class="st">&#39;orange&#39;</span>, <span class="st">&#39;Jammed&#39;</span> <span class="ot">=</span> <span class="st">&#39;green&#39;</span>),</span>
+<span id="cb17-13"><a href="survival-analysis-intro.html#cb17-13" tabindex="-1"></a>        <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Flood&quot;</span>, <span class="st">&quot;Motor&quot;</span>, <span class="st">&quot;Surge&quot;</span>, <span class="st">&quot;Jammed&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb17-14"><a href="survival-analysis-intro.html#cb17-14" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb17-15"><a href="survival-analysis-intro.html#cb17-15" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">48</span>, <span class="at">by =</span> <span class="dv">6</span>))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Provide a statistical test to see if the major types of failure have similar survival probabilities across time (include null and alternative hypotheses, test statistic, p-value and conclusion).</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="survival-analysis-intro.html#cb18-1" tabindex="-1"></a><span class="co"># Log-Rank Test </span></span>
+<span id="cb18-2"><a href="survival-analysis-intro.html#cb18-2" tabindex="-1"></a>surv_object <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time =</span> hurricane<span class="sc">$</span>hour, <span class="at">event =</span> hurricane<span class="sc">$</span>survive <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb18-3"><a href="survival-analysis-intro.html#cb18-3" tabindex="-1"></a><span class="fu">survdiff</span>(surv_object <span class="sc">~</span> hurricane<span class="sc">$</span>reason, <span class="at">data=</span>hurricane,<span class="at">rho=</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## Call:
+## survdiff(formula = surv_object ~ hurricane$reason, data = hurricane, 
+##     rho = 0)
+## 
+##                      N Observed Expected (O-E)^2/E (O-E)^2/V
+## hurricane$reason=0 316        0    275.1     275.1     797.8
+## hurricane$reason=1 115      115     32.2     213.5     242.4
+## hurricane$reason=2 112      112     68.0      28.4      35.1
+## hurricane$reason=3 111      111     55.6      55.2      66.0
+## hurricane$reason=4 116      116     23.1     373.8     435.3
+## 
+##  Chisq= 1120  on 4 degrees of freedom, p= &lt;2e-16</code></pre>
+<p>Log-Rank Test:</p>
+<p>H0: No significant difference in survival probabilities.</p>
+<p>Ha: Significant difference in survival probabilities.</p>
+<p>Test statistic: 1120 on 4 degrees of freedom</p>
+<p>p-value: &lt;2e-16</p>
+<p>Conclusion: Reject the null -&gt; There is a significant difference in survival probabilities over time across failure types.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="accelerated-failure-time-model.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/avalkono/survival-analysis/edit/main/SurvivalHW1.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/avalkono/survival-analysis/blob/main/SurvivalHW1.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

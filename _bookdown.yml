@@ -5,4 +5,8 @@ edit: https://github.com/avalkono/survival-analysis/edit/main/%s
 view: https://github.com/avalkono/survival-analysis/blob/main/%s
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: " "
+rmd_files:
+  - SurvivalHW1.Rmd
+  - SurvivalAnalysisHW3.Rmd
+
