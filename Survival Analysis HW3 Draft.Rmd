@@ -1,0 +1,228 @@
+---
+title: "Survival Analysis HW3"
+author: "Blue HW 17"
+date: "2024-11-15"
+output: html_document
+---
+
+```{r}
+library(aws.s3)
+library(tidyverse)
+library(survival)
+library(foreign)
+library(ggplot2)
+library(survminer)
+#library(rms)
+library(flexsurv)
+library(dplyr)
+library(ciTools)
+library(here)
+library(visreg)
+library(cmprsk)
+
+library(reticulate)
+```
+
+
+```{r}
+bucket_exists(
+  bucket = "s3://survival2024/",
+  region = "us-east-1"
+)
+
+files <- get_bucket_df(
+  bucket = "s3://survival2024/",
+  region = "us-east-1",
+  max = 20000
+) %>%
+  as_tibble()
+
+#Downloading files
+save_object(
+  object = "hurricane.csv", #Change
+  bucket = "s3://survival2024/",
+  region = "us-east-1",
+  file = "hurricane" #Change
+)
+
+#You can now start Wrangling the data...
+hurricane <- read.csv("hurricane") #Change
+
+# Rename hour so that the pivot does not take it in
+hurricane <- hurricane %>% dplyr::rename("censor" = hour)
+
+# Add id column
+hurricane <- hurricane %>% mutate(id = 1:nrow(hurricane)) %>% dplyr::select(id,everything())
+
+# Pivot the hour columns
+hurrLong <- hurricane %>% pivot_longer(
+  cols = starts_with("h"),
+  names_to = "hour",
+  values_to = "pumpOn"
+)
+
+# Fixing hour column to be numeric instead of "h1"
+hurrLong <- hurrLong %>% 
+  mutate(hour = as.numeric(gsub("h","",hour)))
+
+# Initializing DF
+hurricaneLong <- data.frame()
+
+### Fixes reason, adds consecHour 
+for(i in 1:nrow(hurricane)) {
+  
+  # Go id by id
+  table = hurrLong %>% filter(id == i)
+  
+  # Reduce rows to only include non-failed hours
+  failedAt = as.numeric(table[1,"censor"])
+  table = table[1:failedAt,]
+  
+  # Set reason to 0 everywhere but the last hour
+  if (table[1,"reason"] != 0){
+    reason = as.numeric(table[1,"reason"])
+    table$reason = 0
+    
+    table[nrow(table),"reason"] = reason
+  }
+  
+  # Test to see if the last 12 rows of PumpOn are 1, then set consecHour   to 1
+  table = table %>% mutate(consecHour = 0)
+  for (j in 1:nrow(table)){
+    
+    # Skip first 12 rows
+    if (j < 13){
+      next
+    }
+    
+    # Set it to 1 man
+    if (sum(table[(j-11):j,"pumpOn"],na.rm = T) == 12){
+      table[j,"consecHour"] <- 1
+      
+    }
+  }
+  
+  # Bind that data frame!!!!
+  hurricaneLong <- bind_rows(hurricaneLong,table)
+  
+}
+```
+
+
+# Setup to Make Model
+
+## Initial Variable Screening
+```{r}
+#hurricane <- hurricane[,-(9:56)]
+
+#hurricane <- hurricane %>% dplyr::select(-survive,-reason2,-trashrack)
+
+# Backward stepping
+full.model <- coxph(Surv(censor, reason == 2) ~ backup + age + bridgecrane + servo + gear + slope + elevation, data = hurricane)
+empty.model <- coxph(Surv(censor, reason == 2) ~ 1, data = hurricane)
+back.model <- step(full.model,
+                   scope = list(lower = empty.model,
+                               upper = full.model),
+                  direction = 'backward', k = qchisq(0.03, 1, lower.tail=FALSE),trace = F)
+
+#
+
+summary(back.model) ## 3 vars. Age, servo slope
+
+```
+
+## Linearity Assumption
+```{r}
+survminer::ggcoxfunctional(back.model,data=hurricane)
+
+```
+Age and slope not linear, adjust them accordingly.
+
+## Time Dependency Assumption
+```{r}
+## Binning 
+hurricane <- hurricane %>% 
+  mutate(agebin = case_when(age<7~0, age<9~1, age>=9~2)) %>% 
+  mutate(slopebin = case_when(slope<=3~0, slope<=5~1, slope>=10~2))
+
+
+coxModel <- coxph(Surv(censor,reason == 2) ~ servo + factor(slopebin) + factor(agebin), data = hurricane)
+
+coxZph <- cox.zph(coxModel)
+coxZph
+ggcoxzph(coxZph, var='factor(slopebin)')
+```
+Slope is definitely time dependent. Need to do tt(slope) in the hurricaneLong Model.
+
+
+
+```{r}
+hurr_long = read_csv("~/hurrLong.csv")
+hurr_long
+
+hurr_long <- hurr_long %>% 
+  mutate(agebin = case_when(age<6.4~0, age<8.7~1, age>=8.7~2)) %>% 
+  mutate(slopebin = case_when(slope<3~0, slope>=3~1))
+
+hurr_long <- hurr_long %>% dplyr::rename(stop = hour)
+```
+
+
+
+```{r}
+hurr_long = hurr_long %>% mutate(start = stop - 1)
+hurr_long
+```
+
+
+```{r}
+mod2 = coxph(formula = Surv(start, stop, reason == 2) ~ factor(agebin) + factor(servo) + factor(slopebin) + factor(consecHour), data = hurr_long)
+summary(mod2)
+```
+
+
+```{r}
+AIC(mod)
+```
+
+
+```{r}
+(exp(mod2$coefficients)-1) *100
+```
+
+
+```{r}
+1/exp(mod2$coefficients)
+```
+
+
+```{r}
+car::Anova(mod)
+```
+
+
+
+```{r}
+hurr_long$y<-ifelse(hurr_long$reason==2,1,0)
+hurr_long$y<-ordered(hurr_long$y,levels=c(0,1),labels="No","Yes")
+model1<-ctree(y~age,data=hurr_long)
+model1
+
+plot(model1)
+```
+
+```{r}
+hurr_long$y<-ifelse(hurr_long$reason==2,1,0)
+hurr_long$y<-ordered(hurr_long$y,levels=c(0,1),labels="No","Yes")
+model1<-ctree(y~slope,data=hurr_long)
+model1
+
+plot(model1)
+```
+
+
+
+
+
+
+
